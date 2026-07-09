@@ -186,20 +186,20 @@ $arsipList = array_filter($daftar, function($p) { return strtolower($p['status']
                     </table>
                 </div>
             </div>
-            <div class="card-footer bg-transparent py-3 px-4 border-top border-light d-flex justify-content-between align-items-center">
-                <div class="text-muted" style="font-size: 12px;">
+            <div class="card-footer bg-transparent py-3 px-4 border-top border-light d-flex flex-column flex-md-row justify-content-between align-items-center gap-3">
+                <div class="text-muted text-center text-md-start" style="font-size: 12px;">
                     Menampilkan <?= count($arsipList) ?> arsip publikasi.
                 </div>
                 <nav aria-label="Page navigation">
-                    <ul class="pagination pagination-sm mb-0 gap-1" style="font-size: 12px;">
+                    <ul class="pagination pagination-sm mb-0 gap-1 flex-wrap justify-content-center" style="font-size: 12px;">
                         <li class="page-item disabled">
-                            <a class="page-link text-muted bg-light border-0 rounded-3 px-3 fw-medium" href="#" tabindex="-1" aria-disabled="true">Sebelumnya</a>
+                            <a class="page-link text-muted bg-light border-0 rounded-3 px-3 fw-medium text-nowrap" href="#" tabindex="-1" aria-disabled="true">Sebelumnya</a>
                         </li>
                         <li class="page-item active">
                             <a class="page-link bg-danger text-white border-0 rounded-3 fw-bold shadow-sm" href="#">1</a>
                         </li>
                         <li class="page-item disabled">
-                            <a class="page-link text-muted bg-light border-0 rounded-3 px-3 fw-medium" href="#" tabindex="-1" aria-disabled="true">Selanjutnya <i class="fas fa-angle-right ms-1"></i></a>
+                            <a class="page-link text-muted bg-light border-0 rounded-3 px-3 fw-medium text-nowrap" href="#" tabindex="-1" aria-disabled="true">Selanjutnya <i class="fas fa-angle-right ms-1"></i></a>
                         </li>
                     </ul>
                 </nav>
