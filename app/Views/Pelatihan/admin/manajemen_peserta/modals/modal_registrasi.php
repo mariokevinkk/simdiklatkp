@@ -18,8 +18,6 @@ $profesi = $profesi ?? [];
                         <div class="col-md-12">
                             <label class="form-label small fw-bold mb-1">PILIH ROLE</label>
                             <select class="form-select" name="role" required>
-                                <option value="admin">ADMIN SISTEM</option>
-                                <option value="admin_pengabdian">ADMIN PENGABDIAN</option>
                                 <option value="named" selected>NAMED (PEGAWAI)</option>
                                 <option value="nonnamed">NON-NAMED (UMUM)</option>
                             </select>
