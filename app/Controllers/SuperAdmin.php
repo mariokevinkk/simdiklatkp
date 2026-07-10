@@ -10,7 +10,7 @@ class SuperAdmin extends BaseController
         
         // Ambil data admin dari ketiga modul
         $adminRiset = $db->table('users_riset')->where('role', 'admin')->get()->getResultArray();
-        $adminPelatihan = $db->table('users_pelatihan')->where('role', 'admin')->get()->getResultArray();
+        $adminPelatihan = $db->table('users_pelatihan')->whereIn('role', ['admin', 'admin_pengabdian'])->get()->getResultArray();
         $adminPendidikan = $db->table('users_pendidikan')->where('role_id', 1)->get()->getResultArray();
 
         return view('SuperAdmin/dashboard', [
@@ -45,7 +45,8 @@ class SuperAdmin extends BaseController
                     'updated_at' => date('Y-m-d H:i:s'),
                 ]);
 
-            } elseif ($tipeAdmin == 'pelatihan') {
+            } elseif ($tipeAdmin == 'pelatihan' || $tipeAdmin == 'admin_pengabdian') {
+                $roleToInsert = ($tipeAdmin == 'admin_pengabdian') ? 'admin_pengabdian' : 'admin';
                 $builder = $db->table('users_pelatihan');
                 if ($builder->where('email', $email)->countAllResults() > 0) {
                     return redirect()->back()->with('error', 'Email sudah terdaftar di modul Pelatihan!');
@@ -59,7 +60,7 @@ class SuperAdmin extends BaseController
                     'email' => $email,
                     'no_wa' => '-', 
                     'password' => password_hash($password, PASSWORD_DEFAULT),
-                    'role' => 'admin',
+                    'role' => $roleToInsert,
                     'status' => 'aktif',
                     'created_at' => date('Y-m-d H:i:s'),
                     'updated_at' => date('Y-m-d H:i:s'),

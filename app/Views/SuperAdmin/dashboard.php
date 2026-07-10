@@ -44,6 +44,7 @@
                                 <option value="" disabled selected>-- Pilih Tipe Admin --</option>
                                 <option value="riset">Admin Riset</option>
                                 <option value="pelatihan">Admin Pelatihan</option>
+                                <option value="admin_pengabdian">Admin Pengabdian (Pelatihan)</option>
                                 <option value="pendidikan">Admin Pendidikan (Diklat)</option>
                             </select>
                         </div>
@@ -136,7 +137,14 @@
                                         <?php if (!empty($adminPelatihan)): ?>
                                             <?php foreach ($adminPelatihan as $admin): ?>
                                             <tr>
-                                                <td><?= $admin['nama_lengkap'] ?></td>
+                                                <td>
+                                                    <?= $admin['nama_lengkap'] ?>
+                                                    <?php if($admin['role'] == 'admin_pengabdian'): ?>
+                                                        <span class="badge bg-info ms-2">Pengabdian</span>
+                                                    <?php else: ?>
+                                                        <span class="badge bg-primary ms-2">Admin</span>
+                                                    <?php endif; ?>
+                                                </td>
                                                 <td><?= $admin['nik'] ?></td>
                                                 <td><?= $admin['email'] ?></td>
                                                 <td>
@@ -224,7 +232,7 @@
 
         tipeAdminSelect.addEventListener('change', function() {
             const val = this.value;
-            if (val === 'pelatihan') {
+            if (val === 'pelatihan' || val === 'admin_pengabdian') {
                 nikContainer.style.display = 'block';
                 nikInput.setAttribute('required', 'required');
                 namaContainer.style.display = 'block';
