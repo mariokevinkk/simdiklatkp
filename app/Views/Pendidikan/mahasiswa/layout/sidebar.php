@@ -33,7 +33,7 @@
                 <label class="text-uppercase fw-bold text-muted" style="font-size: 10px; letter-spacing: 1px;">Akademik</label>
             </div>
 
-            <?php $isPaid = (session()->get('payment_status') === 'Lunas'); ?>
+            <?php $isPaid = (($mahasiswa['payment_status'] ?? session()->get('payment_status')) === 'Lunas'); ?>
             <?php if ($isPaid) : ?>
                 <a class="nav-link <?= ($active_menu ?? '') == 'penilaian' ? 'active' : '' ?>" href="<?= base_url('pendidikan/mahasiswa/penilaian') ?>">
                     <i class="fas fa-star text-warning animate-pulse"></i> Penilaian Stase

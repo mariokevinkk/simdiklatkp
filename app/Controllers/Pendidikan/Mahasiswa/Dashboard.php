@@ -158,8 +158,6 @@ class Dashboard extends BaseController
             if ($penempatan) {
                 $lb = $db->table('logbook_pendidikan')
                     ->where('penempatan_id', $penempatan['penempatan_id'])
-                    ->where('stase_id', $stase['id'])
-                    ->where('ruangan_id', $room['ruangan_id'])
                     ->orderBy('created_at', 'DESC')
                     ->get()->getRowArray();
             }
@@ -189,6 +187,7 @@ class Dashboard extends BaseController
         }
 
         $data = [
+            'mahasiswa' => $mhs,
             'title' => 'Detail Stase ' . $stase['nama_stase'],
             'active_menu' => 'stase',
             'id' => $stase['id'], // stase id untuk upload_logbook/upload_tugas redirect back
@@ -241,8 +240,6 @@ class Dashboard extends BaseController
             $db = \Config\Database::connect();
             $existing = $db->table('logbook_pendidikan')
                 ->where('penempatan_id', $penempatan_id)
-                ->where('stase_id', $stase_id)
-                ->where('ruangan_id', $ruangan_id)
                 ->get()->getRowArray();
             if ($existing) {
                 $db->table('logbook_pendidikan')->where('id', $existing['id'])->update([
@@ -254,8 +251,6 @@ class Dashboard extends BaseController
             } else {
                 $db->table('logbook_pendidikan')->insert([
                     'penempatan_id' => $penempatan_id,
-                    'stase_id' => $stase_id,
-                    'ruangan_id' => $ruangan_id,
                     'tanggal_kegiatan' => $tanggal_kegiatan,
                     'judul_kegiatan' => $judul_kegiatan,
                     'deskripsi_kegiatan' => $deskripsi_kegiatan,
@@ -317,28 +312,19 @@ class Dashboard extends BaseController
 
     public function sertifikat()
     {
+        $mhs = $this->getMahasiswaData();
         $data = [
             'title' => 'Sertifikat Diklat',
-            'active_menu' => 'sertifikat'
+            'active_menu' => 'sertifikat',
+            'mahasiswa' => $mhs
         ];
         return view('Pendidikan/mahasiswa/sertifikat', $data);
     }
 
     public function profil()
     {
-        $userId = session()->get('user_id');
-        
-        $mahasiswaModel = new \App\Models\MahasiswaPendidikanModel();
-        $mahasiswa = $mahasiswaModel->where('user_id', $userId)->first();
-        
-        $institusiName = 'Institusi';
-        if ($mahasiswa && $mahasiswa['institusi_id']) {
-            $institusiModel = new \App\Models\InstitusiPendidikanModel();
-            $institusi = $institusiModel->find($mahasiswa['institusi_id']);
-            if ($institusi) {
-                $institusiName = $institusi['nama_institusi'];
-            }
-        }
+        $mahasiswa = $this->getMahasiswaData();
+        $institusiName = $mahasiswa ? $mahasiswa['institusi_name'] : 'Institusi';
 
         $data = [
             'title' => 'Profil & Dokumen Mahasiswa',
@@ -390,22 +376,50 @@ class Dashboard extends BaseController
         }
 
         $staseList = [];
+        $tugasList = [];
+        
         if ($mhs) {
             $db = \Config\Database::connect();
             $builder = $db->table('stase_ruangan_ci_pendidikan');
-            $builder->select('stase_ruangan_ci_pendidikan.id, stase_pendidikan.nama_stase, ci_pendidikan.nama_lengkap as ci_name, unit_kerja_pelatihan.nama_unit as nama_ruangan');
+            $builder->select('stase_ruangan_ci_pendidikan.id, stase_ruangan_ci_pendidikan.stase_id, stase_pendidikan.nama_stase, stase_pendidikan.tanggal_akhir, ci_pendidikan.nama_lengkap as ci_name, unit_kerja_pelatihan.nama_unit as nama_ruangan');
             $builder->join('stase_pendidikan', 'stase_pendidikan.id = stase_ruangan_ci_pendidikan.stase_id');
             $builder->join('ci_pendidikan', 'ci_pendidikan.id = stase_ruangan_ci_pendidikan.ci_id', 'left');
             $builder->join('unit_kerja_pelatihan', 'unit_kerja_pelatihan.id_unit_kerja = stase_ruangan_ci_pendidikan.ruangan_id', 'left');
-            $builder->where("JSON_CONTAINS(stase_ruangan_ci_pendidikan.mahasiswa_ids, '\"" . $mhs['id'] . "\"') OR JSON_CONTAINS(stase_ruangan_ci_pendidikan.mahasiswa_ids, '" . $mhs['id'] . "')");
+            $builder->where("(JSON_CONTAINS(stase_ruangan_ci_pendidikan.mahasiswa_ids, '\"" . $mhs['id'] . "\"') OR JSON_CONTAINS(stase_ruangan_ci_pendidikan.mahasiswa_ids, '" . $mhs['id'] . "'))");
             $staseList = $builder->get()->getResultArray();
+            
+            $penempatans = $db->table('penempatan_peserta_pendidikan')
+                ->where('mahasiswa_id', $mhs['id'])
+                ->get()->getResultArray();
+                
+            $penilaianByStase = [];
+            foreach ($penempatans as $p) {
+                $nilai = $db->table('penilaian_pendidikan')
+                    ->where('penempatan_id', $p['id'])
+                    ->get()->getResultArray();
+                $penilaianByStase[$p['stase_id']] = $nilai;
+            }
+            
+            foreach ($staseList as &$s) {
+                $s['penilaian'] = $penilaianByStase[$s['stase_id']] ?? [];
+            }
+            
+            $tugasList = $db->table('pengumpulan_tugas_pendidikan')
+                ->select('pengumpulan_tugas_pendidikan.*, tugas_pendidikan.nama_tugas, stase_pendidikan.nama_stase, ci_pendidikan.nama_lengkap as ci_name')
+                ->join('tugas_pendidikan', 'tugas_pendidikan.id = pengumpulan_tugas_pendidikan.tugas_id')
+                ->join('stase_pendidikan', 'stase_pendidikan.id = tugas_pendidikan.stase_id', 'left')
+                ->join('ci_pendidikan', 'ci_pendidikan.id = tugas_pendidikan.ci_id', 'left')
+                ->where('pengumpulan_tugas_pendidikan.mahasiswa_id', $mhs['id'])
+                ->where('pengumpulan_tugas_pendidikan.nilai IS NOT NULL')
+                ->get()->getResultArray();
         }
 
         $data = [
             'title' => 'Penilaian Per Stase',
             'active_menu' => 'penilaian',
             'mahasiswa' => $mhs,
-            'staseList' => $staseList
+            'staseList' => $staseList,
+            'tugasList' => $tugasList
         ];
         return view('Pendidikan/mahasiswa/penilaian', $data);
     }

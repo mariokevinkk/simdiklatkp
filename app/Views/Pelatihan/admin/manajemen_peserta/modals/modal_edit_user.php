@@ -16,16 +16,14 @@ $profesi = $profesi ?? [];
                     
                     <div class="section-title">Role & Jenis Peserta</div>
                     <div class="row g-3 mb-4">
-                        <div class="col-md-6">
+                        <div class="col-md-6 d-none">
                             <label class="form-label small fw-bold mb-1">PILIH ROLE</label>
                             <select name="role" id="edit_role" class="form-select" required>
-                                <option value="peserta">PESERTA</option>
-                                <option value="admin">ADMIN SISTEM</option>
-                                <option value="admin_pengabdian">ADMIN PENGABDIAN</option>
+                                <option value="peserta" selected>PESERTA</option>
                             </select>
                         </div>
-                        <div class="col-md-6">
-                            <label class="form-label small fw-bold mb-1">JENIS PESERTA</label>
+                        <div class="col-md-12">
+                            <label class="form-label small fw-bold mb-1">JENIS PESERTA / ROLE</label>
                             <select name="jenis_peserta" id="edit_jenis_peserta" class="form-select" required>
                                 <option value="" disabled>Pilih Jenis...</option>
                                 <option value="named">NAMED (PEGAWAI)</option>
