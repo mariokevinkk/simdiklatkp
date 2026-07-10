@@ -18,7 +18,8 @@
 
         body {
             font-family: var(--jakarta);
-            background: linear-gradient(135deg, #f8f9fc 0%, #eef1f5 100%);
+            background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://img-kd.kalbe.co.id/wGqDuQeO_pgL96fkCEHD5AyfMnw=/fit-in/615x480/filters:quality(90)/oneonco-prd/faskes/34711003_RSUD_Kota_Yogyakarta.webp') no-repeat center center fixed;
+            background-size: cover;
             height: 100vh;
             display: flex;
             align-items: center;
