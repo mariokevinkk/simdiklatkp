@@ -34,7 +34,7 @@
                                 <th>Stase & Ruangan</th>
                                 <th>Pembimbing (CI)</th>
                                 <th class="text-center">File Nilai (CI)</th>
-                                <th class="text-center">Keterangan</th>
+                                <th class="text-center">Tugas</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -52,8 +52,12 @@
                                         </td>
                                         <td class="fw-medium text-primary"><?= esc($stase['ci_name'] ?: 'Belum Ditugaskan') ?></td>
                                         <td class="text-center">
-                                            <?php if ($isSelesai): ?>
-                                                <a href="#" class="btn btn-sm btn-outline-danger px-3 fw-bold" onclick="alert('Fitur download PDF nilai (dummy)')">
+                                            <?php if ($stase['file_penilaian_ci']): ?>
+                                                <a href="<?= base_url('uploads/penilaian/' . $stase['file_penilaian_ci']) ?>" target="_blank" class="btn btn-sm btn-outline-danger px-3 fw-bold">
+                                                    <i class="fas fa-file-download me-1"></i> Download
+                                                </a>
+                                            <?php elseif ($isSelesai): ?>
+                                                <a href="#" class="btn btn-sm btn-outline-danger px-3 fw-bold" onclick="alert('File penilaian CI belum diunggah.')">
                                                     <i class="fas fa-file-download me-1"></i> Download
                                                 </a>
                                             <?php else: ?>
@@ -61,11 +65,9 @@
                                             <?php endif; ?>
                                         </td>
                                         <td class="small">
-                                            <?php if ($isSelesai): ?>
-                                                Menunggu rilis nilai dari CI.
-                                            <?php else: ?>
-                                                <span class="text-center small text-muted">Stase belum selesai</span>
-                                            <?php endif; ?>
+                                            <button type="button" class="btn btn-sm btn-outline-primary" data-bs-toggle="modal" data-bs-target="#modalTugas<?= $stase['id'] ?>">
+                                                <i class="fas fa-list me-1"></i> Nilai Tugas
+                                            </button>
                                         </td>
                                     </tr>
                                 <?php endforeach; ?>
@@ -81,5 +83,43 @@
         </div>
     </div>
 </div>
+
+<?php if (!empty($staseList)): ?>
+    <?php foreach ($staseList as $stase): ?>
+    <div class="modal fade" id="modalTugas<?= $stase['id'] ?>" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content border-0 shadow">
+                <div class="modal-header bg-light">
+                    <h6 class="modal-title fw-bold text-dark"><i class="fas fa-tasks text-primary me-2"></i> Nilai Tugas: <?= esc($stase['nama_stase']) ?></h6>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body p-0">
+                    <ul class="list-group list-group-flush">
+                        <?php if (!empty($stase['tasks'])): ?>
+                            <?php foreach ($stase['tasks'] as $tugas): ?>
+                                <li class="list-group-item d-flex justify-content-between align-items-center p-3">
+                                    <div>
+                                        <h6 class="mb-0 fw-bold"><?= esc($tugas['nama_tugas']) ?></h6>
+                                        <span class="small text-muted">Status: <?= esc($tugas['status'] ?? 'Belum Dikerjakan') ?></span>
+                                    </div>
+                                    <div>
+                                        <span class="badge <?= ($tugas['nilai'] !== null) ? 'bg-success' : 'bg-secondary' ?> rounded-pill fs-6 px-3 py-2">
+                                            <?= $tugas['nilai'] !== null ? esc($tugas['nilai']) : '-' ?>
+                                        </span>
+                                    </div>
+                                </li>
+                            <?php endforeach; ?>
+                        <?php else: ?>
+                            <li class="list-group-item p-4 text-center text-muted">
+                                Belum ada tugas pada stase ini.
+                            </li>
+                        <?php endif; ?>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <?php endforeach; ?>
+<?php endif; ?>
 
 <?= $this->include('Pendidikan/mahasiswa/layout/footer') ?>

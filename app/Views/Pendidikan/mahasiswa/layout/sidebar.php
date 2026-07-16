@@ -2,7 +2,11 @@
     <div class="d-flex flex-column h-100">
         <div class="p-3 mb-2">
             <div class="d-flex align-items-center p-2 bg-light rounded-3">
-                <img src="https://ui-avatars.com/api/?name=<?= urlencode(session()->get('name') ?? 'M') ?>&background=c62828&color=fff" class="rounded-circle me-2" width="40">
+                <?php if (isset($mahasiswa) && !empty($mahasiswa['file_foto'])) : ?>
+                    <img src="<?= base_url('uploads/dokumen_mahasiswa/' . $mahasiswa['file_foto']) ?>" class="rounded-circle me-2" width="40" height="40" style="object-fit: cover;">
+                <?php else : ?>
+                    <img src="https://ui-avatars.com/api/?name=<?= urlencode(session()->get('name') ?? 'M') ?>&background=c62828&color=fff" class="rounded-circle me-2" width="40" height="40">
+                <?php endif; ?>
                 <div class="overflow-hidden">
                     <h6 class="mb-0 text-dark fw-bold small text-truncate"><?= (session()->get('role') == 'mahasiswa') ? session()->get('name') : 'Andi Pratama' ?></h6>
                     <span class="text-muted" style="font-size: 10px;">Mahasiswa (Peserta)</span>
@@ -33,7 +37,10 @@
                 <label class="text-uppercase fw-bold text-muted" style="font-size: 10px; letter-spacing: 1px;">Akademik</label>
             </div>
 
-            <?php $isPaid = (session()->get('payment_status') === 'Lunas'); ?>
+            <?php 
+                $isPaid = isset($mahasiswa) && ($mahasiswa['payment_status'] ?? '') === 'Lunas';
+                $hasNilaiAkhir = isset($mahasiswa) && !empty($mahasiswa['nilai_akhir']);
+            ?>
             <?php if ($isPaid) : ?>
                 <a class="nav-link <?= ($active_menu ?? '') == 'penilaian' ? 'active' : '' ?>" href="<?= base_url('pendidikan/mahasiswa/penilaian') ?>">
                     <i class="fas fa-star text-warning animate-pulse"></i> Penilaian Stase
@@ -44,9 +51,15 @@
                 </a>
             <?php endif; ?>
 
-            <a class="nav-link <?= ($active_menu ?? '') == 'sertifikat' ? 'active' : '' ?>" href="<?= base_url('pendidikan/mahasiswa/sertifikat') ?>">
-                <i class="fas fa-certificate"></i> Sertifikat Diklat
-            </a>
+            <?php if ($isPaid && $hasNilaiAkhir) : ?>
+                <a class="nav-link <?= ($active_menu ?? '') == 'sertifikat' ? 'active' : '' ?>" href="<?= base_url('pendidikan/mahasiswa/sertifikat') ?>">
+                    <i class="fas fa-certificate"></i> Sertifikat Diklat
+                </a>
+            <?php else : ?>
+                <a class="nav-link text-muted opacity-60" href="#" onclick="alert('Akses sertifikat terkunci! <?= !$isPaid ? 'Selesaikan administrasi pembayaran terlebih dahulu.' : 'Institusi Anda belum mengunggah Nilai Akhir.' ?>')" style="cursor: not-allowed;">
+                    <i class="fas fa-lock text-danger me-2"></i> Sertifikat Diklat <span class="badge bg-danger ms-auto" style="font-size: 8px; padding: 2px 4px;">Lock</span>
+                </a>
+            <?php endif; ?>
         </nav>
 
         <div class="p-3 mt-auto border-top">

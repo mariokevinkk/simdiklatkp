@@ -145,29 +145,6 @@
                             </div>
                         </div>
 
-                        <div class="col-md-6 mb-3">
-                            <div class="p-3 border rounded-3 bg-light">
-                                <div class="d-flex align-items-center justify-content-between mb-2">
-                                    <div class="d-flex align-items-center gap-3">
-                                        <div class="bg-danger text-white rounded-3 p-2 d-flex align-items-center justify-content-center" style="width: 45px; height: 45px;">
-                                            <i class="fas fa-receipt fa-lg"></i>
-                                        </div>
-                                        <div>
-                                            <h6 class="fw-bold mb-1 small">Bukti Pembayaran</h6>
-                                            <?php if (!empty($mahasiswa['file_bukti_bayar'])): ?>
-                                                <span class="badge bg-success small"><i class="fas fa-check me-1"></i> Tersedia</span>
-                                            <?php else: ?>
-                                                <span class="badge bg-danger small"><i class="fas fa-times me-1"></i> Belum Ada</span>
-                                            <?php endif; ?>
-                                        </div>
-                                    </div>
-                                    <?php if (!empty($mahasiswa['file_bukti_bayar'])): ?>
-                                        <a href="<?= base_url('uploads/dokumen_mahasiswa/' . $mahasiswa['file_bukti_bayar']) ?>" target="_blank" class="btn btn-sm btn-outline-danger fw-bold px-3"><i class="fas fa-eye me-1"></i> Lihat</a>
-                                    <?php endif; ?>
-                                </div>
-                                <input type="file" name="bukti_pembayaran" class="form-control form-control-sm" accept=".pdf,image/*">
-                            </div>
-                        </div>
                     </div>
                 </div>
             </div>
