@@ -125,6 +125,8 @@
                                 <span class="badge badge-disetujui">Lunas</span>
                             <?php elseif ($payStatus === 'Menunggu Verifikasi'): ?>
                                 <span class="badge badge-menunggu">Menunggu</span>
+                            <?php elseif ($payStatus === 'Ditolak'): ?>
+                                <span class="badge bg-danger">Ditolak</span>
                             <?php elseif ($payStatus === 'Belum Bayar'): ?>
                                 <span class="badge bg-warning text-dark">Belum Bayar</span>
                             <?php else: ?>
@@ -374,6 +376,8 @@ function kelolaPembayaran(m) {
         badgeHtml = '<span class="badge badge-disetujui">Lunas</span>';
     } else if (payStatus === 'Menunggu Verifikasi') {
         badgeHtml = '<span class="badge badge-menunggu">Menunggu Verifikasi</span>';
+    } else if (payStatus === 'Ditolak') {
+        badgeHtml = '<span class="badge bg-danger">Ditolak</span>';
     } else if (payStatus === 'Belum Bayar') {
         badgeHtml = '<span class="badge bg-warning text-dark">Belum Bayar</span>';
     } else {
@@ -407,8 +411,11 @@ function kelolaPembayaran(m) {
         if (payStatus === 'Menunggu Verifikasi') {
             verifHtml += '<div class="d-flex gap-2 mt-2">';
             verifHtml += '<button class="btn btn-success btn-sm flex-fill" onclick="verifikasiPembayaran(' + m.id + ', \'Lunas\')"><i class="fas fa-check me-1"></i> Setujui</button>';
-            verifHtml += '<button class="btn btn-danger btn-sm flex-fill" onclick="verifikasiPembayaran(' + m.id + ', \'Belum Bayar\')"><i class="fas fa-times me-1"></i> Tolak</button>';
+            verifHtml += '<button class="btn btn-danger btn-sm flex-fill" onclick="verifikasiPembayaran(' + m.id + ', \'Ditolak\')"><i class="fas fa-times me-1"></i> Tolak</button>';
             verifHtml += '</div>';
+        }
+        if (payStatus === 'Ditolak' && m.alasan_penolakan) {
+            verifHtml += '<div class="alert alert-danger mt-2 mb-0 py-2 px-3"><small class="fw-semibold"><i class="fas fa-exclamation-circle me-1"></i> Alasan Penolakan:</small><br><small>' + m.alasan_penolakan + '</small></div>';
         }
     } else {
         verifHtml += '<p class="text-muted small mb-0">Belum ada bukti bayar dari institusi</p>';
@@ -483,22 +490,74 @@ $('#uploadInvoiceForm').submit(function(e) {
 });
 
 function verifikasiPembayaran(id, status) {
-    var msg = status === 'Lunas' ? 'Setujui pembayaran ini?' : 'Tolak pembayaran ini?';
-    if (!confirm(msg)) return;
+    $('#paymentModal').modal('hide');
+
+    setTimeout(function() {
+    if (status === 'Lunas') {
+        Swal.fire({
+            title: 'Setujui Pembayaran?',
+            text: 'Konfirmasi bahwa pembayaran ini telah diterima.',
+            icon: 'question',
+            showCancelButton: true,
+            confirmButtonText: 'Ya, Setujui',
+            cancelButtonText: 'Batal',
+            confirmButtonColor: '#198754'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                kirimVerifikasi(id, status, '');
+            }
+        });
+    } else {
+        Swal.fire({
+            title: 'Tolak Pembayaran',
+            text: 'Tuliskan alasan mengapa pembayaran ditolak:',
+            input: 'textarea',
+            inputPlaceholder: 'Alasan penolakan...',
+            inputAttributes: {
+                'aria-label': 'Alasan penolakan'
+            },
+            showCancelButton: true,
+            confirmButtonText: 'Tolak',
+            cancelButtonText: 'Batal',
+            confirmButtonColor: '#ce2127',
+            preConfirm: (reason) => {
+                if (!reason) {
+                    Swal.showValidationMessage('Alasan penolakan harus diisi!');
+                }
+                return reason;
+            }
+        }).then((result) => {
+            if (result.isConfirmed) {
+                kirimVerifikasi(id, status, result.value);
+            }
+        });
+    }
+    }, 300);
+}
+
+function kirimVerifikasi(id, status, alasan) {
     $.ajax({
         url: '<?= base_url('pendidikan/admin/diklat/api/mahasiswa/verifikasi-pembayaran') ?>/' + id,
         method: 'POST',
         contentType: 'application/json',
-        data: JSON.stringify({ status: status }),
+        data: JSON.stringify({ status: status, alasan_penolakan: alasan }),
         success: function(res) {
             if (res.success) {
-                location.reload();
+                Swal.fire({
+                    icon: 'success',
+                    title: 'Berhasil',
+                    text: res.message,
+                    timer: 1500,
+                    showConfirmButton: false
+                }).then(() => {
+                    location.reload();
+                });
             } else {
-                alert(res.message || 'Gagal');
+                Swal.fire('Gagal', res.message || 'Gagal', 'error');
             }
         },
         error: function(xhr) {
-            alert('Gagal: ' + (xhr.responseJSON?.message || 'Server error'));
+            Swal.fire('Error', xhr.responseJSON?.message || 'Terjadi kesalahan sistem.', 'error');
         }
     });
 }

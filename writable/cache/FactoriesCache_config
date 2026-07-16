@@ -672,7 +672,7 @@
         'hostname' => 'localhost',
         'username' => 'root',
         'password' => '',
-        'database' => 'sim_diklat',
+        'database' => 'sim_diklat_test',
         'DBDriver' => 'MySQLi',
         'DBPrefix' => '',
         'pConnect' => false,

@@ -32,6 +32,7 @@ class MahasiswaPendidikanModel extends Model
         'status',
         'payment_status',
         'file_bukti_bayar',
+        'alasan_penolakan',
         'invoice_file',
         'nominal',
         'nilai_akhir'

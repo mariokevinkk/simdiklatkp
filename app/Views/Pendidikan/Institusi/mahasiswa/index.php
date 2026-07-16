@@ -99,11 +99,18 @@
                                                 <button type="button" class="btn btn-sm btn-secondary opacity-50 py-1 px-2 w-100" style="font-size: 0.7rem; cursor: not-allowed;" title="Admin belum menerbitkan tagihan">
                                                     <i class="fas fa-ban me-1"></i> Belum Bisa Bayar
                                                 </button>
+                                            <?php elseif ($paymentStatus == 'Ditolak') : ?>
+                                                <span class="badge bg-danger bg-opacity-10 text-danger border border-danger border-opacity-25 px-2 py-1 fw-semibold w-100" style="font-size: 0.7rem;">
+                                                    <i class="fas fa-times-circle me-1 text-danger"></i> Ditolak
+                                                </span>
+                                                <button type="button" class="btn btn-sm btn-danger py-1 px-2 w-100" style="font-size: 0.7rem;" onclick="openPaymentModalMhs('<?= $row['id'] ?>', '<?= $row['nama'] ?>', '<?= $row['nim'] ?>', '<?= $row['prodi'] ?>', '<?= $row['nominal'] ?>', '<?= $row['invoice_file'] ?>', '<?= addslashes($row['alasan_penolakan'] ?? '') ?>')" title="Bayar Ulang">
+                                                    <i class="fas fa-credit-card me-1"></i> Bayar
+                                                </button>
                                             <?php else : ?>
                                                 <span class="badge bg-danger bg-opacity-10 text-danger border border-danger border-opacity-25 px-2 py-1 fw-semibold w-100" style="font-size: 0.7rem;">
                                                     <i class="fas fa-exclamation-triangle me-1 text-danger"></i> Belum Bayar
                                                 </span>
-                                                <button type="button" class="btn btn-sm btn-danger py-1 px-2 w-100" style="font-size: 0.7rem;" onclick="openPaymentModalMhs('<?= $row['id'] ?>', '<?= $row['nama'] ?>', '<?= $row['nim'] ?>', '<?= $row['prodi'] ?>', '<?= $row['nominal'] ?>', '<?= $row['invoice_file'] ?>')" title="Bayar Tagihan">
+                                                <button type="button" class="btn btn-sm btn-danger py-1 px-2 w-100" style="font-size: 0.7rem;" onclick="openPaymentModalMhs('<?= $row['id'] ?>', '<?= $row['nama'] ?>', '<?= $row['nim'] ?>', '<?= $row['prodi'] ?>', '<?= $row['nominal'] ?>', '<?= $row['invoice_file'] ?>', '<?= addslashes($row['alasan_penolakan'] ?? '') ?>')" title="Bayar Tagihan">
                                                     <i class="fas fa-credit-card me-1"></i> Bayar
                                                 </button>
                                             <?php endif; ?>
@@ -343,6 +350,13 @@
                     </div>
                 </div>
 
+                <div id="payAlasanSection" class="mb-3 d-none">
+                    <div class="p-3 border rounded bg-danger bg-opacity-10 border-danger border-opacity-25">
+                        <h6 class="fw-bold text-danger small mb-2"><i class="fas fa-exclamation-circle me-1"></i> Pembayaran Sebelumnya Ditolak</h6>
+                        <p class="small text-dark mb-0" id="payAlasanText">-</p>
+                    </div>
+                </div>
+
                 <div class="mb-4">
                     <h6 class="fw-bold mb-2 small text-uppercase text-muted">Rekening Transfer:</h6>
                     <div class="p-3 border rounded bg-white shadow-sm d-flex align-items-center gap-3">
@@ -546,7 +560,7 @@
 </div>
 
 <script>
-function openPaymentModalMhs(id, name, nim, prodi, nominal, invoice_file) {
+function openPaymentModalMhs(id, name, nim, prodi, nominal, invoice_file, alasan_penolakan) {
     document.getElementById('payMhsId').value = id;
     document.getElementById('payMhsName').innerText = name;
     document.getElementById('payMhsNIM').innerText = nim;
@@ -571,6 +585,17 @@ function openPaymentModalMhs(id, name, nim, prodi, nominal, invoice_file) {
 
     const formattedTotal = new Intl.NumberFormat('id-ID', { style: 'currency', currency: 'IDR' }).format(total);
     document.getElementById('payMhsTotal').innerText = formattedTotal;
+
+    // Tampilkan alasan penolakan jika ada
+    var alasanSection = document.getElementById('payAlasanSection');
+    var alasanText = document.getElementById('payAlasanText');
+    if (alasan_penolakan && alasan_penolakan.trim() !== '') {
+        alasanText.innerText = alasan_penolakan;
+        alasanSection.classList.remove('d-none');
+    } else {
+        alasanSection.classList.add('d-none');
+        alasanText.innerText = '';
+    }
 
     const myModal = new bootstrap.Modal(document.getElementById('paymentModalMhs'));
     myModal.show();

@@ -21,7 +21,7 @@
             letter-spacing: -0.5px;
         }
         .dashboard-header {
-            background: linear-gradient(135deg, #2c3e50 0%, #3498db 100%);
+            background: linear-gradient(135deg, #040404ff 0%, #aa0404ff 100%);
             color: white;
             padding: 3rem 0;
             border-bottom-left-radius: 30px;
@@ -112,6 +112,7 @@
             color: #dfe4ea;
             margin-bottom: 1.5rem;
         }
+
     </style>
 </head>
 <body>
@@ -119,7 +120,7 @@
     <!-- Navbar -->
     <nav class="navbar navbar-expand-lg navbar-light bg-white py-3 shadow-sm">
         <div class="container">
-            <a class="navbar-brand text-primary" href="#">
+            <a class="navbar-brand text-danger" href="#">
                 <i class="fas fa-stethoscope me-2"></i> SIM DIKLAT CI
             </a>
             <div class="d-flex align-items-center">
@@ -172,7 +173,7 @@
         </div>
 
         <!-- Stase List -->
-        <h4 class="fw-bold mb-4"><i class="fas fa-list-check me-2 text-primary"></i> Stase & Ruangan Anda</h4>
+        <h4 class="fw-bold mb-4"><i class="fas fa-list-check me-2 text-danger"></i> Stase & Ruangan Anda</h4>
         
         <?php if(empty($stases)): ?>
             <div class="empty-state">
