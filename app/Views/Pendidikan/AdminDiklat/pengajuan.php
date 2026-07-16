@@ -67,9 +67,16 @@
             <?php if (in_array($status, ['Menunggu', 'Revisi'])): ?>
             <hr>
             <div class="d-grid gap-2">
+                <?php if ($status === 'Revisi'): ?>
+                <button class="btn btn-success btn-sm" disabled style="opacity: 0.5; cursor: not-allowed;">
+                    <i class="fas fa-check me-1"></i> Setujui
+                </button>
+                <small class="text-muted text-center mb-1"><i class="fas fa-info-circle me-1"></i> Menunggu revisi dari institusi</small>
+                <?php else: ?>
                 <button class="btn btn-success btn-sm" onclick="approvePengajuan(<?= $detail['pengajuan']['id'] ?>)">
                     <i class="fas fa-check me-1"></i> Setujui
                 </button>
+                <?php endif; ?>
                 <button class="btn btn-warning btn-sm" onclick="$('#revisionPengajuanModal').modal('show')">
                     <i class="fas fa-edit me-1"></i> Minta Revisi
                 </button>

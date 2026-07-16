@@ -573,6 +573,7 @@ class Pengajuan extends BaseController
             mahasiswa_pendidikan.payment_status,
             mahasiswa_pendidikan.nominal,
             mahasiswa_pendidikan.invoice_file,
+            mahasiswa_pendidikan.alasan_penolakan,
             mahasiswa_pendidikan.jenis_kelamin,
             mahasiswa_pendidikan.semester,
             mahasiswa_pendidikan.id_profesi,
@@ -606,6 +607,7 @@ class Pengajuan extends BaseController
                 'payment_status' => $row['payment_status'] ?? 'Belum Invoice',
                 'nominal' => $row['nominal'] ?? 0,
                 'invoice_file' => $row['invoice_file'],
+                'alasan_penolakan' => $row['alasan_penolakan'] ?? null,
                 'jk' => $row['jenis_kelamin'],
                 'semester' => $row['semester'],
                 'id_profesi' => $row['id_profesi'],
@@ -877,7 +879,8 @@ class Pengajuan extends BaseController
 
         $mahasiswaModel->update($mahasiswa_id, [
             'payment_status' => 'Menunggu Verifikasi',
-            'file_bukti_bayar' => $newName
+            'file_bukti_bayar' => $newName,
+            'alasan_penolakan' => null
         ]);
 
         return $this->response->setJSON(['success' => true, 'message' => 'Bukti Pembayaran berhasil diunggah! Pembayaran sedang diverifikasi.']);

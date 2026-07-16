@@ -1525,14 +1525,29 @@ public function list()
         $json = $this->request->getJSON(true);
         $status = $json['status'] ?? '';
 
-        if (!in_array($status, ['Lunas', 'Belum Bayar', 'Menunggu Verifikasi'])) {
+        if (!in_array($status, ['Lunas', 'Ditolak', 'Menunggu Verifikasi'])) {
             return $this->response->setJSON([
                 'success' => false,
                 'message' => 'Status tidak valid'
             ])->setStatusCode(422);
         }
 
-        $mahasiswaModel->update($id, ['payment_status' => $status]);
+        $updateData = ['payment_status' => $status];
+
+        if ($status === 'Ditolak') {
+            $alasan = $json['alasan_penolakan'] ?? '';
+            if (empty($alasan)) {
+                return $this->response->setJSON([
+                    'success' => false,
+                    'message' => 'Alasan penolakan harus diisi'
+                ])->setStatusCode(422);
+            }
+            $updateData['alasan_penolakan'] = $alasan;
+        } elseif ($status === 'Lunas') {
+            $updateData['alasan_penolakan'] = null;
+        }
+
+        $mahasiswaModel->update($id, $updateData);
 
         return $this->response->setJSON([
             'success' => true,
