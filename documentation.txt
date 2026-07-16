@@ -39,3 +39,6 @@ php spark db:seed "App\Database\Seeds\Pelatihan\UsersPelatihanSeeder"
 # Contoh: Hanya menyemai data Master Pelatihan
 php spark db:seed "App\Database\Seeds\Pelatihan\MasterPelatihanSeeder"
 ```
+
+git restore --staged writable/cache/FactoriesCache_config
+git restore --staged writable/cache/FileLocatorCache
