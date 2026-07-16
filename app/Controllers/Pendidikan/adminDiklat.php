@@ -1525,7 +1525,7 @@ public function list()
         $json = $this->request->getJSON(true);
         $status = $json['status'] ?? '';
 
-        if (!in_array($status, ['Lunas', 'Ditolak', 'Menunggu Verifikasi'])) {
+        if (!in_array($status, ['Lunas', 'Belum Bayar', 'Menunggu Verifikasi'])) {
             return $this->response->setJSON([
                 'success' => false,
                 'message' => 'Status tidak valid'
