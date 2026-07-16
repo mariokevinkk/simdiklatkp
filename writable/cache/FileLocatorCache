@@ -7,8 +7,8 @@
       array (
         1 => 
         array (
-          0 => 'D:\\kpfinal\\simdiklatkp\\app\\Config\\Services.php',
-          1 => 'D:\\kpfinal\\simdiklatkp\\vendor\\codeigniter4\\framework\\system\\Config\\Services.php',
+          0 => 'C:\\Users\\MARIO\\Desktop\\KP\\clone1\\simdiklatkp\\app\\Config\\Services.php',
+          1 => 'C:\\Users\\MARIO\\Desktop\\KP\\clone1\\simdiklatkp\\vendor\\codeigniter4\\framework\\system\\Config\\Services.php',
         ),
       ),
     ),
@@ -27,7 +27,7 @@
       array (
         1 => 
         array (
-          0 => 'D:\\kpfinal\\simdiklatkp\\vendor\\codeigniter4\\framework\\system\\Helpers\\kint_helper.php',
+          0 => 'C:\\Users\\MARIO\\Desktop\\KP\\clone1\\simdiklatkp\\vendor\\codeigniter4\\framework\\system\\Helpers\\kint_helper.php',
         ),
       ),
     ),
@@ -37,7 +37,7 @@
       array (
         1 => 
         array (
-          0 => 'D:\\kpfinal\\simdiklatkp\\vendor\\codeigniter4\\framework\\system\\Helpers\\url_helper.php',
+          0 => 'C:\\Users\\MARIO\\Desktop\\KP\\clone1\\simdiklatkp\\vendor\\codeigniter4\\framework\\system\\Helpers\\url_helper.php',
         ),
       ),
     ),
@@ -47,7 +47,7 @@
       array (
         1 => 
         array (
-          0 => 'D:\\kpfinal\\simdiklatkp\\vendor\\codeigniter4\\framework\\system\\Helpers\\filesystem_helper.php',
+          0 => 'C:\\Users\\MARIO\\Desktop\\KP\\clone1\\simdiklatkp\\vendor\\codeigniter4\\framework\\system\\Helpers\\filesystem_helper.php',
         ),
       ),
     ),
@@ -57,7 +57,7 @@
       array (
         1 => 
         array (
-          0 => 'D:\\kpfinal\\simdiklatkp\\app\\Config\\Events.php',
+          0 => 'C:\\Users\\MARIO\\Desktop\\KP\\clone1\\simdiklatkp\\app\\Config\\Events.php',
         ),
       ),
     ),
@@ -67,7 +67,7 @@
       array (
         1 => 
         array (
-          0 => 'D:\\kpfinal\\simdiklatkp\\vendor\\codeigniter4\\framework\\system\\Helpers\\array_helper.php',
+          0 => 'C:\\Users\\MARIO\\Desktop\\KP\\clone1\\simdiklatkp\\vendor\\codeigniter4\\framework\\system\\Helpers\\array_helper.php',
         ),
       ),
     ),
@@ -77,8 +77,8 @@
       array (
         1 => 
         array (
-          0 => 'D:\\kpfinal\\simdiklatkp\\app\\Config\\Filters.php',
-          1 => 'D:\\kpfinal\\simdiklatkp\\vendor\\codeigniter4\\framework\\system\\Config\\Filters.php',
+          0 => 'C:\\Users\\MARIO\\Desktop\\KP\\clone1\\simdiklatkp\\app\\Config\\Filters.php',
+          1 => 'C:\\Users\\MARIO\\Desktop\\KP\\clone1\\simdiklatkp\\vendor\\codeigniter4\\framework\\system\\Config\\Filters.php',
         ),
       ),
     ),
@@ -88,7 +88,7 @@
       array (
         1 => 
         array (
-          0 => 'D:\\kpfinal\\simdiklatkp\\app\\Config\\Routes.php',
+          0 => 'C:\\Users\\MARIO\\Desktop\\KP\\clone1\\simdiklatkp\\app\\Config\\Routes.php',
         ),
       ),
     ),
@@ -98,7 +98,7 @@
       array (
         1 => 
         array (
-          0 => 'D:\\kpfinal\\simdiklatkp\\vendor\\codeigniter4\\framework\\system\\Helpers\\form_helper.php',
+          0 => 'C:\\Users\\MARIO\\Desktop\\KP\\clone1\\simdiklatkp\\vendor\\codeigniter4\\framework\\system\\Helpers\\form_helper.php',
         ),
       ),
     ),
@@ -108,7 +108,7 @@
       array (
         1 => 
         array (
-          0 => 'D:\\kpfinal\\simdiklatkp\\app\\Helpers\\riset_helper.php',
+          0 => 'C:\\Users\\MARIO\\Desktop\\KP\\clone1\\simdiklatkp\\app\\Helpers\\riset_helper.php',
         ),
       ),
     ),
@@ -118,57 +118,7 @@
       array (
         1 => 
         array (
-          0 => 'D:\\kpfinal\\simdiklatkp\\app\\Helpers\\pelatihan_helper.php',
-        ),
-      ),
-    ),
-    'Language/en/HTTP.php' => 
-    array (
-      'php' => 
-      array (
-        0 => 
-        array (
-          0 => 'D:\\kpfinal\\simdiklatkp\\vendor\\codeigniter4\\framework\\system\\Language\\en\\HTTP.php',
-        ),
-      ),
-    ),
-    'Helpers/number_helper' => 
-    array (
-      'php' => 
-      array (
-        1 => 
-        array (
-          0 => 'D:\\kpfinal\\simdiklatkp\\vendor\\codeigniter4\\framework\\system\\Helpers\\number_helper.php',
-        ),
-      ),
-    ),
-    'Language/en/Number.php' => 
-    array (
-      'php' => 
-      array (
-        0 => 
-        array (
-          0 => 'D:\\kpfinal\\simdiklatkp\\vendor\\codeigniter4\\framework\\system\\Language\\en\\Number.php',
-        ),
-      ),
-    ),
-    'Helpers/text_helper' => 
-    array (
-      'php' => 
-      array (
-        1 => 
-        array (
-          0 => 'D:\\kpfinal\\simdiklatkp\\vendor\\codeigniter4\\framework\\system\\Helpers\\text_helper.php',
-        ),
-      ),
-    ),
-    'Language/en/Migrations.php' => 
-    array (
-      'php' => 
-      array (
-        0 => 
-        array (
-          0 => 'D:\\kpfinal\\simdiklatkp\\vendor\\codeigniter4\\framework\\system\\Language\\en\\Migrations.php',
+          0 => 'C:\\Users\\MARIO\\Desktop\\KP\\clone1\\simdiklatkp\\app\\Helpers\\pelatihan_helper.php',
         ),
       ),
     ),
@@ -202,16 +152,6 @@
         ),
       ),
     ),
-    'Helpers/inflector_helper' => 
-    array (
-      'php' => 
-      array (
-        1 => 
-        array (
-          0 => 'C:\\Users\\MARIO\\Desktop\\KP\\clone1\\simdiklatkp\\vendor\\codeigniter4\\framework\\system\\Helpers\\inflector_helper.php',
-        ),
-      ),
-    ),
     'Language/en/CLI.php' => 
     array (
       'php' => 
@@ -222,197 +162,219 @@
         ),
       ),
     ),
+    'Helpers/text_helper' => 
+    array (
+      'php' => 
+      array (
+        1 => 
+        array (
+          0 => 'C:\\Users\\MARIO\\Desktop\\KP\\clone1\\simdiklatkp\\vendor\\codeigniter4\\framework\\system\\Helpers\\text_helper.php',
+        ),
+      ),
+    ),
+    'Language/en/Migrations.php' => 
+    array (
+      'php' => 
+      array (
+        0 => 
+        array (
+          0 => 'C:\\Users\\MARIO\\Desktop\\KP\\clone1\\simdiklatkp\\vendor\\codeigniter4\\framework\\system\\Language\\en\\Migrations.php',
+        ),
+      ),
+    ),
   ),
   'findQualifiedNameFromPath' => 
   array (
-    'D:\\kpfinal\\simdiklatkp\\app\\Config\\Services.php' => 'Config\\Services',
-    'D:\\kpfinal\\simdiklatkp\\app\\Commands\\ForceMigrate.php' => 'App\\Commands\\ForceMigrate',
-    'D:\\kpfinal\\simdiklatkp\\vendor\\codeigniter4\\framework\\system\\Commands\\Cache\\ClearCache.php' => 'CodeIgniter\\Commands\\Cache\\ClearCache',
-    'D:\\kpfinal\\simdiklatkp\\vendor\\codeigniter4\\framework\\system\\Commands\\Cache\\InfoCache.php' => 'CodeIgniter\\Commands\\Cache\\InfoCache',
-    'D:\\kpfinal\\simdiklatkp\\vendor\\codeigniter4\\framework\\system\\Commands\\Database\\CreateDatabase.php' => 'CodeIgniter\\Commands\\Database\\CreateDatabase',
-    'D:\\kpfinal\\simdiklatkp\\vendor\\codeigniter4\\framework\\system\\Commands\\Database\\Migrate.php' => 'CodeIgniter\\Commands\\Database\\Migrate',
-    'D:\\kpfinal\\simdiklatkp\\vendor\\codeigniter4\\framework\\system\\Commands\\Database\\MigrateRefresh.php' => 'CodeIgniter\\Commands\\Database\\MigrateRefresh',
-    'D:\\kpfinal\\simdiklatkp\\vendor\\codeigniter4\\framework\\system\\Commands\\Database\\MigrateRollback.php' => 'CodeIgniter\\Commands\\Database\\MigrateRollback',
-    'D:\\kpfinal\\simdiklatkp\\vendor\\codeigniter4\\framework\\system\\Commands\\Database\\MigrateStatus.php' => 'CodeIgniter\\Commands\\Database\\MigrateStatus',
-    'D:\\kpfinal\\simdiklatkp\\vendor\\codeigniter4\\framework\\system\\Commands\\Database\\Seed.php' => 'CodeIgniter\\Commands\\Database\\Seed',
-    'D:\\kpfinal\\simdiklatkp\\vendor\\codeigniter4\\framework\\system\\Commands\\Database\\ShowTableInfo.php' => 'CodeIgniter\\Commands\\Database\\ShowTableInfo',
-    'D:\\kpfinal\\simdiklatkp\\vendor\\codeigniter4\\framework\\system\\Commands\\Encryption\\GenerateKey.php' => 'CodeIgniter\\Commands\\Encryption\\GenerateKey',
-    'D:\\kpfinal\\simdiklatkp\\vendor\\codeigniter4\\framework\\system\\Commands\\Generators\\CellGenerator.php' => 'CodeIgniter\\Commands\\Generators\\CellGenerator',
-    'D:\\kpfinal\\simdiklatkp\\vendor\\codeigniter4\\framework\\system\\Commands\\Generators\\CommandGenerator.php' => 'CodeIgniter\\Commands\\Generators\\CommandGenerator',
-    'D:\\kpfinal\\simdiklatkp\\vendor\\codeigniter4\\framework\\system\\Commands\\Generators\\ConfigGenerator.php' => 'CodeIgniter\\Commands\\Generators\\ConfigGenerator',
-    'D:\\kpfinal\\simdiklatkp\\vendor\\codeigniter4\\framework\\system\\Commands\\Generators\\ControllerGenerator.php' => 'CodeIgniter\\Commands\\Generators\\ControllerGenerator',
-    'D:\\kpfinal\\simdiklatkp\\vendor\\codeigniter4\\framework\\system\\Commands\\Generators\\EntityGenerator.php' => 'CodeIgniter\\Commands\\Generators\\EntityGenerator',
-    'D:\\kpfinal\\simdiklatkp\\vendor\\codeigniter4\\framework\\system\\Commands\\Generators\\FilterGenerator.php' => 'CodeIgniter\\Commands\\Generators\\FilterGenerator',
-    'D:\\kpfinal\\simdiklatkp\\vendor\\codeigniter4\\framework\\system\\Commands\\Generators\\MigrationGenerator.php' => 'CodeIgniter\\Commands\\Generators\\MigrationGenerator',
-    'D:\\kpfinal\\simdiklatkp\\vendor\\codeigniter4\\framework\\system\\Commands\\Generators\\ModelGenerator.php' => 'CodeIgniter\\Commands\\Generators\\ModelGenerator',
-    'D:\\kpfinal\\simdiklatkp\\vendor\\codeigniter4\\framework\\system\\Commands\\Generators\\ScaffoldGenerator.php' => 'CodeIgniter\\Commands\\Generators\\ScaffoldGenerator',
-    'D:\\kpfinal\\simdiklatkp\\vendor\\codeigniter4\\framework\\system\\Commands\\Generators\\SeederGenerator.php' => 'CodeIgniter\\Commands\\Generators\\SeederGenerator',
-    'D:\\kpfinal\\simdiklatkp\\vendor\\codeigniter4\\framework\\system\\Commands\\Generators\\TestGenerator.php' => 'CodeIgniter\\Commands\\Generators\\TestGenerator',
-    'D:\\kpfinal\\simdiklatkp\\vendor\\codeigniter4\\framework\\system\\Commands\\Generators\\TransformerGenerator.php' => 'CodeIgniter\\Commands\\Generators\\TransformerGenerator',
-    'D:\\kpfinal\\simdiklatkp\\vendor\\codeigniter4\\framework\\system\\Commands\\Generators\\ValidationGenerator.php' => 'CodeIgniter\\Commands\\Generators\\ValidationGenerator',
-    'D:\\kpfinal\\simdiklatkp\\vendor\\codeigniter4\\framework\\system\\Commands\\Generators\\Views\\cell.tpl.php' => false,
-    'D:\\kpfinal\\simdiklatkp\\vendor\\codeigniter4\\framework\\system\\Commands\\Generators\\Views\\cell_view.tpl.php' => false,
-    'D:\\kpfinal\\simdiklatkp\\vendor\\codeigniter4\\framework\\system\\Commands\\Generators\\Views\\command.tpl.php' => false,
-    'D:\\kpfinal\\simdiklatkp\\vendor\\codeigniter4\\framework\\system\\Commands\\Generators\\Views\\config.tpl.php' => false,
-    'D:\\kpfinal\\simdiklatkp\\vendor\\codeigniter4\\framework\\system\\Commands\\Generators\\Views\\controller.tpl.php' => false,
-    'D:\\kpfinal\\simdiklatkp\\vendor\\codeigniter4\\framework\\system\\Commands\\Generators\\Views\\entity.tpl.php' => false,
-    'D:\\kpfinal\\simdiklatkp\\vendor\\codeigniter4\\framework\\system\\Commands\\Generators\\Views\\filter.tpl.php' => false,
-    'D:\\kpfinal\\simdiklatkp\\vendor\\codeigniter4\\framework\\system\\Commands\\Generators\\Views\\migration.tpl.php' => false,
-    'D:\\kpfinal\\simdiklatkp\\vendor\\codeigniter4\\framework\\system\\Commands\\Generators\\Views\\model.tpl.php' => false,
-    'D:\\kpfinal\\simdiklatkp\\vendor\\codeigniter4\\framework\\system\\Commands\\Generators\\Views\\seeder.tpl.php' => false,
-    'D:\\kpfinal\\simdiklatkp\\vendor\\codeigniter4\\framework\\system\\Commands\\Generators\\Views\\test.tpl.php' => false,
-    'D:\\kpfinal\\simdiklatkp\\vendor\\codeigniter4\\framework\\system\\Commands\\Generators\\Views\\transformer.tpl.php' => false,
-    'D:\\kpfinal\\simdiklatkp\\vendor\\codeigniter4\\framework\\system\\Commands\\Generators\\Views\\validation.tpl.php' => false,
-    'D:\\kpfinal\\simdiklatkp\\vendor\\codeigniter4\\framework\\system\\Commands\\Help.php' => 'CodeIgniter\\Commands\\Help',
-    'D:\\kpfinal\\simdiklatkp\\vendor\\codeigniter4\\framework\\system\\Commands\\Housekeeping\\ClearDebugbar.php' => 'CodeIgniter\\Commands\\Housekeeping\\ClearDebugbar',
-    'D:\\kpfinal\\simdiklatkp\\vendor\\codeigniter4\\framework\\system\\Commands\\Housekeeping\\ClearLogs.php' => 'CodeIgniter\\Commands\\Housekeeping\\ClearLogs',
-    'D:\\kpfinal\\simdiklatkp\\vendor\\codeigniter4\\framework\\system\\Commands\\ListCommands.php' => 'CodeIgniter\\Commands\\ListCommands',
-    'D:\\kpfinal\\simdiklatkp\\vendor\\codeigniter4\\framework\\system\\Commands\\Server\\Serve.php' => 'CodeIgniter\\Commands\\Server\\Serve',
-    'D:\\kpfinal\\simdiklatkp\\vendor\\codeigniter4\\framework\\system\\Commands\\Translation\\LocalizationFinder.php' => 'CodeIgniter\\Commands\\Translation\\LocalizationFinder',
-    'D:\\kpfinal\\simdiklatkp\\vendor\\codeigniter4\\framework\\system\\Commands\\Translation\\LocalizationSync.php' => 'CodeIgniter\\Commands\\Translation\\LocalizationSync',
-    'D:\\kpfinal\\simdiklatkp\\vendor\\codeigniter4\\framework\\system\\Commands\\Utilities\\ConfigCheck.php' => 'CodeIgniter\\Commands\\Utilities\\ConfigCheck',
-    'D:\\kpfinal\\simdiklatkp\\vendor\\codeigniter4\\framework\\system\\Commands\\Utilities\\Environment.php' => 'CodeIgniter\\Commands\\Utilities\\Environment',
-    'D:\\kpfinal\\simdiklatkp\\vendor\\codeigniter4\\framework\\system\\Commands\\Utilities\\FilterCheck.php' => 'CodeIgniter\\Commands\\Utilities\\FilterCheck',
-    'D:\\kpfinal\\simdiklatkp\\vendor\\codeigniter4\\framework\\system\\Commands\\Utilities\\Namespaces.php' => 'CodeIgniter\\Commands\\Utilities\\Namespaces',
-    'D:\\kpfinal\\simdiklatkp\\vendor\\codeigniter4\\framework\\system\\Commands\\Utilities\\Optimize.php' => 'CodeIgniter\\Commands\\Utilities\\Optimize',
-    'D:\\kpfinal\\simdiklatkp\\vendor\\codeigniter4\\framework\\system\\Commands\\Utilities\\PhpIniCheck.php' => 'CodeIgniter\\Commands\\Utilities\\PhpIniCheck',
-    'D:\\kpfinal\\simdiklatkp\\vendor\\codeigniter4\\framework\\system\\Commands\\Utilities\\Publish.php' => 'CodeIgniter\\Commands\\Utilities\\Publish',
-    'D:\\kpfinal\\simdiklatkp\\vendor\\codeigniter4\\framework\\system\\Commands\\Utilities\\Routes.php' => 'CodeIgniter\\Commands\\Utilities\\Routes',
-    'D:\\kpfinal\\simdiklatkp\\vendor\\codeigniter4\\framework\\system\\Commands\\Utilities\\Routes\\AutoRouteCollector.php' => 'CodeIgniter\\Commands\\Utilities\\Routes\\AutoRouteCollector',
-    'D:\\kpfinal\\simdiklatkp\\vendor\\codeigniter4\\framework\\system\\Commands\\Utilities\\Routes\\AutoRouterImproved\\AutoRouteCollector.php' => 'CodeIgniter\\Commands\\Utilities\\Routes\\AutoRouterImproved\\AutoRouteCollector',
-    'D:\\kpfinal\\simdiklatkp\\vendor\\codeigniter4\\framework\\system\\Commands\\Utilities\\Routes\\AutoRouterImproved\\ControllerMethodReader.php' => 'CodeIgniter\\Commands\\Utilities\\Routes\\AutoRouterImproved\\ControllerMethodReader',
-    'D:\\kpfinal\\simdiklatkp\\vendor\\codeigniter4\\framework\\system\\Commands\\Utilities\\Routes\\ControllerFinder.php' => 'CodeIgniter\\Commands\\Utilities\\Routes\\ControllerFinder',
-    'D:\\kpfinal\\simdiklatkp\\vendor\\codeigniter4\\framework\\system\\Commands\\Utilities\\Routes\\ControllerMethodReader.php' => 'CodeIgniter\\Commands\\Utilities\\Routes\\ControllerMethodReader',
-    'D:\\kpfinal\\simdiklatkp\\vendor\\codeigniter4\\framework\\system\\Commands\\Utilities\\Routes\\FilterCollector.php' => 'CodeIgniter\\Commands\\Utilities\\Routes\\FilterCollector',
-    'D:\\kpfinal\\simdiklatkp\\vendor\\codeigniter4\\framework\\system\\Commands\\Utilities\\Routes\\FilterFinder.php' => 'CodeIgniter\\Commands\\Utilities\\Routes\\FilterFinder',
-    'D:\\kpfinal\\simdiklatkp\\vendor\\codeigniter4\\framework\\system\\Commands\\Utilities\\Routes\\SampleURIGenerator.php' => 'CodeIgniter\\Commands\\Utilities\\Routes\\SampleURIGenerator',
-    'D:\\kpfinal\\simdiklatkp\\vendor\\codeigniter4\\framework\\system\\Commands\\Worker\\Views\\Caddyfile.tpl' => false,
-    'D:\\kpfinal\\simdiklatkp\\vendor\\codeigniter4\\framework\\system\\Commands\\Worker\\Views\\frankenphp-worker.php.tpl' => false,
-    'D:\\kpfinal\\simdiklatkp\\vendor\\codeigniter4\\framework\\system\\Commands\\Worker\\WorkerInstall.php' => 'CodeIgniter\\Commands\\Worker\\WorkerInstall',
-    'D:\\kpfinal\\simdiklatkp\\vendor\\codeigniter4\\framework\\system\\Commands\\Worker\\WorkerUninstall.php' => 'CodeIgniter\\Commands\\Worker\\WorkerUninstall',
+    'C:\\Users\\MARIO\\Desktop\\KP\\clone1\\simdiklatkp\\app\\Config\\Services.php' => 'Config\\Services',
+    'C:\\Users\\MARIO\\Desktop\\KP\\clone1\\simdiklatkp\\app\\Commands\\ForceMigrate.php' => 'App\\Commands\\ForceMigrate',
+    'C:\\Users\\MARIO\\Desktop\\KP\\clone1\\simdiklatkp\\vendor\\codeigniter4\\framework\\system\\Commands\\Cache\\ClearCache.php' => 'CodeIgniter\\Commands\\Cache\\ClearCache',
+    'C:\\Users\\MARIO\\Desktop\\KP\\clone1\\simdiklatkp\\vendor\\codeigniter4\\framework\\system\\Commands\\Cache\\InfoCache.php' => 'CodeIgniter\\Commands\\Cache\\InfoCache',
+    'C:\\Users\\MARIO\\Desktop\\KP\\clone1\\simdiklatkp\\vendor\\codeigniter4\\framework\\system\\Commands\\Database\\CreateDatabase.php' => 'CodeIgniter\\Commands\\Database\\CreateDatabase',
+    'C:\\Users\\MARIO\\Desktop\\KP\\clone1\\simdiklatkp\\vendor\\codeigniter4\\framework\\system\\Commands\\Database\\Migrate.php' => 'CodeIgniter\\Commands\\Database\\Migrate',
+    'C:\\Users\\MARIO\\Desktop\\KP\\clone1\\simdiklatkp\\vendor\\codeigniter4\\framework\\system\\Commands\\Database\\MigrateRefresh.php' => 'CodeIgniter\\Commands\\Database\\MigrateRefresh',
+    'C:\\Users\\MARIO\\Desktop\\KP\\clone1\\simdiklatkp\\vendor\\codeigniter4\\framework\\system\\Commands\\Database\\MigrateRollback.php' => 'CodeIgniter\\Commands\\Database\\MigrateRollback',
+    'C:\\Users\\MARIO\\Desktop\\KP\\clone1\\simdiklatkp\\vendor\\codeigniter4\\framework\\system\\Commands\\Database\\MigrateStatus.php' => 'CodeIgniter\\Commands\\Database\\MigrateStatus',
+    'C:\\Users\\MARIO\\Desktop\\KP\\clone1\\simdiklatkp\\vendor\\codeigniter4\\framework\\system\\Commands\\Database\\Seed.php' => 'CodeIgniter\\Commands\\Database\\Seed',
+    'C:\\Users\\MARIO\\Desktop\\KP\\clone1\\simdiklatkp\\vendor\\codeigniter4\\framework\\system\\Commands\\Database\\ShowTableInfo.php' => 'CodeIgniter\\Commands\\Database\\ShowTableInfo',
+    'C:\\Users\\MARIO\\Desktop\\KP\\clone1\\simdiklatkp\\vendor\\codeigniter4\\framework\\system\\Commands\\Encryption\\GenerateKey.php' => 'CodeIgniter\\Commands\\Encryption\\GenerateKey',
+    'C:\\Users\\MARIO\\Desktop\\KP\\clone1\\simdiklatkp\\vendor\\codeigniter4\\framework\\system\\Commands\\Generators\\CellGenerator.php' => 'CodeIgniter\\Commands\\Generators\\CellGenerator',
+    'C:\\Users\\MARIO\\Desktop\\KP\\clone1\\simdiklatkp\\vendor\\codeigniter4\\framework\\system\\Commands\\Generators\\CommandGenerator.php' => 'CodeIgniter\\Commands\\Generators\\CommandGenerator',
+    'C:\\Users\\MARIO\\Desktop\\KP\\clone1\\simdiklatkp\\vendor\\codeigniter4\\framework\\system\\Commands\\Generators\\ConfigGenerator.php' => 'CodeIgniter\\Commands\\Generators\\ConfigGenerator',
+    'C:\\Users\\MARIO\\Desktop\\KP\\clone1\\simdiklatkp\\vendor\\codeigniter4\\framework\\system\\Commands\\Generators\\ControllerGenerator.php' => 'CodeIgniter\\Commands\\Generators\\ControllerGenerator',
+    'C:\\Users\\MARIO\\Desktop\\KP\\clone1\\simdiklatkp\\vendor\\codeigniter4\\framework\\system\\Commands\\Generators\\EntityGenerator.php' => 'CodeIgniter\\Commands\\Generators\\EntityGenerator',
+    'C:\\Users\\MARIO\\Desktop\\KP\\clone1\\simdiklatkp\\vendor\\codeigniter4\\framework\\system\\Commands\\Generators\\FilterGenerator.php' => 'CodeIgniter\\Commands\\Generators\\FilterGenerator',
+    'C:\\Users\\MARIO\\Desktop\\KP\\clone1\\simdiklatkp\\vendor\\codeigniter4\\framework\\system\\Commands\\Generators\\MigrationGenerator.php' => 'CodeIgniter\\Commands\\Generators\\MigrationGenerator',
+    'C:\\Users\\MARIO\\Desktop\\KP\\clone1\\simdiklatkp\\vendor\\codeigniter4\\framework\\system\\Commands\\Generators\\ModelGenerator.php' => 'CodeIgniter\\Commands\\Generators\\ModelGenerator',
+    'C:\\Users\\MARIO\\Desktop\\KP\\clone1\\simdiklatkp\\vendor\\codeigniter4\\framework\\system\\Commands\\Generators\\ScaffoldGenerator.php' => 'CodeIgniter\\Commands\\Generators\\ScaffoldGenerator',
+    'C:\\Users\\MARIO\\Desktop\\KP\\clone1\\simdiklatkp\\vendor\\codeigniter4\\framework\\system\\Commands\\Generators\\SeederGenerator.php' => 'CodeIgniter\\Commands\\Generators\\SeederGenerator',
+    'C:\\Users\\MARIO\\Desktop\\KP\\clone1\\simdiklatkp\\vendor\\codeigniter4\\framework\\system\\Commands\\Generators\\TestGenerator.php' => 'CodeIgniter\\Commands\\Generators\\TestGenerator',
+    'C:\\Users\\MARIO\\Desktop\\KP\\clone1\\simdiklatkp\\vendor\\codeigniter4\\framework\\system\\Commands\\Generators\\TransformerGenerator.php' => 'CodeIgniter\\Commands\\Generators\\TransformerGenerator',
+    'C:\\Users\\MARIO\\Desktop\\KP\\clone1\\simdiklatkp\\vendor\\codeigniter4\\framework\\system\\Commands\\Generators\\ValidationGenerator.php' => 'CodeIgniter\\Commands\\Generators\\ValidationGenerator',
+    'C:\\Users\\MARIO\\Desktop\\KP\\clone1\\simdiklatkp\\vendor\\codeigniter4\\framework\\system\\Commands\\Generators\\Views\\cell.tpl.php' => false,
+    'C:\\Users\\MARIO\\Desktop\\KP\\clone1\\simdiklatkp\\vendor\\codeigniter4\\framework\\system\\Commands\\Generators\\Views\\cell_view.tpl.php' => false,
+    'C:\\Users\\MARIO\\Desktop\\KP\\clone1\\simdiklatkp\\vendor\\codeigniter4\\framework\\system\\Commands\\Generators\\Views\\command.tpl.php' => false,
+    'C:\\Users\\MARIO\\Desktop\\KP\\clone1\\simdiklatkp\\vendor\\codeigniter4\\framework\\system\\Commands\\Generators\\Views\\config.tpl.php' => false,
+    'C:\\Users\\MARIO\\Desktop\\KP\\clone1\\simdiklatkp\\vendor\\codeigniter4\\framework\\system\\Commands\\Generators\\Views\\controller.tpl.php' => false,
+    'C:\\Users\\MARIO\\Desktop\\KP\\clone1\\simdiklatkp\\vendor\\codeigniter4\\framework\\system\\Commands\\Generators\\Views\\entity.tpl.php' => false,
+    'C:\\Users\\MARIO\\Desktop\\KP\\clone1\\simdiklatkp\\vendor\\codeigniter4\\framework\\system\\Commands\\Generators\\Views\\filter.tpl.php' => false,
+    'C:\\Users\\MARIO\\Desktop\\KP\\clone1\\simdiklatkp\\vendor\\codeigniter4\\framework\\system\\Commands\\Generators\\Views\\migration.tpl.php' => false,
+    'C:\\Users\\MARIO\\Desktop\\KP\\clone1\\simdiklatkp\\vendor\\codeigniter4\\framework\\system\\Commands\\Generators\\Views\\model.tpl.php' => false,
+    'C:\\Users\\MARIO\\Desktop\\KP\\clone1\\simdiklatkp\\vendor\\codeigniter4\\framework\\system\\Commands\\Generators\\Views\\seeder.tpl.php' => false,
+    'C:\\Users\\MARIO\\Desktop\\KP\\clone1\\simdiklatkp\\vendor\\codeigniter4\\framework\\system\\Commands\\Generators\\Views\\test.tpl.php' => false,
+    'C:\\Users\\MARIO\\Desktop\\KP\\clone1\\simdiklatkp\\vendor\\codeigniter4\\framework\\system\\Commands\\Generators\\Views\\transformer.tpl.php' => false,
+    'C:\\Users\\MARIO\\Desktop\\KP\\clone1\\simdiklatkp\\vendor\\codeigniter4\\framework\\system\\Commands\\Generators\\Views\\validation.tpl.php' => false,
+    'C:\\Users\\MARIO\\Desktop\\KP\\clone1\\simdiklatkp\\vendor\\codeigniter4\\framework\\system\\Commands\\Help.php' => 'CodeIgniter\\Commands\\Help',
+    'C:\\Users\\MARIO\\Desktop\\KP\\clone1\\simdiklatkp\\vendor\\codeigniter4\\framework\\system\\Commands\\Housekeeping\\ClearDebugbar.php' => 'CodeIgniter\\Commands\\Housekeeping\\ClearDebugbar',
+    'C:\\Users\\MARIO\\Desktop\\KP\\clone1\\simdiklatkp\\vendor\\codeigniter4\\framework\\system\\Commands\\Housekeeping\\ClearLogs.php' => 'CodeIgniter\\Commands\\Housekeeping\\ClearLogs',
+    'C:\\Users\\MARIO\\Desktop\\KP\\clone1\\simdiklatkp\\vendor\\codeigniter4\\framework\\system\\Commands\\ListCommands.php' => 'CodeIgniter\\Commands\\ListCommands',
+    'C:\\Users\\MARIO\\Desktop\\KP\\clone1\\simdiklatkp\\vendor\\codeigniter4\\framework\\system\\Commands\\Server\\Serve.php' => 'CodeIgniter\\Commands\\Server\\Serve',
+    'C:\\Users\\MARIO\\Desktop\\KP\\clone1\\simdiklatkp\\vendor\\codeigniter4\\framework\\system\\Commands\\Translation\\LocalizationFinder.php' => 'CodeIgniter\\Commands\\Translation\\LocalizationFinder',
+    'C:\\Users\\MARIO\\Desktop\\KP\\clone1\\simdiklatkp\\vendor\\codeigniter4\\framework\\system\\Commands\\Translation\\LocalizationSync.php' => 'CodeIgniter\\Commands\\Translation\\LocalizationSync',
+    'C:\\Users\\MARIO\\Desktop\\KP\\clone1\\simdiklatkp\\vendor\\codeigniter4\\framework\\system\\Commands\\Utilities\\ConfigCheck.php' => 'CodeIgniter\\Commands\\Utilities\\ConfigCheck',
+    'C:\\Users\\MARIO\\Desktop\\KP\\clone1\\simdiklatkp\\vendor\\codeigniter4\\framework\\system\\Commands\\Utilities\\Environment.php' => 'CodeIgniter\\Commands\\Utilities\\Environment',
+    'C:\\Users\\MARIO\\Desktop\\KP\\clone1\\simdiklatkp\\vendor\\codeigniter4\\framework\\system\\Commands\\Utilities\\FilterCheck.php' => 'CodeIgniter\\Commands\\Utilities\\FilterCheck',
+    'C:\\Users\\MARIO\\Desktop\\KP\\clone1\\simdiklatkp\\vendor\\codeigniter4\\framework\\system\\Commands\\Utilities\\Namespaces.php' => 'CodeIgniter\\Commands\\Utilities\\Namespaces',
+    'C:\\Users\\MARIO\\Desktop\\KP\\clone1\\simdiklatkp\\vendor\\codeigniter4\\framework\\system\\Commands\\Utilities\\Optimize.php' => 'CodeIgniter\\Commands\\Utilities\\Optimize',
+    'C:\\Users\\MARIO\\Desktop\\KP\\clone1\\simdiklatkp\\vendor\\codeigniter4\\framework\\system\\Commands\\Utilities\\PhpIniCheck.php' => 'CodeIgniter\\Commands\\Utilities\\PhpIniCheck',
+    'C:\\Users\\MARIO\\Desktop\\KP\\clone1\\simdiklatkp\\vendor\\codeigniter4\\framework\\system\\Commands\\Utilities\\Publish.php' => 'CodeIgniter\\Commands\\Utilities\\Publish',
+    'C:\\Users\\MARIO\\Desktop\\KP\\clone1\\simdiklatkp\\vendor\\codeigniter4\\framework\\system\\Commands\\Utilities\\Routes.php' => 'CodeIgniter\\Commands\\Utilities\\Routes',
+    'C:\\Users\\MARIO\\Desktop\\KP\\clone1\\simdiklatkp\\vendor\\codeigniter4\\framework\\system\\Commands\\Utilities\\Routes\\AutoRouteCollector.php' => 'CodeIgniter\\Commands\\Utilities\\Routes\\AutoRouteCollector',
+    'C:\\Users\\MARIO\\Desktop\\KP\\clone1\\simdiklatkp\\vendor\\codeigniter4\\framework\\system\\Commands\\Utilities\\Routes\\AutoRouterImproved\\AutoRouteCollector.php' => 'CodeIgniter\\Commands\\Utilities\\Routes\\AutoRouterImproved\\AutoRouteCollector',
+    'C:\\Users\\MARIO\\Desktop\\KP\\clone1\\simdiklatkp\\vendor\\codeigniter4\\framework\\system\\Commands\\Utilities\\Routes\\AutoRouterImproved\\ControllerMethodReader.php' => 'CodeIgniter\\Commands\\Utilities\\Routes\\AutoRouterImproved\\ControllerMethodReader',
+    'C:\\Users\\MARIO\\Desktop\\KP\\clone1\\simdiklatkp\\vendor\\codeigniter4\\framework\\system\\Commands\\Utilities\\Routes\\ControllerFinder.php' => 'CodeIgniter\\Commands\\Utilities\\Routes\\ControllerFinder',
+    'C:\\Users\\MARIO\\Desktop\\KP\\clone1\\simdiklatkp\\vendor\\codeigniter4\\framework\\system\\Commands\\Utilities\\Routes\\ControllerMethodReader.php' => 'CodeIgniter\\Commands\\Utilities\\Routes\\ControllerMethodReader',
+    'C:\\Users\\MARIO\\Desktop\\KP\\clone1\\simdiklatkp\\vendor\\codeigniter4\\framework\\system\\Commands\\Utilities\\Routes\\FilterCollector.php' => 'CodeIgniter\\Commands\\Utilities\\Routes\\FilterCollector',
+    'C:\\Users\\MARIO\\Desktop\\KP\\clone1\\simdiklatkp\\vendor\\codeigniter4\\framework\\system\\Commands\\Utilities\\Routes\\FilterFinder.php' => 'CodeIgniter\\Commands\\Utilities\\Routes\\FilterFinder',
+    'C:\\Users\\MARIO\\Desktop\\KP\\clone1\\simdiklatkp\\vendor\\codeigniter4\\framework\\system\\Commands\\Utilities\\Routes\\SampleURIGenerator.php' => 'CodeIgniter\\Commands\\Utilities\\Routes\\SampleURIGenerator',
+    'C:\\Users\\MARIO\\Desktop\\KP\\clone1\\simdiklatkp\\vendor\\codeigniter4\\framework\\system\\Commands\\Worker\\Views\\Caddyfile.tpl' => false,
+    'C:\\Users\\MARIO\\Desktop\\KP\\clone1\\simdiklatkp\\vendor\\codeigniter4\\framework\\system\\Commands\\Worker\\Views\\frankenphp-worker.php.tpl' => false,
+    'C:\\Users\\MARIO\\Desktop\\KP\\clone1\\simdiklatkp\\vendor\\codeigniter4\\framework\\system\\Commands\\Worker\\WorkerInstall.php' => 'CodeIgniter\\Commands\\Worker\\WorkerInstall',
+    'C:\\Users\\MARIO\\Desktop\\KP\\clone1\\simdiklatkp\\vendor\\codeigniter4\\framework\\system\\Commands\\Worker\\WorkerUninstall.php' => 'CodeIgniter\\Commands\\Worker\\WorkerUninstall',
   ),
   'getClassname' => 
   array (
-    'D:\\kpfinal\\simdiklatkp\\app\\Config\\Filters.php' => 'Config\\Filters',
-    'D:\\kpfinal\\simdiklatkp\\vendor\\codeigniter4\\framework\\system\\Config\\Filters.php' => 'CodeIgniter\\Config\\Filters',
-    'D:\\kpfinal\\simdiklatkp\\app\\Database\\Migrations\\2026-06-30-142334_ModulPendidikan.php' => 'App\\Database\\Migrations\\ModulPendidikan',
-    'D:\\kpfinal\\simdiklatkp\\app\\Database\\Migrations\\2026-07-02-000002_CreateDokumenInstitusiTable.php' => 'App\\Database\\Migrations\\CreateDokumenInstitusiTable',
-    'D:\\kpfinal\\simdiklatkp\\app\\Database\\Migrations\\2026-07-02-000003_FixInstitusiStatusEnum.php' => 'App\\Database\\Migrations\\FixInstitusiStatusEnum',
-    'D:\\kpfinal\\simdiklatkp\\app\\Database\\Migrations\\2026-07-02-000004_AddRevisiPengajuanStatus.php' => 'App\\Database\\Migrations\\AddRevisiPengajuanStatus',
-    'D:\\kpfinal\\simdiklatkp\\app\\Database\\Migrations\\2026-07-02-000005_AddStatusMahasiswaPendidikan.php' => 'App\\Database\\Migrations\\AddStatusMahasiswaPendidikan',
-    'D:\\kpfinal\\simdiklatkp\\app\\Database\\Migrations\\2026-07-02-000006_AddNomorTeleponCiPendidikan.php' => 'App\\Database\\Migrations\\AddNomorTeleponCiPendidikan',
-    'D:\\kpfinal\\simdiklatkp\\app\\Database\\Migrations\\2026-07-03-000001_UpdateStasePendidikanMultiRuangan.php' => 'App\\Database\\Migrations\\UpdateStasePendidikanMultiRuangan',
-    'D:\\kpfinal\\simdiklatkp\\app\\Database\\Migrations\\2026-07-03-000002_MakePengajuanIdNullable.php' => 'App\\Database\\Migrations\\MakePengajuanIdNullable',
-    'D:\\kpfinal\\simdiklatkp\\app\\Database\\Migrations\\2026-07-03-000003_AddProfesiUnitKerjaCiPendidikan.php' => 'App\\Database\\Migrations\\AddProfesiUnitKerjaCiPendidikan',
-    'D:\\kpfinal\\simdiklatkp\\app\\Database\\Migrations\\2026-07-03-140000_AddDokumenLainToPengajuan.php' => 'App\\Database\\Migrations\\AddDokumenLainToPengajuan',
-    'D:\\kpfinal\\simdiklatkp\\app\\Database\\Migrations\\2026-07-04-164132_CreateKuesionerTables.php' => 'App\\Database\\Migrations\\CreateKuesionerTables',
-    'D:\\kpfinal\\simdiklatkp\\app\\Database\\Migrations\\2026-07-04-170711_AlterPesertaKuesionerRatingAddSesiId.php' => 'App\\Database\\Migrations\\AlterPesertaKuesionerRatingAddSesiId',
-    'D:\\kpfinal\\simdiklatkp\\app\\Database\\Migrations\\2026-07-07-040654_AddStatusPembayaranToInstitusiPendidikan.php' => 'App\\Database\\Migrations\\AddStatusPembayaranToInstitusiPendidikan',
-    'D:\\kpfinal\\simdiklatkp\\app\\Database\\Migrations\\2026-07-07-041410_AddPembayaranToMahasiswaPendidikan.php' => 'App\\Database\\Migrations\\AddPembayaranToMahasiswaPendidikan',
-    'D:\\kpfinal\\simdiklatkp\\app\\Database\\Migrations\\2026-07-07-042110_AddPaymentStatusMahasiswa.php' => 'App\\Database\\Migrations\\AddPaymentStatusMahasiswa',
-    'D:\\kpfinal\\simdiklatkp\\app\\Database\\Migrations\\2026-07-07-061340_FixInvoiceAndNominal.php' => 'App\\Database\\Migrations\\FixInvoiceAndNominal',
-    'D:\\kpfinal\\simdiklatkp\\app\\Database\\Migrations\\2026-07-08-000001_AddProfesiToMahasiswaPendidikan.php' => 'App\\Database\\Migrations\\AddProfesiToMahasiswaPendidikan',
-    'D:\\kpfinal\\simdiklatkp\\app\\Database\\Migrations\\2026-07-08-041600_GetTableInfo.php' => 'App\\Database\\Migrations\\GetTableInfo',
-    'D:\\kpfinal\\simdiklatkp\\app\\Database\\Migrations\\2026-07-08-051842_AlterPendidikanTables.php' => 'App\\Database\\Migrations\\AlterPendidikanTables',
-    'D:\\kpfinal\\simdiklatkp\\app\\Database\\Migrations\\2026-07-08-051931_AddNilaiAkhirToMahasiswa.php' => 'App\\Database\\Migrations\\AddNilaiAkhirToMahasiswa',
-    'D:\\kpfinal\\simdiklatkp\\app\\Database\\Migrations\\2026-07-08-113500_UpdateStasePendidikanCiRuangan.php' => 'App\\Database\\Migrations\\UpdateStasePendidikanCiRuangan',
-    'D:\\kpfinal\\simdiklatkp\\app\\Database\\Migrations\\2026-07-08-152000_CreateTugasPendidikanTables.php' => 'App\\Database\\Migrations\\CreateTugasPendidikanTables',
-    'D:\\kpfinal\\simdiklatkp\\app\\Database\\Migrations\\2026-07-09-000000_AddSuperAdmin.php' => 'App\\Database\\Migrations\\AddSuperAdmin',
-    'D:\\kpfinal\\simdiklatkp\\app\\Database\\Migrations\\Pelatihan\\2026-07-03-090000_CreatePejabatTtdPelatihan.php' => 'App\\Database\\Migrations\\Pelatihan\\CreatePejabatTtdPelatihan',
-    'D:\\kpfinal\\simdiklatkp\\app\\Database\\Migrations\\Pelatihan\\2026-07-03-094000_CreatePengaturanLogoSistemPelatihan.php' => 'App\\Database\\Migrations\\Pelatihan\\CreatePengaturanLogoSistemPelatihan',
-    'D:\\kpfinal\\simdiklatkp\\app\\Database\\Migrations\\Pelatihan\\2026-07-03-095000_CreateSertifTerbitPelatihan.php' => 'App\\Database\\Migrations\\Pelatihan\\CreateSertifTerbitPelatihan',
-    'D:\\kpfinal\\simdiklatkp\\app\\Database\\Migrations\\Pelatihan\\2026-07-03-100000_CreateKategoriEvaluasiPelatihan.php' => 'App\\Database\\Migrations\\Pelatihan\\CreateKategoriEvaluasiPelatihan',
-    'D:\\kpfinal\\simdiklatkp\\app\\Database\\Migrations\\Pelatihan\\2026-07-03-100001_CreateMasterKategoriSkpPelatihan.php' => 'App\\Database\\Migrations\\Pelatihan\\CreateMasterKategoriSkpPelatihan',
-    'D:\\kpfinal\\simdiklatkp\\app\\Database\\Migrations\\Pelatihan\\2026-07-03-100003_CreateProfesiPelatihan.php' => 'App\\Database\\Migrations\\Pelatihan\\CreateProfesiPelatihan',
-    'D:\\kpfinal\\simdiklatkp\\app\\Database\\Migrations\\Pelatihan\\2026-07-03-100004_CreateUnitKerjaPelatihan.php' => 'App\\Database\\Migrations\\Pelatihan\\CreateUnitKerjaPelatihan',
-    'D:\\kpfinal\\simdiklatkp\\app\\Database\\Migrations\\Pelatihan\\2026-07-03-100005_CreateUsersPelatihan.php' => 'App\\Database\\Migrations\\Pelatihan\\CreateUsersPelatihan',
-    'D:\\kpfinal\\simdiklatkp\\app\\Database\\Migrations\\Pelatihan\\2026-07-03-100006_CreateMasterPelatihan.php' => 'App\\Database\\Migrations\\Pelatihan\\CreateMasterPelatihan',
-    'D:\\kpfinal\\simdiklatkp\\app\\Database\\Migrations\\Pelatihan\\2026-07-03-100007_CreateMateriPelatihan.php' => 'App\\Database\\Migrations\\Pelatihan\\CreateMateriPelatihan',
-    'D:\\kpfinal\\simdiklatkp\\app\\Database\\Migrations\\Pelatihan\\2026-07-03-100008_CreateSesiInteraktifPelatihan.php' => 'App\\Database\\Migrations\\Pelatihan\\CreateSesiInteraktifPelatihan',
-    'D:\\kpfinal\\simdiklatkp\\app\\Database\\Migrations\\Pelatihan\\2026-07-03-100009_CreateUjianPelatihan.php' => 'App\\Database\\Migrations\\Pelatihan\\CreateUjianPelatihan',
-    'D:\\kpfinal\\simdiklatkp\\app\\Database\\Migrations\\Pelatihan\\2026-07-03-100010_CreateUjianSoalPelatihan.php' => 'App\\Database\\Migrations\\Pelatihan\\CreateUjianSoalPelatihan',
-    'D:\\kpfinal\\simdiklatkp\\app\\Database\\Migrations\\Pelatihan\\2026-07-03-100011_CreateKuesionerMasterPelatihan.php' => 'App\\Database\\Migrations\\Pelatihan\\CreateKuesionerMasterPelatihan',
-    'D:\\kpfinal\\simdiklatkp\\app\\Database\\Migrations\\Pelatihan\\2026-07-03-100012_CreatePesertaPelatihan.php' => 'App\\Database\\Migrations\\Pelatihan\\CreatePesertaPelatihan',
-    'D:\\kpfinal\\simdiklatkp\\app\\Database\\Migrations\\Pelatihan\\2026-07-03-100013_CreateSertifikatPelatihan.php' => 'App\\Database\\Migrations\\Pelatihan\\CreateSertifikatPelatihan',
-    'D:\\kpfinal\\simdiklatkp\\app\\Database\\Migrations\\Pelatihan\\2026-07-03-100014_CreateNotifikasiPelatihan.php' => 'App\\Database\\Migrations\\Pelatihan\\CreateNotifikasiPelatihan',
-    'D:\\kpfinal\\simdiklatkp\\app\\Database\\Migrations\\Pelatihan\\2026-07-03-100015_CreatePesertaPresensiPelatihan.php' => 'App\\Database\\Migrations\\Pelatihan\\CreatePesertaPresensiPelatihan',
-    'D:\\kpfinal\\simdiklatkp\\app\\Database\\Migrations\\Pelatihan\\2026-07-03-100017_CreatePesertaKuesionerRatingPelatihan.php' => 'App\\Database\\Migrations\\Pelatihan\\CreatePesertaKuesionerRatingPelatihan',
-    'D:\\kpfinal\\simdiklatkp\\app\\Database\\Migrations\\Pelatihan\\2026-07-03-100018_CreatePesertaKuesionerSaranPelatihan.php' => 'App\\Database\\Migrations\\Pelatihan\\CreatePesertaKuesionerSaranPelatihan',
-    'D:\\kpfinal\\simdiklatkp\\app\\Database\\Migrations\\Pelatihan\\2026-07-06-110000_CreatePesertaUjianTables.php' => 'App\\Database\\Migrations\\Pelatihan\\CreatePesertaUjianTables',
-    'D:\\kpfinal\\simdiklatkp\\app\\Database\\Migrations\\Riset\\2024-01-01-000001_CreateUsersRisetTable.php' => 'App\\Database\\Migrations\\Riset\\CreateUsersRisetTable',
-    'D:\\kpfinal\\simdiklatkp\\app\\Database\\Migrations\\Riset\\2024-01-01-000002_CreatePengajuanRisetTable.php' => 'App\\Database\\Migrations\\Riset\\CreatePengajuanRisetTable',
-    'D:\\kpfinal\\simdiklatkp\\app\\Database\\Migrations\\Riset\\2024-01-01-000003_CreateDokumenRisetTable.php' => 'App\\Database\\Migrations\\Riset\\CreateDokumenRisetTable',
-    'D:\\kpfinal\\simdiklatkp\\app\\Database\\Migrations\\Riset\\2024-01-01-000004_CreatePublikasiRisetTable.php' => 'App\\Database\\Migrations\\Riset\\CreatePublikasiRisetTable',
-    'D:\\kpfinal\\simdiklatkp\\app\\Database\\Migrations\\Riset\\2026-07-07-025854_CreatePengaturanSuratRisetTable.php' => 'App\\Database\\Migrations\\Riset\\CreatePengaturanSuratRisetTable',
+    'C:\\Users\\MARIO\\Desktop\\KP\\clone1\\simdiklatkp\\app\\Config\\Filters.php' => 'Config\\Filters',
+    'C:\\Users\\MARIO\\Desktop\\KP\\clone1\\simdiklatkp\\vendor\\codeigniter4\\framework\\system\\Config\\Filters.php' => 'CodeIgniter\\Config\\Filters',
+    'C:\\Users\\MARIO\\Desktop\\KP\\clone1\\simdiklatkp\\app\\Database\\Migrations\\2026-06-30-142334_ModulPendidikan.php' => 'App\\Database\\Migrations\\ModulPendidikan',
+    'C:\\Users\\MARIO\\Desktop\\KP\\clone1\\simdiklatkp\\app\\Database\\Migrations\\2026-07-02-000002_CreateDokumenInstitusiTable.php' => 'App\\Database\\Migrations\\CreateDokumenInstitusiTable',
+    'C:\\Users\\MARIO\\Desktop\\KP\\clone1\\simdiklatkp\\app\\Database\\Migrations\\2026-07-02-000003_FixInstitusiStatusEnum.php' => 'App\\Database\\Migrations\\FixInstitusiStatusEnum',
+    'C:\\Users\\MARIO\\Desktop\\KP\\clone1\\simdiklatkp\\app\\Database\\Migrations\\2026-07-02-000004_AddRevisiPengajuanStatus.php' => 'App\\Database\\Migrations\\AddRevisiPengajuanStatus',
+    'C:\\Users\\MARIO\\Desktop\\KP\\clone1\\simdiklatkp\\app\\Database\\Migrations\\2026-07-02-000005_AddStatusMahasiswaPendidikan.php' => 'App\\Database\\Migrations\\AddStatusMahasiswaPendidikan',
+    'C:\\Users\\MARIO\\Desktop\\KP\\clone1\\simdiklatkp\\app\\Database\\Migrations\\2026-07-02-000006_AddNomorTeleponCiPendidikan.php' => 'App\\Database\\Migrations\\AddNomorTeleponCiPendidikan',
+    'C:\\Users\\MARIO\\Desktop\\KP\\clone1\\simdiklatkp\\app\\Database\\Migrations\\2026-07-03-000001_UpdateStasePendidikanMultiRuangan.php' => 'App\\Database\\Migrations\\UpdateStasePendidikanMultiRuangan',
+    'C:\\Users\\MARIO\\Desktop\\KP\\clone1\\simdiklatkp\\app\\Database\\Migrations\\2026-07-03-000002_MakePengajuanIdNullable.php' => 'App\\Database\\Migrations\\MakePengajuanIdNullable',
+    'C:\\Users\\MARIO\\Desktop\\KP\\clone1\\simdiklatkp\\app\\Database\\Migrations\\2026-07-03-000003_AddProfesiUnitKerjaCiPendidikan.php' => 'App\\Database\\Migrations\\AddProfesiUnitKerjaCiPendidikan',
+    'C:\\Users\\MARIO\\Desktop\\KP\\clone1\\simdiklatkp\\app\\Database\\Migrations\\2026-07-03-140000_AddDokumenLainToPengajuan.php' => 'App\\Database\\Migrations\\AddDokumenLainToPengajuan',
+    'C:\\Users\\MARIO\\Desktop\\KP\\clone1\\simdiklatkp\\app\\Database\\Migrations\\2026-07-04-164132_CreateKuesionerTables.php' => 'App\\Database\\Migrations\\CreateKuesionerTables',
+    'C:\\Users\\MARIO\\Desktop\\KP\\clone1\\simdiklatkp\\app\\Database\\Migrations\\2026-07-04-170711_AlterPesertaKuesionerRatingAddSesiId.php' => 'App\\Database\\Migrations\\AlterPesertaKuesionerRatingAddSesiId',
+    'C:\\Users\\MARIO\\Desktop\\KP\\clone1\\simdiklatkp\\app\\Database\\Migrations\\2026-07-07-040654_AddStatusPembayaranToInstitusiPendidikan.php' => 'App\\Database\\Migrations\\AddStatusPembayaranToInstitusiPendidikan',
+    'C:\\Users\\MARIO\\Desktop\\KP\\clone1\\simdiklatkp\\app\\Database\\Migrations\\2026-07-07-041410_AddPembayaranToMahasiswaPendidikan.php' => 'App\\Database\\Migrations\\AddPembayaranToMahasiswaPendidikan',
+    'C:\\Users\\MARIO\\Desktop\\KP\\clone1\\simdiklatkp\\app\\Database\\Migrations\\2026-07-07-042110_AddPaymentStatusMahasiswa.php' => 'App\\Database\\Migrations\\AddPaymentStatusMahasiswa',
+    'C:\\Users\\MARIO\\Desktop\\KP\\clone1\\simdiklatkp\\app\\Database\\Migrations\\2026-07-07-061340_FixInvoiceAndNominal.php' => 'App\\Database\\Migrations\\FixInvoiceAndNominal',
+    'C:\\Users\\MARIO\\Desktop\\KP\\clone1\\simdiklatkp\\app\\Database\\Migrations\\2026-07-08-000001_AddProfesiToMahasiswaPendidikan.php' => 'App\\Database\\Migrations\\AddProfesiToMahasiswaPendidikan',
+    'C:\\Users\\MARIO\\Desktop\\KP\\clone1\\simdiklatkp\\app\\Database\\Migrations\\2026-07-08-041600_GetTableInfo.php' => 'App\\Database\\Migrations\\GetTableInfo',
+    'C:\\Users\\MARIO\\Desktop\\KP\\clone1\\simdiklatkp\\app\\Database\\Migrations\\2026-07-08-051842_AlterPendidikanTables.php' => 'App\\Database\\Migrations\\AlterPendidikanTables',
+    'C:\\Users\\MARIO\\Desktop\\KP\\clone1\\simdiklatkp\\app\\Database\\Migrations\\2026-07-08-051931_AddNilaiAkhirToMahasiswa.php' => 'App\\Database\\Migrations\\AddNilaiAkhirToMahasiswa',
+    'C:\\Users\\MARIO\\Desktop\\KP\\clone1\\simdiklatkp\\app\\Database\\Migrations\\2026-07-08-113500_UpdateStasePendidikanCiRuangan.php' => 'App\\Database\\Migrations\\UpdateStasePendidikanCiRuangan',
+    'C:\\Users\\MARIO\\Desktop\\KP\\clone1\\simdiklatkp\\app\\Database\\Migrations\\2026-07-08-152000_CreateTugasPendidikanTables.php' => 'App\\Database\\Migrations\\CreateTugasPendidikanTables',
+    'C:\\Users\\MARIO\\Desktop\\KP\\clone1\\simdiklatkp\\app\\Database\\Migrations\\2026-07-09-000000_AddSuperAdmin.php' => 'App\\Database\\Migrations\\AddSuperAdmin',
+    'C:\\Users\\MARIO\\Desktop\\KP\\clone1\\simdiklatkp\\app\\Database\\Migrations\\2026-07-16-054525_AddStaseAndRuanganToLogbookPendidikan.php' => 'App\\Database\\Migrations\\AddStaseAndRuanganToLogbookPendidikan',
+    'C:\\Users\\MARIO\\Desktop\\KP\\clone1\\simdiklatkp\\app\\Database\\Migrations\\2026-07-16-120000_AddMouDatesToInstitusiPendidikan.php' => 'App\\Database\\Migrations\\AddMouDatesToInstitusiPendidikan',
+    'C:\\Users\\MARIO\\Desktop\\KP\\clone1\\simdiklatkp\\app\\Database\\Migrations\\Pelatihan\\2026-07-03-090000_CreatePejabatTtdPelatihan.php' => 'App\\Database\\Migrations\\Pelatihan\\CreatePejabatTtdPelatihan',
+    'C:\\Users\\MARIO\\Desktop\\KP\\clone1\\simdiklatkp\\app\\Database\\Migrations\\Pelatihan\\2026-07-03-094000_CreatePengaturanLogoSistemPelatihan.php' => 'App\\Database\\Migrations\\Pelatihan\\CreatePengaturanLogoSistemPelatihan',
+    'C:\\Users\\MARIO\\Desktop\\KP\\clone1\\simdiklatkp\\app\\Database\\Migrations\\Pelatihan\\2026-07-03-095000_CreateSertifTerbitPelatihan.php' => 'App\\Database\\Migrations\\Pelatihan\\CreateSertifTerbitPelatihan',
+    'C:\\Users\\MARIO\\Desktop\\KP\\clone1\\simdiklatkp\\app\\Database\\Migrations\\Pelatihan\\2026-07-03-100000_CreateKategoriEvaluasiPelatihan.php' => 'App\\Database\\Migrations\\Pelatihan\\CreateKategoriEvaluasiPelatihan',
+    'C:\\Users\\MARIO\\Desktop\\KP\\clone1\\simdiklatkp\\app\\Database\\Migrations\\Pelatihan\\2026-07-03-100001_CreateMasterKategoriSkpPelatihan.php' => 'App\\Database\\Migrations\\Pelatihan\\CreateMasterKategoriSkpPelatihan',
+    'C:\\Users\\MARIO\\Desktop\\KP\\clone1\\simdiklatkp\\app\\Database\\Migrations\\Pelatihan\\2026-07-03-100003_CreateProfesiPelatihan.php' => 'App\\Database\\Migrations\\Pelatihan\\CreateProfesiPelatihan',
+    'C:\\Users\\MARIO\\Desktop\\KP\\clone1\\simdiklatkp\\app\\Database\\Migrations\\Pelatihan\\2026-07-03-100004_CreateUnitKerjaPelatihan.php' => 'App\\Database\\Migrations\\Pelatihan\\CreateUnitKerjaPelatihan',
+    'C:\\Users\\MARIO\\Desktop\\KP\\clone1\\simdiklatkp\\app\\Database\\Migrations\\Pelatihan\\2026-07-03-100005_CreateUsersPelatihan.php' => 'App\\Database\\Migrations\\Pelatihan\\CreateUsersPelatihan',
+    'C:\\Users\\MARIO\\Desktop\\KP\\clone1\\simdiklatkp\\app\\Database\\Migrations\\Pelatihan\\2026-07-03-100006_CreateMasterPelatihan.php' => 'App\\Database\\Migrations\\Pelatihan\\CreateMasterPelatihan',
+    'C:\\Users\\MARIO\\Desktop\\KP\\clone1\\simdiklatkp\\app\\Database\\Migrations\\Pelatihan\\2026-07-03-100007_CreateMateriPelatihan.php' => 'App\\Database\\Migrations\\Pelatihan\\CreateMateriPelatihan',
+    'C:\\Users\\MARIO\\Desktop\\KP\\clone1\\simdiklatkp\\app\\Database\\Migrations\\Pelatihan\\2026-07-03-100008_CreateSesiInteraktifPelatihan.php' => 'App\\Database\\Migrations\\Pelatihan\\CreateSesiInteraktifPelatihan',
+    'C:\\Users\\MARIO\\Desktop\\KP\\clone1\\simdiklatkp\\app\\Database\\Migrations\\Pelatihan\\2026-07-03-100009_CreateUjianPelatihan.php' => 'App\\Database\\Migrations\\Pelatihan\\CreateUjianPelatihan',
+    'C:\\Users\\MARIO\\Desktop\\KP\\clone1\\simdiklatkp\\app\\Database\\Migrations\\Pelatihan\\2026-07-03-100010_CreateUjianSoalPelatihan.php' => 'App\\Database\\Migrations\\Pelatihan\\CreateUjianSoalPelatihan',
+    'C:\\Users\\MARIO\\Desktop\\KP\\clone1\\simdiklatkp\\app\\Database\\Migrations\\Pelatihan\\2026-07-03-100011_CreateKuesionerMasterPelatihan.php' => 'App\\Database\\Migrations\\Pelatihan\\CreateKuesionerMasterPelatihan',
+    'C:\\Users\\MARIO\\Desktop\\KP\\clone1\\simdiklatkp\\app\\Database\\Migrations\\Pelatihan\\2026-07-03-100012_CreatePesertaPelatihan.php' => 'App\\Database\\Migrations\\Pelatihan\\CreatePesertaPelatihan',
+    'C:\\Users\\MARIO\\Desktop\\KP\\clone1\\simdiklatkp\\app\\Database\\Migrations\\Pelatihan\\2026-07-03-100013_CreateSertifikatPelatihan.php' => 'App\\Database\\Migrations\\Pelatihan\\CreateSertifikatPelatihan',
+    'C:\\Users\\MARIO\\Desktop\\KP\\clone1\\simdiklatkp\\app\\Database\\Migrations\\Pelatihan\\2026-07-03-100014_CreateNotifikasiPelatihan.php' => 'App\\Database\\Migrations\\Pelatihan\\CreateNotifikasiPelatihan',
+    'C:\\Users\\MARIO\\Desktop\\KP\\clone1\\simdiklatkp\\app\\Database\\Migrations\\Pelatihan\\2026-07-03-100015_CreatePesertaPresensiPelatihan.php' => 'App\\Database\\Migrations\\Pelatihan\\CreatePesertaPresensiPelatihan',
+    'C:\\Users\\MARIO\\Desktop\\KP\\clone1\\simdiklatkp\\app\\Database\\Migrations\\Pelatihan\\2026-07-03-100017_CreatePesertaKuesionerRatingPelatihan.php' => 'App\\Database\\Migrations\\Pelatihan\\CreatePesertaKuesionerRatingPelatihan',
+    'C:\\Users\\MARIO\\Desktop\\KP\\clone1\\simdiklatkp\\app\\Database\\Migrations\\Pelatihan\\2026-07-03-100018_CreatePesertaKuesionerSaranPelatihan.php' => 'App\\Database\\Migrations\\Pelatihan\\CreatePesertaKuesionerSaranPelatihan',
+    'C:\\Users\\MARIO\\Desktop\\KP\\clone1\\simdiklatkp\\app\\Database\\Migrations\\Pelatihan\\2026-07-06-110000_CreatePesertaUjianTables.php' => 'App\\Database\\Migrations\\Pelatihan\\CreatePesertaUjianTables',
+    'C:\\Users\\MARIO\\Desktop\\KP\\clone1\\simdiklatkp\\app\\Database\\Migrations\\Riset\\2024-01-01-000001_CreateUsersRisetTable.php' => 'App\\Database\\Migrations\\Riset\\CreateUsersRisetTable',
+    'C:\\Users\\MARIO\\Desktop\\KP\\clone1\\simdiklatkp\\app\\Database\\Migrations\\Riset\\2024-01-01-000002_CreatePengajuanRisetTable.php' => 'App\\Database\\Migrations\\Riset\\CreatePengajuanRisetTable',
+    'C:\\Users\\MARIO\\Desktop\\KP\\clone1\\simdiklatkp\\app\\Database\\Migrations\\Riset\\2024-01-01-000003_CreateDokumenRisetTable.php' => 'App\\Database\\Migrations\\Riset\\CreateDokumenRisetTable',
+    'C:\\Users\\MARIO\\Desktop\\KP\\clone1\\simdiklatkp\\app\\Database\\Migrations\\Riset\\2024-01-01-000004_CreatePublikasiRisetTable.php' => 'App\\Database\\Migrations\\Riset\\CreatePublikasiRisetTable',
+    'C:\\Users\\MARIO\\Desktop\\KP\\clone1\\simdiklatkp\\app\\Database\\Migrations\\Riset\\2026-07-07-025854_CreatePengaturanSuratRisetTable.php' => 'App\\Database\\Migrations\\Riset\\CreatePengaturanSuratRisetTable',
   ),
   'listFiles' => 
   array (
     'Commands/' => 
     array (
-      0 => 'D:\\kpfinal\\simdiklatkp\\app\\Commands\\ForceMigrate.php',
-      1 => 'D:\\kpfinal\\simdiklatkp\\vendor\\codeigniter4\\framework\\system\\Commands\\Cache\\ClearCache.php',
-      2 => 'D:\\kpfinal\\simdiklatkp\\vendor\\codeigniter4\\framework\\system\\Commands\\Cache\\InfoCache.php',
-      3 => 'D:\\kpfinal\\simdiklatkp\\vendor\\codeigniter4\\framework\\system\\Commands\\Database\\CreateDatabase.php',
-      4 => 'D:\\kpfinal\\simdiklatkp\\vendor\\codeigniter4\\framework\\system\\Commands\\Database\\Migrate.php',
-      5 => 'D:\\kpfinal\\simdiklatkp\\vendor\\codeigniter4\\framework\\system\\Commands\\Database\\MigrateRefresh.php',
-      6 => 'D:\\kpfinal\\simdiklatkp\\vendor\\codeigniter4\\framework\\system\\Commands\\Database\\MigrateRollback.php',
-      7 => 'D:\\kpfinal\\simdiklatkp\\vendor\\codeigniter4\\framework\\system\\Commands\\Database\\MigrateStatus.php',
-      8 => 'D:\\kpfinal\\simdiklatkp\\vendor\\codeigniter4\\framework\\system\\Commands\\Database\\Seed.php',
-      9 => 'D:\\kpfinal\\simdiklatkp\\vendor\\codeigniter4\\framework\\system\\Commands\\Database\\ShowTableInfo.php',
-      10 => 'D:\\kpfinal\\simdiklatkp\\vendor\\codeigniter4\\framework\\system\\Commands\\Encryption\\GenerateKey.php',
-      11 => 'D:\\kpfinal\\simdiklatkp\\vendor\\codeigniter4\\framework\\system\\Commands\\Generators\\CellGenerator.php',
-      12 => 'D:\\kpfinal\\simdiklatkp\\vendor\\codeigniter4\\framework\\system\\Commands\\Generators\\CommandGenerator.php',
-      13 => 'D:\\kpfinal\\simdiklatkp\\vendor\\codeigniter4\\framework\\system\\Commands\\Generators\\ConfigGenerator.php',
-      14 => 'D:\\kpfinal\\simdiklatkp\\vendor\\codeigniter4\\framework\\system\\Commands\\Generators\\ControllerGenerator.php',
-      15 => 'D:\\kpfinal\\simdiklatkp\\vendor\\codeigniter4\\framework\\system\\Commands\\Generators\\EntityGenerator.php',
-      16 => 'D:\\kpfinal\\simdiklatkp\\vendor\\codeigniter4\\framework\\system\\Commands\\Generators\\FilterGenerator.php',
-      17 => 'D:\\kpfinal\\simdiklatkp\\vendor\\codeigniter4\\framework\\system\\Commands\\Generators\\MigrationGenerator.php',
-      18 => 'D:\\kpfinal\\simdiklatkp\\vendor\\codeigniter4\\framework\\system\\Commands\\Generators\\ModelGenerator.php',
-      19 => 'D:\\kpfinal\\simdiklatkp\\vendor\\codeigniter4\\framework\\system\\Commands\\Generators\\ScaffoldGenerator.php',
-      20 => 'D:\\kpfinal\\simdiklatkp\\vendor\\codeigniter4\\framework\\system\\Commands\\Generators\\SeederGenerator.php',
-      21 => 'D:\\kpfinal\\simdiklatkp\\vendor\\codeigniter4\\framework\\system\\Commands\\Generators\\TestGenerator.php',
-      22 => 'D:\\kpfinal\\simdiklatkp\\vendor\\codeigniter4\\framework\\system\\Commands\\Generators\\TransformerGenerator.php',
-      23 => 'D:\\kpfinal\\simdiklatkp\\vendor\\codeigniter4\\framework\\system\\Commands\\Generators\\ValidationGenerator.php',
-      24 => 'D:\\kpfinal\\simdiklatkp\\vendor\\codeigniter4\\framework\\system\\Commands\\Generators\\Views\\cell.tpl.php',
-      25 => 'D:\\kpfinal\\simdiklatkp\\vendor\\codeigniter4\\framework\\system\\Commands\\Generators\\Views\\cell_view.tpl.php',
-      26 => 'D:\\kpfinal\\simdiklatkp\\vendor\\codeigniter4\\framework\\system\\Commands\\Generators\\Views\\command.tpl.php',
-      27 => 'D:\\kpfinal\\simdiklatkp\\vendor\\codeigniter4\\framework\\system\\Commands\\Generators\\Views\\config.tpl.php',
-      28 => 'D:\\kpfinal\\simdiklatkp\\vendor\\codeigniter4\\framework\\system\\Commands\\Generators\\Views\\controller.tpl.php',
-      29 => 'D:\\kpfinal\\simdiklatkp\\vendor\\codeigniter4\\framework\\system\\Commands\\Generators\\Views\\entity.tpl.php',
-      30 => 'D:\\kpfinal\\simdiklatkp\\vendor\\codeigniter4\\framework\\system\\Commands\\Generators\\Views\\filter.tpl.php',
-      31 => 'D:\\kpfinal\\simdiklatkp\\vendor\\codeigniter4\\framework\\system\\Commands\\Generators\\Views\\migration.tpl.php',
-      32 => 'D:\\kpfinal\\simdiklatkp\\vendor\\codeigniter4\\framework\\system\\Commands\\Generators\\Views\\model.tpl.php',
-      33 => 'D:\\kpfinal\\simdiklatkp\\vendor\\codeigniter4\\framework\\system\\Commands\\Generators\\Views\\seeder.tpl.php',
-      34 => 'D:\\kpfinal\\simdiklatkp\\vendor\\codeigniter4\\framework\\system\\Commands\\Generators\\Views\\test.tpl.php',
-      35 => 'D:\\kpfinal\\simdiklatkp\\vendor\\codeigniter4\\framework\\system\\Commands\\Generators\\Views\\transformer.tpl.php',
-      36 => 'D:\\kpfinal\\simdiklatkp\\vendor\\codeigniter4\\framework\\system\\Commands\\Generators\\Views\\validation.tpl.php',
-      37 => 'D:\\kpfinal\\simdiklatkp\\vendor\\codeigniter4\\framework\\system\\Commands\\Help.php',
-      38 => 'D:\\kpfinal\\simdiklatkp\\vendor\\codeigniter4\\framework\\system\\Commands\\Housekeeping\\ClearDebugbar.php',
-      39 => 'D:\\kpfinal\\simdiklatkp\\vendor\\codeigniter4\\framework\\system\\Commands\\Housekeeping\\ClearLogs.php',
-      40 => 'D:\\kpfinal\\simdiklatkp\\vendor\\codeigniter4\\framework\\system\\Commands\\ListCommands.php',
-      41 => 'D:\\kpfinal\\simdiklatkp\\vendor\\codeigniter4\\framework\\system\\Commands\\Server\\Serve.php',
-      42 => 'D:\\kpfinal\\simdiklatkp\\vendor\\codeigniter4\\framework\\system\\Commands\\Translation\\LocalizationFinder.php',
-      43 => 'D:\\kpfinal\\simdiklatkp\\vendor\\codeigniter4\\framework\\system\\Commands\\Translation\\LocalizationSync.php',
-      44 => 'D:\\kpfinal\\simdiklatkp\\vendor\\codeigniter4\\framework\\system\\Commands\\Utilities\\ConfigCheck.php',
-      45 => 'D:\\kpfinal\\simdiklatkp\\vendor\\codeigniter4\\framework\\system\\Commands\\Utilities\\Environment.php',
-      46 => 'D:\\kpfinal\\simdiklatkp\\vendor\\codeigniter4\\framework\\system\\Commands\\Utilities\\FilterCheck.php',
-      47 => 'D:\\kpfinal\\simdiklatkp\\vendor\\codeigniter4\\framework\\system\\Commands\\Utilities\\Namespaces.php',
-      48 => 'D:\\kpfinal\\simdiklatkp\\vendor\\codeigniter4\\framework\\system\\Commands\\Utilities\\Optimize.php',
-      49 => 'D:\\kpfinal\\simdiklatkp\\vendor\\codeigniter4\\framework\\system\\Commands\\Utilities\\PhpIniCheck.php',
-      50 => 'D:\\kpfinal\\simdiklatkp\\vendor\\codeigniter4\\framework\\system\\Commands\\Utilities\\Publish.php',
-      51 => 'D:\\kpfinal\\simdiklatkp\\vendor\\codeigniter4\\framework\\system\\Commands\\Utilities\\Routes.php',
-      52 => 'D:\\kpfinal\\simdiklatkp\\vendor\\codeigniter4\\framework\\system\\Commands\\Utilities\\Routes\\AutoRouteCollector.php',
-      53 => 'D:\\kpfinal\\simdiklatkp\\vendor\\codeigniter4\\framework\\system\\Commands\\Utilities\\Routes\\AutoRouterImproved\\AutoRouteCollector.php',
-      54 => 'D:\\kpfinal\\simdiklatkp\\vendor\\codeigniter4\\framework\\system\\Commands\\Utilities\\Routes\\AutoRouterImproved\\ControllerMethodReader.php',
-      55 => 'D:\\kpfinal\\simdiklatkp\\vendor\\codeigniter4\\framework\\system\\Commands\\Utilities\\Routes\\ControllerFinder.php',
-      56 => 'D:\\kpfinal\\simdiklatkp\\vendor\\codeigniter4\\framework\\system\\Commands\\Utilities\\Routes\\ControllerMethodReader.php',
-      57 => 'D:\\kpfinal\\simdiklatkp\\vendor\\codeigniter4\\framework\\system\\Commands\\Utilities\\Routes\\FilterCollector.php',
-      58 => 'D:\\kpfinal\\simdiklatkp\\vendor\\codeigniter4\\framework\\system\\Commands\\Utilities\\Routes\\FilterFinder.php',
-      59 => 'D:\\kpfinal\\simdiklatkp\\vendor\\codeigniter4\\framework\\system\\Commands\\Utilities\\Routes\\SampleURIGenerator.php',
-      60 => 'D:\\kpfinal\\simdiklatkp\\vendor\\codeigniter4\\framework\\system\\Commands\\Worker\\Views\\Caddyfile.tpl',
-      61 => 'D:\\kpfinal\\simdiklatkp\\vendor\\codeigniter4\\framework\\system\\Commands\\Worker\\Views\\frankenphp-worker.php.tpl',
-      62 => 'D:\\kpfinal\\simdiklatkp\\vendor\\codeigniter4\\framework\\system\\Commands\\Worker\\WorkerInstall.php',
-      63 => 'D:\\kpfinal\\simdiklatkp\\vendor\\codeigniter4\\framework\\system\\Commands\\Worker\\WorkerUninstall.php',
+      0 => 'C:\\Users\\MARIO\\Desktop\\KP\\clone1\\simdiklatkp\\app\\Commands\\ForceMigrate.php',
+      1 => 'C:\\Users\\MARIO\\Desktop\\KP\\clone1\\simdiklatkp\\vendor\\codeigniter4\\framework\\system\\Commands\\Cache\\ClearCache.php',
+      2 => 'C:\\Users\\MARIO\\Desktop\\KP\\clone1\\simdiklatkp\\vendor\\codeigniter4\\framework\\system\\Commands\\Cache\\InfoCache.php',
+      3 => 'C:\\Users\\MARIO\\Desktop\\KP\\clone1\\simdiklatkp\\vendor\\codeigniter4\\framework\\system\\Commands\\Database\\CreateDatabase.php',
+      4 => 'C:\\Users\\MARIO\\Desktop\\KP\\clone1\\simdiklatkp\\vendor\\codeigniter4\\framework\\system\\Commands\\Database\\Migrate.php',
+      5 => 'C:\\Users\\MARIO\\Desktop\\KP\\clone1\\simdiklatkp\\vendor\\codeigniter4\\framework\\system\\Commands\\Database\\MigrateRefresh.php',
+      6 => 'C:\\Users\\MARIO\\Desktop\\KP\\clone1\\simdiklatkp\\vendor\\codeigniter4\\framework\\system\\Commands\\Database\\MigrateRollback.php',
+      7 => 'C:\\Users\\MARIO\\Desktop\\KP\\clone1\\simdiklatkp\\vendor\\codeigniter4\\framework\\system\\Commands\\Database\\MigrateStatus.php',
+      8 => 'C:\\Users\\MARIO\\Desktop\\KP\\clone1\\simdiklatkp\\vendor\\codeigniter4\\framework\\system\\Commands\\Database\\Seed.php',
+      9 => 'C:\\Users\\MARIO\\Desktop\\KP\\clone1\\simdiklatkp\\vendor\\codeigniter4\\framework\\system\\Commands\\Database\\ShowTableInfo.php',
+      10 => 'C:\\Users\\MARIO\\Desktop\\KP\\clone1\\simdiklatkp\\vendor\\codeigniter4\\framework\\system\\Commands\\Encryption\\GenerateKey.php',
+      11 => 'C:\\Users\\MARIO\\Desktop\\KP\\clone1\\simdiklatkp\\vendor\\codeigniter4\\framework\\system\\Commands\\Generators\\CellGenerator.php',
+      12 => 'C:\\Users\\MARIO\\Desktop\\KP\\clone1\\simdiklatkp\\vendor\\codeigniter4\\framework\\system\\Commands\\Generators\\CommandGenerator.php',
+      13 => 'C:\\Users\\MARIO\\Desktop\\KP\\clone1\\simdiklatkp\\vendor\\codeigniter4\\framework\\system\\Commands\\Generators\\ConfigGenerator.php',
+      14 => 'C:\\Users\\MARIO\\Desktop\\KP\\clone1\\simdiklatkp\\vendor\\codeigniter4\\framework\\system\\Commands\\Generators\\ControllerGenerator.php',
+      15 => 'C:\\Users\\MARIO\\Desktop\\KP\\clone1\\simdiklatkp\\vendor\\codeigniter4\\framework\\system\\Commands\\Generators\\EntityGenerator.php',
+      16 => 'C:\\Users\\MARIO\\Desktop\\KP\\clone1\\simdiklatkp\\vendor\\codeigniter4\\framework\\system\\Commands\\Generators\\FilterGenerator.php',
+      17 => 'C:\\Users\\MARIO\\Desktop\\KP\\clone1\\simdiklatkp\\vendor\\codeigniter4\\framework\\system\\Commands\\Generators\\MigrationGenerator.php',
+      18 => 'C:\\Users\\MARIO\\Desktop\\KP\\clone1\\simdiklatkp\\vendor\\codeigniter4\\framework\\system\\Commands\\Generators\\ModelGenerator.php',
+      19 => 'C:\\Users\\MARIO\\Desktop\\KP\\clone1\\simdiklatkp\\vendor\\codeigniter4\\framework\\system\\Commands\\Generators\\ScaffoldGenerator.php',
+      20 => 'C:\\Users\\MARIO\\Desktop\\KP\\clone1\\simdiklatkp\\vendor\\codeigniter4\\framework\\system\\Commands\\Generators\\SeederGenerator.php',
+      21 => 'C:\\Users\\MARIO\\Desktop\\KP\\clone1\\simdiklatkp\\vendor\\codeigniter4\\framework\\system\\Commands\\Generators\\TestGenerator.php',
+      22 => 'C:\\Users\\MARIO\\Desktop\\KP\\clone1\\simdiklatkp\\vendor\\codeigniter4\\framework\\system\\Commands\\Generators\\TransformerGenerator.php',
+      23 => 'C:\\Users\\MARIO\\Desktop\\KP\\clone1\\simdiklatkp\\vendor\\codeigniter4\\framework\\system\\Commands\\Generators\\ValidationGenerator.php',
+      24 => 'C:\\Users\\MARIO\\Desktop\\KP\\clone1\\simdiklatkp\\vendor\\codeigniter4\\framework\\system\\Commands\\Generators\\Views\\cell.tpl.php',
+      25 => 'C:\\Users\\MARIO\\Desktop\\KP\\clone1\\simdiklatkp\\vendor\\codeigniter4\\framework\\system\\Commands\\Generators\\Views\\cell_view.tpl.php',
+      26 => 'C:\\Users\\MARIO\\Desktop\\KP\\clone1\\simdiklatkp\\vendor\\codeigniter4\\framework\\system\\Commands\\Generators\\Views\\command.tpl.php',
+      27 => 'C:\\Users\\MARIO\\Desktop\\KP\\clone1\\simdiklatkp\\vendor\\codeigniter4\\framework\\system\\Commands\\Generators\\Views\\config.tpl.php',
+      28 => 'C:\\Users\\MARIO\\Desktop\\KP\\clone1\\simdiklatkp\\vendor\\codeigniter4\\framework\\system\\Commands\\Generators\\Views\\controller.tpl.php',
+      29 => 'C:\\Users\\MARIO\\Desktop\\KP\\clone1\\simdiklatkp\\vendor\\codeigniter4\\framework\\system\\Commands\\Generators\\Views\\entity.tpl.php',
+      30 => 'C:\\Users\\MARIO\\Desktop\\KP\\clone1\\simdiklatkp\\vendor\\codeigniter4\\framework\\system\\Commands\\Generators\\Views\\filter.tpl.php',
+      31 => 'C:\\Users\\MARIO\\Desktop\\KP\\clone1\\simdiklatkp\\vendor\\codeigniter4\\framework\\system\\Commands\\Generators\\Views\\migration.tpl.php',
+      32 => 'C:\\Users\\MARIO\\Desktop\\KP\\clone1\\simdiklatkp\\vendor\\codeigniter4\\framework\\system\\Commands\\Generators\\Views\\model.tpl.php',
+      33 => 'C:\\Users\\MARIO\\Desktop\\KP\\clone1\\simdiklatkp\\vendor\\codeigniter4\\framework\\system\\Commands\\Generators\\Views\\seeder.tpl.php',
+      34 => 'C:\\Users\\MARIO\\Desktop\\KP\\clone1\\simdiklatkp\\vendor\\codeigniter4\\framework\\system\\Commands\\Generators\\Views\\test.tpl.php',
+      35 => 'C:\\Users\\MARIO\\Desktop\\KP\\clone1\\simdiklatkp\\vendor\\codeigniter4\\framework\\system\\Commands\\Generators\\Views\\transformer.tpl.php',
+      36 => 'C:\\Users\\MARIO\\Desktop\\KP\\clone1\\simdiklatkp\\vendor\\codeigniter4\\framework\\system\\Commands\\Generators\\Views\\validation.tpl.php',
+      37 => 'C:\\Users\\MARIO\\Desktop\\KP\\clone1\\simdiklatkp\\vendor\\codeigniter4\\framework\\system\\Commands\\Help.php',
+      38 => 'C:\\Users\\MARIO\\Desktop\\KP\\clone1\\simdiklatkp\\vendor\\codeigniter4\\framework\\system\\Commands\\Housekeeping\\ClearDebugbar.php',
+      39 => 'C:\\Users\\MARIO\\Desktop\\KP\\clone1\\simdiklatkp\\vendor\\codeigniter4\\framework\\system\\Commands\\Housekeeping\\ClearLogs.php',
+      40 => 'C:\\Users\\MARIO\\Desktop\\KP\\clone1\\simdiklatkp\\vendor\\codeigniter4\\framework\\system\\Commands\\ListCommands.php',
+      41 => 'C:\\Users\\MARIO\\Desktop\\KP\\clone1\\simdiklatkp\\vendor\\codeigniter4\\framework\\system\\Commands\\Server\\Serve.php',
+      42 => 'C:\\Users\\MARIO\\Desktop\\KP\\clone1\\simdiklatkp\\vendor\\codeigniter4\\framework\\system\\Commands\\Translation\\LocalizationFinder.php',
+      43 => 'C:\\Users\\MARIO\\Desktop\\KP\\clone1\\simdiklatkp\\vendor\\codeigniter4\\framework\\system\\Commands\\Translation\\LocalizationSync.php',
+      44 => 'C:\\Users\\MARIO\\Desktop\\KP\\clone1\\simdiklatkp\\vendor\\codeigniter4\\framework\\system\\Commands\\Utilities\\ConfigCheck.php',
+      45 => 'C:\\Users\\MARIO\\Desktop\\KP\\clone1\\simdiklatkp\\vendor\\codeigniter4\\framework\\system\\Commands\\Utilities\\Environment.php',
+      46 => 'C:\\Users\\MARIO\\Desktop\\KP\\clone1\\simdiklatkp\\vendor\\codeigniter4\\framework\\system\\Commands\\Utilities\\FilterCheck.php',
+      47 => 'C:\\Users\\MARIO\\Desktop\\KP\\clone1\\simdiklatkp\\vendor\\codeigniter4\\framework\\system\\Commands\\Utilities\\Namespaces.php',
+      48 => 'C:\\Users\\MARIO\\Desktop\\KP\\clone1\\simdiklatkp\\vendor\\codeigniter4\\framework\\system\\Commands\\Utilities\\Optimize.php',
+      49 => 'C:\\Users\\MARIO\\Desktop\\KP\\clone1\\simdiklatkp\\vendor\\codeigniter4\\framework\\system\\Commands\\Utilities\\PhpIniCheck.php',
+      50 => 'C:\\Users\\MARIO\\Desktop\\KP\\clone1\\simdiklatkp\\vendor\\codeigniter4\\framework\\system\\Commands\\Utilities\\Publish.php',
+      51 => 'C:\\Users\\MARIO\\Desktop\\KP\\clone1\\simdiklatkp\\vendor\\codeigniter4\\framework\\system\\Commands\\Utilities\\Routes.php',
+      52 => 'C:\\Users\\MARIO\\Desktop\\KP\\clone1\\simdiklatkp\\vendor\\codeigniter4\\framework\\system\\Commands\\Utilities\\Routes\\AutoRouteCollector.php',
+      53 => 'C:\\Users\\MARIO\\Desktop\\KP\\clone1\\simdiklatkp\\vendor\\codeigniter4\\framework\\system\\Commands\\Utilities\\Routes\\AutoRouterImproved\\AutoRouteCollector.php',
+      54 => 'C:\\Users\\MARIO\\Desktop\\KP\\clone1\\simdiklatkp\\vendor\\codeigniter4\\framework\\system\\Commands\\Utilities\\Routes\\AutoRouterImproved\\ControllerMethodReader.php',
+      55 => 'C:\\Users\\MARIO\\Desktop\\KP\\clone1\\simdiklatkp\\vendor\\codeigniter4\\framework\\system\\Commands\\Utilities\\Routes\\ControllerFinder.php',
+      56 => 'C:\\Users\\MARIO\\Desktop\\KP\\clone1\\simdiklatkp\\vendor\\codeigniter4\\framework\\system\\Commands\\Utilities\\Routes\\ControllerMethodReader.php',
+      57 => 'C:\\Users\\MARIO\\Desktop\\KP\\clone1\\simdiklatkp\\vendor\\codeigniter4\\framework\\system\\Commands\\Utilities\\Routes\\FilterCollector.php',
+      58 => 'C:\\Users\\MARIO\\Desktop\\KP\\clone1\\simdiklatkp\\vendor\\codeigniter4\\framework\\system\\Commands\\Utilities\\Routes\\FilterFinder.php',
+      59 => 'C:\\Users\\MARIO\\Desktop\\KP\\clone1\\simdiklatkp\\vendor\\codeigniter4\\framework\\system\\Commands\\Utilities\\Routes\\SampleURIGenerator.php',
+      60 => 'C:\\Users\\MARIO\\Desktop\\KP\\clone1\\simdiklatkp\\vendor\\codeigniter4\\framework\\system\\Commands\\Worker\\Views\\Caddyfile.tpl',
+      61 => 'C:\\Users\\MARIO\\Desktop\\KP\\clone1\\simdiklatkp\\vendor\\codeigniter4\\framework\\system\\Commands\\Worker\\Views\\frankenphp-worker.php.tpl',
+      62 => 'C:\\Users\\MARIO\\Desktop\\KP\\clone1\\simdiklatkp\\vendor\\codeigniter4\\framework\\system\\Commands\\Worker\\WorkerInstall.php',
+      63 => 'C:\\Users\\MARIO\\Desktop\\KP\\clone1\\simdiklatkp\\vendor\\codeigniter4\\framework\\system\\Commands\\Worker\\WorkerUninstall.php',
     ),
   ),
   'listNamespaceFiles' => 
@@ -421,189 +383,57 @@
     array (
       '/Database/Migrations/' => 
       array (
-        0 => 'D:\\kpfinal\\simdiklatkp\\app\\Database\\Migrations\\2026-06-30-142334_ModulPendidikan.php',
-        1 => 'D:\\kpfinal\\simdiklatkp\\app\\Database\\Migrations\\2026-07-02-000002_CreateDokumenInstitusiTable.php',
-        2 => 'D:\\kpfinal\\simdiklatkp\\app\\Database\\Migrations\\2026-07-02-000003_FixInstitusiStatusEnum.php',
-        3 => 'D:\\kpfinal\\simdiklatkp\\app\\Database\\Migrations\\2026-07-02-000004_AddRevisiPengajuanStatus.php',
-        4 => 'D:\\kpfinal\\simdiklatkp\\app\\Database\\Migrations\\2026-07-02-000005_AddStatusMahasiswaPendidikan.php',
-        5 => 'D:\\kpfinal\\simdiklatkp\\app\\Database\\Migrations\\2026-07-02-000006_AddNomorTeleponCiPendidikan.php',
-        6 => 'D:\\kpfinal\\simdiklatkp\\app\\Database\\Migrations\\2026-07-03-000001_UpdateStasePendidikanMultiRuangan.php',
-        7 => 'D:\\kpfinal\\simdiklatkp\\app\\Database\\Migrations\\2026-07-03-000002_MakePengajuanIdNullable.php',
-        8 => 'D:\\kpfinal\\simdiklatkp\\app\\Database\\Migrations\\2026-07-03-000003_AddProfesiUnitKerjaCiPendidikan.php',
-        9 => 'D:\\kpfinal\\simdiklatkp\\app\\Database\\Migrations\\2026-07-03-140000_AddDokumenLainToPengajuan.php',
-        10 => 'D:\\kpfinal\\simdiklatkp\\app\\Database\\Migrations\\2026-07-04-164132_CreateKuesionerTables.php',
-        11 => 'D:\\kpfinal\\simdiklatkp\\app\\Database\\Migrations\\2026-07-04-170711_AlterPesertaKuesionerRatingAddSesiId.php',
-        12 => 'D:\\kpfinal\\simdiklatkp\\app\\Database\\Migrations\\2026-07-07-040654_AddStatusPembayaranToInstitusiPendidikan.php',
-        13 => 'D:\\kpfinal\\simdiklatkp\\app\\Database\\Migrations\\2026-07-07-041410_AddPembayaranToMahasiswaPendidikan.php',
-        14 => 'D:\\kpfinal\\simdiklatkp\\app\\Database\\Migrations\\2026-07-07-042110_AddPaymentStatusMahasiswa.php',
-        15 => 'D:\\kpfinal\\simdiklatkp\\app\\Database\\Migrations\\2026-07-07-061340_FixInvoiceAndNominal.php',
-        16 => 'D:\\kpfinal\\simdiklatkp\\app\\Database\\Migrations\\2026-07-08-000001_AddProfesiToMahasiswaPendidikan.php',
-        17 => 'D:\\kpfinal\\simdiklatkp\\app\\Database\\Migrations\\2026-07-08-041600_GetTableInfo.php',
-        18 => 'D:\\kpfinal\\simdiklatkp\\app\\Database\\Migrations\\2026-07-08-051842_AlterPendidikanTables.php',
-        19 => 'D:\\kpfinal\\simdiklatkp\\app\\Database\\Migrations\\2026-07-08-051931_AddNilaiAkhirToMahasiswa.php',
-        20 => 'D:\\kpfinal\\simdiklatkp\\app\\Database\\Migrations\\2026-07-08-113500_UpdateStasePendidikanCiRuangan.php',
-        21 => 'D:\\kpfinal\\simdiklatkp\\app\\Database\\Migrations\\2026-07-08-152000_CreateTugasPendidikanTables.php',
-        22 => 'D:\\kpfinal\\simdiklatkp\\app\\Database\\Migrations\\2026-07-09-000000_AddSuperAdmin.php',
-        23 => 'D:\\kpfinal\\simdiklatkp\\app\\Database\\Migrations\\Pelatihan\\2026-07-03-090000_CreatePejabatTtdPelatihan.php',
-        24 => 'D:\\kpfinal\\simdiklatkp\\app\\Database\\Migrations\\Pelatihan\\2026-07-03-094000_CreatePengaturanLogoSistemPelatihan.php',
-        25 => 'D:\\kpfinal\\simdiklatkp\\app\\Database\\Migrations\\Pelatihan\\2026-07-03-095000_CreateSertifTerbitPelatihan.php',
-        26 => 'D:\\kpfinal\\simdiklatkp\\app\\Database\\Migrations\\Pelatihan\\2026-07-03-100000_CreateKategoriEvaluasiPelatihan.php',
-        27 => 'D:\\kpfinal\\simdiklatkp\\app\\Database\\Migrations\\Pelatihan\\2026-07-03-100001_CreateMasterKategoriSkpPelatihan.php',
-        28 => 'D:\\kpfinal\\simdiklatkp\\app\\Database\\Migrations\\Pelatihan\\2026-07-03-100003_CreateProfesiPelatihan.php',
-        29 => 'D:\\kpfinal\\simdiklatkp\\app\\Database\\Migrations\\Pelatihan\\2026-07-03-100004_CreateUnitKerjaPelatihan.php',
-        30 => 'D:\\kpfinal\\simdiklatkp\\app\\Database\\Migrations\\Pelatihan\\2026-07-03-100005_CreateUsersPelatihan.php',
-        31 => 'D:\\kpfinal\\simdiklatkp\\app\\Database\\Migrations\\Pelatihan\\2026-07-03-100006_CreateMasterPelatihan.php',
-        32 => 'D:\\kpfinal\\simdiklatkp\\app\\Database\\Migrations\\Pelatihan\\2026-07-03-100007_CreateMateriPelatihan.php',
-        33 => 'D:\\kpfinal\\simdiklatkp\\app\\Database\\Migrations\\Pelatihan\\2026-07-03-100008_CreateSesiInteraktifPelatihan.php',
-        34 => 'D:\\kpfinal\\simdiklatkp\\app\\Database\\Migrations\\Pelatihan\\2026-07-03-100009_CreateUjianPelatihan.php',
-        35 => 'D:\\kpfinal\\simdiklatkp\\app\\Database\\Migrations\\Pelatihan\\2026-07-03-100010_CreateUjianSoalPelatihan.php',
-        36 => 'D:\\kpfinal\\simdiklatkp\\app\\Database\\Migrations\\Pelatihan\\2026-07-03-100011_CreateKuesionerMasterPelatihan.php',
-        37 => 'D:\\kpfinal\\simdiklatkp\\app\\Database\\Migrations\\Pelatihan\\2026-07-03-100012_CreatePesertaPelatihan.php',
-        38 => 'D:\\kpfinal\\simdiklatkp\\app\\Database\\Migrations\\Pelatihan\\2026-07-03-100013_CreateSertifikatPelatihan.php',
-        39 => 'D:\\kpfinal\\simdiklatkp\\app\\Database\\Migrations\\Pelatihan\\2026-07-03-100014_CreateNotifikasiPelatihan.php',
-        40 => 'D:\\kpfinal\\simdiklatkp\\app\\Database\\Migrations\\Pelatihan\\2026-07-03-100015_CreatePesertaPresensiPelatihan.php',
-        41 => 'D:\\kpfinal\\simdiklatkp\\app\\Database\\Migrations\\Pelatihan\\2026-07-03-100017_CreatePesertaKuesionerRatingPelatihan.php',
-        42 => 'D:\\kpfinal\\simdiklatkp\\app\\Database\\Migrations\\Pelatihan\\2026-07-03-100018_CreatePesertaKuesionerSaranPelatihan.php',
-        43 => 'D:\\kpfinal\\simdiklatkp\\app\\Database\\Migrations\\Pelatihan\\2026-07-06-110000_CreatePesertaUjianTables.php',
-        44 => 'D:\\kpfinal\\simdiklatkp\\app\\Database\\Migrations\\Riset\\2024-01-01-000001_CreateUsersRisetTable.php',
-        45 => 'D:\\kpfinal\\simdiklatkp\\app\\Database\\Migrations\\Riset\\2024-01-01-000002_CreatePengajuanRisetTable.php',
-        46 => 'D:\\kpfinal\\simdiklatkp\\app\\Database\\Migrations\\Riset\\2024-01-01-000003_CreateDokumenRisetTable.php',
-        47 => 'D:\\kpfinal\\simdiklatkp\\app\\Database\\Migrations\\Riset\\2024-01-01-000004_CreatePublikasiRisetTable.php',
-        48 => 'D:\\kpfinal\\simdiklatkp\\app\\Database\\Migrations\\Riset\\2026-07-07-025854_CreatePengaturanSuratRisetTable.php',
-      ),
-    ),
-    'CodeIgniter' => 
-    array (
-      '/Database/Migrations/' => 
-      array (
-      ),
-    ),
-    'Config' => 
-    array (
-      '/Database/Migrations/' => 
-      array (
-      ),
-    ),
-    'Symfony\\Polyfill\\Php80' => 
-    array (
-      '/Database/Migrations/' => 
-      array (
-      ),
-    ),
-    'Symfony\\Polyfill\\Mbstring' => 
-    array (
-      '/Database/Migrations/' => 
-      array (
-      ),
-    ),
-    'Symfony\\Polyfill\\Ctype' => 
-    array (
-      '/Database/Migrations/' => 
-      array (
-      ),
-    ),
-    'Svg' => 
-    array (
-      '/Database/Migrations/' => 
-      array (
-      ),
-    ),
-    'Sabberworm\\CSS' => 
-    array (
-      '/Database/Migrations/' => 
-      array (
-      ),
-    ),
-    'Psr\\Log' => 
-    array (
-      '/Database/Migrations/' => 
-      array (
-      ),
-    ),
-    'Psr\\Container' => 
-    array (
-      '/Database/Migrations/' => 
-      array (
-      ),
-    ),
-    'PhpParser' => 
-    array (
-      '/Database/Migrations/' => 
-      array (
-      ),
-    ),
-    'PhpOption' => 
-    array (
-      '/Database/Migrations/' => 
-      array (
-      ),
-    ),
-    'Masterminds' => 
-    array (
-      '/Database/Migrations/' => 
-      array (
-      ),
-    ),
-    'Laminas\\Escaper' => 
-    array (
-      '/Database/Migrations/' => 
-      array (
-      ),
-    ),
-    'GrahamCampbell\\ResultType' => 
-    array (
-      '/Database/Migrations/' => 
-      array (
-      ),
-    ),
-    'FontLib' => 
-    array (
-      '/Database/Migrations/' => 
-      array (
-      ),
-    ),
-    'Faker' => 
-    array (
-      '/Database/Migrations/' => 
-      array (
-      ),
-    ),
-    'Dotenv' => 
-    array (
-      '/Database/Migrations/' => 
-      array (
-      ),
-    ),
-    'Dompdf' => 
-    array (
-      '/Database/Migrations/' => 
-      array (
-      ),
-    ),
-    'DeepCopy' => 
-    array (
-      '/Database/Migrations/' => 
-      array (
-      ),
-    ),
-  ),
-  'locateFile' => 
-  array (
-    'App\\Views\\pelatihan\\layout\\custom_pagination.php' => 
-    array (
-      'Views' => 
-      array (
-        'php' => 'D:\\kpfinal\\simdiklatkp\\app\\/Views/pelatihan/layout/custom_pagination.php',
-      ),
-    ),
-  ),
-  'locateFile' => 
-  array (
-    'CodeIgniter\\Commands\\Generators\\Views\\migration.tpl.php' => 
-    array (
-      'Views' => 
-      array (
-        'php' => 'C:\\Users\\MARIO\\Desktop\\KP\\clone1\\simdiklatkp\\vendor\\codeigniter4\\framework\\system\\/Commands/Generators/Views/migration.tpl.php',
+        0 => 'C:\\Users\\MARIO\\Desktop\\KP\\clone1\\simdiklatkp\\app\\Database\\Migrations\\2026-06-30-142334_ModulPendidikan.php',
+        1 => 'C:\\Users\\MARIO\\Desktop\\KP\\clone1\\simdiklatkp\\app\\Database\\Migrations\\2026-07-02-000002_CreateDokumenInstitusiTable.php',
+        2 => 'C:\\Users\\MARIO\\Desktop\\KP\\clone1\\simdiklatkp\\app\\Database\\Migrations\\2026-07-02-000003_FixInstitusiStatusEnum.php',
+        3 => 'C:\\Users\\MARIO\\Desktop\\KP\\clone1\\simdiklatkp\\app\\Database\\Migrations\\2026-07-02-000004_AddRevisiPengajuanStatus.php',
+        4 => 'C:\\Users\\MARIO\\Desktop\\KP\\clone1\\simdiklatkp\\app\\Database\\Migrations\\2026-07-02-000005_AddStatusMahasiswaPendidikan.php',
+        5 => 'C:\\Users\\MARIO\\Desktop\\KP\\clone1\\simdiklatkp\\app\\Database\\Migrations\\2026-07-02-000006_AddNomorTeleponCiPendidikan.php',
+        6 => 'C:\\Users\\MARIO\\Desktop\\KP\\clone1\\simdiklatkp\\app\\Database\\Migrations\\2026-07-03-000001_UpdateStasePendidikanMultiRuangan.php',
+        7 => 'C:\\Users\\MARIO\\Desktop\\KP\\clone1\\simdiklatkp\\app\\Database\\Migrations\\2026-07-03-000002_MakePengajuanIdNullable.php',
+        8 => 'C:\\Users\\MARIO\\Desktop\\KP\\clone1\\simdiklatkp\\app\\Database\\Migrations\\2026-07-03-000003_AddProfesiUnitKerjaCiPendidikan.php',
+        9 => 'C:\\Users\\MARIO\\Desktop\\KP\\clone1\\simdiklatkp\\app\\Database\\Migrations\\2026-07-03-140000_AddDokumenLainToPengajuan.php',
+        10 => 'C:\\Users\\MARIO\\Desktop\\KP\\clone1\\simdiklatkp\\app\\Database\\Migrations\\2026-07-04-164132_CreateKuesionerTables.php',
+        11 => 'C:\\Users\\MARIO\\Desktop\\KP\\clone1\\simdiklatkp\\app\\Database\\Migrations\\2026-07-04-170711_AlterPesertaKuesionerRatingAddSesiId.php',
+        12 => 'C:\\Users\\MARIO\\Desktop\\KP\\clone1\\simdiklatkp\\app\\Database\\Migrations\\2026-07-07-040654_AddStatusPembayaranToInstitusiPendidikan.php',
+        13 => 'C:\\Users\\MARIO\\Desktop\\KP\\clone1\\simdiklatkp\\app\\Database\\Migrations\\2026-07-07-041410_AddPembayaranToMahasiswaPendidikan.php',
+        14 => 'C:\\Users\\MARIO\\Desktop\\KP\\clone1\\simdiklatkp\\app\\Database\\Migrations\\2026-07-07-042110_AddPaymentStatusMahasiswa.php',
+        15 => 'C:\\Users\\MARIO\\Desktop\\KP\\clone1\\simdiklatkp\\app\\Database\\Migrations\\2026-07-07-061340_FixInvoiceAndNominal.php',
+        16 => 'C:\\Users\\MARIO\\Desktop\\KP\\clone1\\simdiklatkp\\app\\Database\\Migrations\\2026-07-08-000001_AddProfesiToMahasiswaPendidikan.php',
+        17 => 'C:\\Users\\MARIO\\Desktop\\KP\\clone1\\simdiklatkp\\app\\Database\\Migrations\\2026-07-08-041600_GetTableInfo.php',
+        18 => 'C:\\Users\\MARIO\\Desktop\\KP\\clone1\\simdiklatkp\\app\\Database\\Migrations\\2026-07-08-051842_AlterPendidikanTables.php',
+        19 => 'C:\\Users\\MARIO\\Desktop\\KP\\clone1\\simdiklatkp\\app\\Database\\Migrations\\2026-07-08-051931_AddNilaiAkhirToMahasiswa.php',
+        20 => 'C:\\Users\\MARIO\\Desktop\\KP\\clone1\\simdiklatkp\\app\\Database\\Migrations\\2026-07-08-113500_UpdateStasePendidikanCiRuangan.php',
+        21 => 'C:\\Users\\MARIO\\Desktop\\KP\\clone1\\simdiklatkp\\app\\Database\\Migrations\\2026-07-08-152000_CreateTugasPendidikanTables.php',
+        22 => 'C:\\Users\\MARIO\\Desktop\\KP\\clone1\\simdiklatkp\\app\\Database\\Migrations\\2026-07-09-000000_AddSuperAdmin.php',
+        23 => 'C:\\Users\\MARIO\\Desktop\\KP\\clone1\\simdiklatkp\\app\\Database\\Migrations\\2026-07-16-054525_AddStaseAndRuanganToLogbookPendidikan.php',
+        24 => 'C:\\Users\\MARIO\\Desktop\\KP\\clone1\\simdiklatkp\\app\\Database\\Migrations\\2026-07-16-120000_AddMouDatesToInstitusiPendidikan.php',
+        25 => 'C:\\Users\\MARIO\\Desktop\\KP\\clone1\\simdiklatkp\\app\\Database\\Migrations\\Pelatihan\\2026-07-03-090000_CreatePejabatTtdPelatihan.php',
+        26 => 'C:\\Users\\MARIO\\Desktop\\KP\\clone1\\simdiklatkp\\app\\Database\\Migrations\\Pelatihan\\2026-07-03-094000_CreatePengaturanLogoSistemPelatihan.php',
+        27 => 'C:\\Users\\MARIO\\Desktop\\KP\\clone1\\simdiklatkp\\app\\Database\\Migrations\\Pelatihan\\2026-07-03-095000_CreateSertifTerbitPelatihan.php',
+        28 => 'C:\\Users\\MARIO\\Desktop\\KP\\clone1\\simdiklatkp\\app\\Database\\Migrations\\Pelatihan\\2026-07-03-100000_CreateKategoriEvaluasiPelatihan.php',
+        29 => 'C:\\Users\\MARIO\\Desktop\\KP\\clone1\\simdiklatkp\\app\\Database\\Migrations\\Pelatihan\\2026-07-03-100001_CreateMasterKategoriSkpPelatihan.php',
+        30 => 'C:\\Users\\MARIO\\Desktop\\KP\\clone1\\simdiklatkp\\app\\Database\\Migrations\\Pelatihan\\2026-07-03-100003_CreateProfesiPelatihan.php',
+        31 => 'C:\\Users\\MARIO\\Desktop\\KP\\clone1\\simdiklatkp\\app\\Database\\Migrations\\Pelatihan\\2026-07-03-100004_CreateUnitKerjaPelatihan.php',
+        32 => 'C:\\Users\\MARIO\\Desktop\\KP\\clone1\\simdiklatkp\\app\\Database\\Migrations\\Pelatihan\\2026-07-03-100005_CreateUsersPelatihan.php',
+        33 => 'C:\\Users\\MARIO\\Desktop\\KP\\clone1\\simdiklatkp\\app\\Database\\Migrations\\Pelatihan\\2026-07-03-100006_CreateMasterPelatihan.php',
+        34 => 'C:\\Users\\MARIO\\Desktop\\KP\\clone1\\simdiklatkp\\app\\Database\\Migrations\\Pelatihan\\2026-07-03-100007_CreateMateriPelatihan.php',
+        35 => 'C:\\Users\\MARIO\\Desktop\\KP\\clone1\\simdiklatkp\\app\\Database\\Migrations\\Pelatihan\\2026-07-03-100008_CreateSesiInteraktifPelatihan.php',
+        36 => 'C:\\Users\\MARIO\\Desktop\\KP\\clone1\\simdiklatkp\\app\\Database\\Migrations\\Pelatihan\\2026-07-03-100009_CreateUjianPelatihan.php',
+        37 => 'C:\\Users\\MARIO\\Desktop\\KP\\clone1\\simdiklatkp\\app\\Database\\Migrations\\Pelatihan\\2026-07-03-100010_CreateUjianSoalPelatihan.php',
+        38 => 'C:\\Users\\MARIO\\Desktop\\KP\\clone1\\simdiklatkp\\app\\Database\\Migrations\\Pelatihan\\2026-07-03-100011_CreateKuesionerMasterPelatihan.php',
+        39 => 'C:\\Users\\MARIO\\Desktop\\KP\\clone1\\simdiklatkp\\app\\Database\\Migrations\\Pelatihan\\2026-07-03-100012_CreatePesertaPelatihan.php',
+        40 => 'C:\\Users\\MARIO\\Desktop\\KP\\clone1\\simdiklatkp\\app\\Database\\Migrations\\Pelatihan\\2026-07-03-100013_CreateSertifikatPelatihan.php',
+        41 => 'C:\\Users\\MARIO\\Desktop\\KP\\clone1\\simdiklatkp\\app\\Database\\Migrations\\Pelatihan\\2026-07-03-100014_CreateNotifikasiPelatihan.php',
+        42 => 'C:\\Users\\MARIO\\Desktop\\KP\\clone1\\simdiklatkp\\app\\Database\\Migrations\\Pelatihan\\2026-07-03-100015_CreatePesertaPresensiPelatihan.php',
+        43 => 'C:\\Users\\MARIO\\Desktop\\KP\\clone1\\simdiklatkp\\app\\Database\\Migrations\\Pelatihan\\2026-07-03-100017_CreatePesertaKuesionerRatingPelatihan.php',
+        44 => 'C:\\Users\\MARIO\\Desktop\\KP\\clone1\\simdiklatkp\\app\\Database\\Migrations\\Pelatihan\\2026-07-03-100018_CreatePesertaKuesionerSaranPelatihan.php',
+        45 => 'C:\\Users\\MARIO\\Desktop\\KP\\clone1\\simdiklatkp\\app\\Database\\Migrations\\Pelatihan\\2026-07-06-110000_CreatePesertaUjianTables.php',
+        46 => 'C:\\Users\\MARIO\\Desktop\\KP\\clone1\\simdiklatkp\\app\\Database\\Migrations\\Riset\\2024-01-01-000001_CreateUsersRisetTable.php',
+        47 => 'C:\\Users\\MARIO\\Desktop\\KP\\clone1\\simdiklatkp\\app\\Database\\Migrations\\Riset\\2024-01-01-000002_CreatePengajuanRisetTable.php',
+        48 => 'C:\\Users\\MARIO\\Desktop\\KP\\clone1\\simdiklatkp\\app\\Database\\Migrations\\Riset\\2024-01-01-000003_CreateDokumenRisetTable.php',
+        49 => 'C:\\Users\\MARIO\\Desktop\\KP\\clone1\\simdiklatkp\\app\\Database\\Migrations\\Riset\\2024-01-01-000004_CreatePublikasiRisetTable.php',
+        50 => 'C:\\Users\\MARIO\\Desktop\\KP\\clone1\\simdiklatkp\\app\\Database\\Migrations\\Riset\\2026-07-07-025854_CreatePengaturanSuratRisetTable.php',
       ),
     ),
   ),
