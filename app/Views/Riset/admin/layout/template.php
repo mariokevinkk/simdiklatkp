@@ -16,6 +16,46 @@
     </nav>
 </div>
 
+<!-- Flash Messages -->
+<?php if (session()->getFlashdata('success')) : ?>
+    <div class="alert alert-success alert-dismissible fade show border-0 shadow-sm rounded-3 mb-4" role="alert">
+        <div class="d-flex align-items-center">
+            <i class="fas fa-check-circle fs-4 me-3"></i>
+            <div>
+                <strong>Berhasil!</strong><br>
+                <span class="fs-6"><?= session()->getFlashdata('success') ?></span>
+            </div>
+        </div>
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+<?php endif; ?>
+
+<?php if (session()->getFlashdata('error')) : ?>
+    <div class="alert alert-danger alert-dismissible fade show border-0 shadow-sm rounded-3 mb-4" role="alert">
+        <div class="d-flex align-items-center">
+            <i class="fas fa-exclamation-circle fs-4 me-3"></i>
+            <div>
+                <strong>Gagal!</strong><br>
+                <span class="fs-6"><?= session()->getFlashdata('error') ?></span>
+            </div>
+        </div>
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+<?php endif; ?>
+
+<?php if (session()->getFlashdata('warning')) : ?>
+    <div class="alert alert-warning alert-dismissible fade show border-0 shadow-sm rounded-3 mb-4" role="alert">
+        <div class="d-flex align-items-center">
+            <i class="fas fa-exclamation-triangle fs-4 me-3"></i>
+            <div>
+                <strong>Perhatian!</strong><br>
+                <span class="fs-6"><?= session()->getFlashdata('warning') ?></span>
+            </div>
+        </div>
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+<?php endif; ?>
+
 <?= $this->renderSection('content') ?>
 
 <?= $this->include('riset/admin/layout/footer') ?>

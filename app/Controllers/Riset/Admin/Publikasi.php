@@ -51,11 +51,27 @@ class Publikasi extends BaseController
         $publikasi['no_telp'] = $user['no_telp'] ?? 'Tidak ada';
         $publikasi['tanggal'] = date('d/m/Y', strtotime($publikasi['created_at'] ?? 'now'));
 
-        $count = $this->publikasiModel->where('no_surat_izin IS NOT NULL')->countAllResults();
-        $increment = str_pad($count + 1, 3, '0', STR_PAD_LEFT);
+        // Generate nomor surat berdasarkan angka tertinggi di tahun berjalan
+        $currentYear = date('Y');
+        $existingNumbers = $this->publikasiModel->like('no_surat_izin', '/' . $currentYear, 'before')->findColumn('no_surat_izin');
+        
+        $maxNumber = 0;
+        if ($existingNumbers) {
+            foreach ($existingNumbers as $numStr) {
+                $parts = explode('/', $numStr);
+                if (isset($parts[0]) && is_numeric($parts[0])) {
+                    $val = (int)$parts[0];
+                    if ($val > $maxNumber) {
+                        $maxNumber = $val;
+                    }
+                }
+            }
+        }
+        
+        $increment = str_pad($maxNumber + 1, 3, '0', STR_PAD_LEFT);
         $romans = ['01'=>'I', '02'=>'II', '03'=>'III', '04'=>'IV', '05'=>'V', '06'=>'VI', '07'=>'VII', '08'=>'VIII', '09'=>'IX', '10'=>'X', '11'=>'XI', '12'=>'XII'];
         $romanMonth = $romans[date('m')];
-        $default_nomor_surat = "{$increment}/SIP-PUB/{$romanMonth}/" . date('Y');
+        $default_nomor_surat = "{$increment}/SIP-PUB/{$romanMonth}/" . $currentYear;
 
         return view('Riset/admin/publikasi/detail', [
             'title'               => 'Detail Draft Publikasi',
@@ -88,10 +104,32 @@ class Publikasi extends BaseController
             $updateData['catatan_revisi'] = null;
             // Generate nomor surat izin
             if ($nomor_surat) {
+                $exists = $this->publikasiModel->where('no_surat_izin', $nomor_surat)->where('id !=', $id)->first();
+                if ($exists) {
+                    return redirect()->back()->with('error', "Gagal memproses: Nomor surat {$nomor_surat} sudah digunakan di publikasi lain.");
+                }
                 $updateData['no_surat_izin'] = $nomor_surat;
             } else {
-                $count = $this->publikasiModel->where('no_surat_izin IS NOT NULL')->countAllResults();
-                $updateData['no_surat_izin'] = str_pad($count + 1, 3, '0', STR_PAD_LEFT) . '/SIP-PUB/' . date('n') . '/' . date('Y');
+                $currentYear = date('Y');
+                $existingNumbers = $this->publikasiModel->like('no_surat_izin', '/' . $currentYear, 'before')->findColumn('no_surat_izin');
+                
+                $maxNumber = 0;
+                if ($existingNumbers) {
+                    foreach ($existingNumbers as $numStr) {
+                        $parts = explode('/', $numStr);
+                        if (isset($parts[0]) && is_numeric($parts[0])) {
+                            $val = (int)$parts[0];
+                            if ($val > $maxNumber) {
+                                $maxNumber = $val;
+                            }
+                        }
+                    }
+                }
+                $increment = str_pad($maxNumber + 1, 3, '0', STR_PAD_LEFT);
+                
+                $romans = ['01'=>'I', '02'=>'II', '03'=>'III', '04'=>'IV', '05'=>'V', '06'=>'VI', '07'=>'VII', '08'=>'VIII', '09'=>'IX', '10'=>'X', '11'=>'XI', '12'=>'XII'];
+                $romanMonth = $romans[date('m')];
+                $updateData['no_surat_izin'] = "{$increment}/SIP-PUB/{$romanMonth}/" . $currentYear;
             }
             $message = 'Pembayaran divalidasi. Surat Izin Publikasi diterbitkan dan diarsipkan otomatis!';
         } elseif ($status === 'konfirmasi_bayar_terima') {

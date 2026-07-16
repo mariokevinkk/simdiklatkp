@@ -51,11 +51,27 @@ class Review extends BaseController
         $pengajuan['no_telp'] = $user['no_telp'] ?? 'Tidak ada';
         $pengajuan['tanggal'] = date('d/m/Y', strtotime($pengajuan['created_at'] ?? 'now'));
 
-        $count = $this->pengajuanModel->where('nomor_surat IS NOT NULL')->countAllResults();
-        $increment = str_pad($count + 1, 3, '0', STR_PAD_LEFT);
+        // Generate nomor surat berdasarkan angka tertinggi di tahun berjalan
+        $currentYear = date('Y');
+        $existingNumbers = $this->pengajuanModel->like('nomor_surat', '/' . $currentYear, 'before')->findColumn('nomor_surat');
+        
+        $maxNumber = 0;
+        if ($existingNumbers) {
+            foreach ($existingNumbers as $numStr) {
+                $parts = explode('/', $numStr);
+                if (isset($parts[0]) && is_numeric($parts[0])) {
+                    $val = (int)$parts[0];
+                    if ($val > $maxNumber) {
+                        $maxNumber = $val;
+                    }
+                }
+            }
+        }
+        
+        $increment = str_pad($maxNumber + 1, 3, '0', STR_PAD_LEFT);
         $romans = ['01'=>'I', '02'=>'II', '03'=>'III', '04'=>'IV', '05'=>'V', '06'=>'VI', '07'=>'VII', '08'=>'VIII', '09'=>'IX', '10'=>'X', '11'=>'XI', '12'=>'XII'];
         $romanMonth = $romans[date('m')];
-        $default_nomor_surat = "{$increment}/SIP-RSUDY/{$romanMonth}/" . date('Y');
+        $default_nomor_surat = "{$increment}/SIP-RSUDY/{$romanMonth}/" . $currentYear;
 
         return view('Riset/admin/review/detail', [
             'title'               => 'Detail Pengajuan',
@@ -87,6 +103,10 @@ class Review extends BaseController
             $updateData['status'] = 'selesai';
             $updateData['catatan_revisi'] = null;
             if ($nomor_surat) {
+                $exists = $this->pengajuanModel->where('nomor_surat', $nomor_surat)->where('id !=', $id)->first();
+                if ($exists) {
+                    return redirect()->back()->with('error', "Gagal memproses: Nomor surat {$nomor_surat} sudah digunakan di pengajuan lain.");
+                }
                 $updateData['nomor_surat'] = $nomor_surat;
             }
             $message = 'Pembayaran divalidasi. Surat Izin berhasil diterbitkan.';
