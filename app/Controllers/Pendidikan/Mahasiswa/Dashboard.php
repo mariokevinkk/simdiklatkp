@@ -337,6 +337,33 @@ class Dashboard extends BaseController
         return view('Pendidikan/mahasiswa/sertifikat', $data);
     }
 
+    public function download_sertifikat()
+    {
+        $mhs = $this->getMahasiswaData();
+        $payment_status = $mhs ? ($mhs['payment_status'] ?? 'Belum Invoice') : 'Belum Invoice';
+
+        if ($payment_status !== 'Lunas' || empty($mhs['nilai_akhir'])) {
+            return redirect()->to('/pendidikan/mahasiswa/dashboard')->with('error', 'Sertifikat tidak tersedia.');
+        }
+
+        $data = [
+            'mahasiswa' => $mhs
+        ];
+
+        // Load Dompdf
+        $dompdf = new \Dompdf\Dompdf();
+        
+        // Load view HTML
+        $html = view('pendidikan/institusi/mahasiswa/sertifikat_pdf', $data);
+        
+        $dompdf->loadHtml($html);
+        $dompdf->setPaper('A4', 'landscape');
+        $dompdf->render();
+
+        $filename = 'Sertifikat_Lulus_' . str_replace(' ', '_', $mhs['nama_lengkap']) . '_' . $mhs['nim'];
+        $dompdf->stream($filename . ".pdf", ["Attachment" => false]);
+    }
+
     public function profil()
     {
         $userId = session()->get('user_id');
