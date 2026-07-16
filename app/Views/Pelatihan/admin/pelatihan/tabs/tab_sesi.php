@@ -97,7 +97,12 @@
         <div class="modal-content border-0 shadow-lg rounded-4">
             <div class="modal-header bg-light border-0 px-4 py-3">
                 <h5 class="modal-title fw-bold text-dark" id="modalSesiTitle">Tambah Sesi Baru</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                <div class="d-flex align-items-center gap-2">
+                    <button type="button" class="btn btn-warning btn-sm rounded-pill fw-bold" onclick="autofillSesi()" title="Auto-fill sesi untuk testing">
+                        <i class="fas fa-bolt me-1"></i> TESTING
+                    </button>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
             </div>
             <form action="<?= base_url('pelatihan/admin/pelatihan/simpan_sesi') ?>" method="POST">
                 <div class="modal-body px-4 py-4" style="max-height: 70vh; overflow-y: auto;">
@@ -241,5 +246,32 @@
         
         toggleSesiFields();
         new bootstrap.Modal(document.getElementById('modalSesi')).show();
+    }
+
+    function autofillSesi() {
+        var now = new Date();
+        var nextWeek = new Date(now.getTime() + 7 * 86400000).toISOString().split('T')[0];
+
+        var tipeSesi = document.getElementById('tipe_sesi');
+        var options = tipeSesi.options;
+        for (var i = 0; i < options.length; i++) {
+            if (options[i].value === 'offline') {
+                tipeSesi.value = 'offline';
+                break;
+            }
+        }
+        toggleSesiFields();
+
+        document.getElementById('nama_sesi').value = 'Sesi Pembukaan & Pengenalan Materi';
+        document.getElementById('tanggal').value = nextWeek;
+        document.getElementById('waktu').value = '08:00';
+        document.getElementById('jam_tutup').value = '10:00';
+
+        document.getElementById('lokasi_ruang').value = 'Aula Serbaguna Lt. 4';
+        document.getElementById('tempat').value = 'RSUD Kota Yogyakarta';
+        document.getElementById('alamat').value = 'Jl. Jend. Sudirman No. 50, Yogyakarta';
+        document.getElementById('maps_url').value = 'https://goo.gl/maps/example';
+
+        showToast('Form sesi berhasil diisi dengan data testing!', 'success');
     }
 </script>

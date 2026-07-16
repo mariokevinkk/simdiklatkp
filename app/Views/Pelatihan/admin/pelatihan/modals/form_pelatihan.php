@@ -3,7 +3,12 @@
         <div class="modal-content border-0 shadow-lg rounded-lg">
             <div class="modal-header bg-dark text-white border-0 p-4">
                 <h5 class="modal-title fw-bold" id="modalTitle"><i class="fas fa-plus-circle me-2 text-warning"></i> INPUT MASTER DIKLAT BARU</h5>
-                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+                <div class="d-flex align-items-center gap-2">
+                    <button type="button" class="btn btn-warning btn-sm rounded-pill fw-bold" onclick="autofillTesting()" title="Auto-fill form untuk testing">
+                        <i class="fas fa-bolt me-1"></i> TESTING AUTOFILL
+                    </button>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+                </div>
             </div>
             <div class="modal-body p-4 p-md-5 bg-light">
                 <form id="formPelatihan" method="POST" action="<?= base_url('pelatihan/admin/pelatihan/simpan') ?>" class="needs-validation" enctype="multipart/form-data" novalidate>

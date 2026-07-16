@@ -373,17 +373,28 @@
                     <i class="fas fa-building"></i> Daftar Instansi
                     <i class="fas fa-lock ms-auto text-danger small" style="font-size: 0.65rem;"></i>
                 </a>
+
+                <div class="text-muted small fw-bold px-4 py-3 mt-2 text-uppercase" style="font-size: 0.6rem; letter-spacing: 1.2px; opacity: 0.5;">Akun</div>
+                <?php $cur = current_url(); ?>
+                <a href="<?= base_url('pelatihan/admin_pengabdian/profil') ?>" class="nav-link-custom <?= strpos($cur, 'profil') !== false ? 'active' : '' ?>">
+                    <i class="fas fa-user-circle"></i> Profil Saya
+                </a>
             </nav>
         </div>
 
-        <div class="p-4 border-top bg-white">
+        <div class="p-3 border-top bg-white">
             <div class="d-flex align-items-center mb-3">
-                <img src="https://ui-avatars.com/api/?name=Admin+Pengabdian&background=c62828&color=fff" class="rounded-circle me-2 shadow-sm" width="36">
-                <div class="overflow-hidden">
-                    <div class="fw-bold small text-dark text-truncate"><?= session()->get('nama') ?? 'Admin Pengabdian' ?></div>
-                    <div class="text-danger fw-bold" style="font-size: 0.6rem; letter-spacing: 0.5px;">ADMIN PENGABDIAN</div>
-                </div>
+                <a href="<?= base_url('pelatihan/admin_pengabdian/profil') ?>" class="text-decoration-none d-flex align-items-center overflow-hidden" style="width: 100%;">
+                    <img src="https://ui-avatars.com/api/?name=<?= urlencode(session()->get('nama') ?? 'Admin Pengabdian') ?>&background=c62828&color=fff" class="rounded-circle me-2 shadow-sm flex-shrink-0" width="36">
+                    <div class="overflow-hidden" style="min-width: 0; max-width: calc(100% - 44px);">
+                        <div class="fw-bold small text-dark text-truncate" style="max-width: 100%;"><?= session()->get('nama') ?? 'Admin Pengabdian' ?></div>
+                        <div class="text-danger fw-bold" style="font-size: 0.6rem; letter-spacing: 0.5px;">ADMIN PENGABDIAN</div>
+                    </div>
+                </a>
             </div>
+            <a href="<?= base_url('pelatihan/admin_pengabdian/profil') ?>" class="btn btn-outline-dark btn-sm w-100 rounded-pill fw-bold mb-2" style="font-size: 0.75rem;">
+                <i class="fas fa-user me-1"></i> PROFIL
+            </a>
             <a href="<?= base_url('pelatihan/logout') ?>" class="btn btn-dark btn-sm w-100 rounded-pill fw-bold border-0" style="background: var(--primary-black) !important;">
                 <i class="fas fa-sign-out-alt me-1 text-warning"></i> LOGOUT
             </a>

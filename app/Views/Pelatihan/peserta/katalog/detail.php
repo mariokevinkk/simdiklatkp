@@ -464,5 +464,13 @@ $jadwal_selesai = $jadwal_selesai ?? null;
             }
         });
     }
+
+    <?php if (session()->getFlashdata('show_upload_popup')): ?>
+    document.addEventListener('DOMContentLoaded', function() {
+        setTimeout(function() {
+            showUploadForm();
+        }, 500);
+    });
+    <?php endif; ?>
 </script>
 <?= $this->endSection() ?>

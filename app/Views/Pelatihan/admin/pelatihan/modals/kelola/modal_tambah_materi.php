@@ -3,11 +3,16 @@ $p = $p ?? [];
 $sesiList = $sesiList ?? [];
 ?>
 <div class="modal fade" id="modalTambahMateri" tabindex="-1">
-    <div class="modal-dialog">
-        <div class="modal-content border-0 shadow rounded-lg overflow-hidden">
+    <div class="modal-dialog modal-lg modal-dialog-centered">
+        <div class="modal-content border-0 shadow-lg rounded-lg overflow-hidden">
             <div class="modal-header bg-primary-custom text-white border-0">
                 <h5 class="modal-title fw-bold small"><i class="fas fa-plus-circle me-2"></i> Tambah Materi Pembelajaran</h5>
-                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+                <div class="d-flex align-items-center gap-2">
+                    <button type="button" class="btn btn-warning btn-sm rounded-pill fw-bold" onclick="autofillMateri()" title="Auto-fill materi untuk testing">
+                        <i class="fas fa-bolt me-1"></i> TESTING
+                    </button>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+                </div>
             </div>
             <div class="modal-body p-4 bg-light">
                 <form action="<?= base_url('pelatihan/admin/pelatihan/materi/simpan') ?>" method="POST" id="formMateri" enctype="multipart/form-data">
@@ -117,9 +122,9 @@ $sesiList = $sesiList ?? [];
                             }
                         });
                     </script>
-                    <div class="mt-4 text-end">
-                        <button type="button" class="btn btn-light rounded-pill px-4" data-bs-dismiss="modal">Batal</button>
-                        <button type="submit" class="btn btn-primary-custom rounded-pill px-5 shadow">Simpan Materi</button>
+                    <div class="mt-4 pt-3 border-top text-end">
+                        <button type="button" class="btn btn-light btn-lg rounded-pill px-5 fw-bold" data-bs-dismiss="modal">Batal</button>
+                        <button type="submit" class="btn btn-primary-custom btn-lg rounded-pill px-5 fw-bold shadow"><i class="fas fa-save me-1"></i> Simpan Materi</button>
                     </div>
                 </form>
             </div>

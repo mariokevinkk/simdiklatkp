@@ -109,7 +109,7 @@ $templates = $templates ?? [];
                                                 foreach ($templates as $t) { 
                                                     if ($t['pelatihan_id'] == $p['id']) { 
                                                         $hasTemplate = true; 
-                                                        if (!empty($t['no_sertifikat']) && !empty($t['pejabat_id_1'])) {
+                                                        if (!empty($t['no_sertifikat']) && !empty($t['pejabat_id_1']) && ($t['status'] ?? 'draft') === 'diterbitkan') {
                                                             $isValidTemplate = true;
                                                         }
                                                         break; 
@@ -292,7 +292,7 @@ $templates = $templates ?? [];
                                 </div>
                                 <div class="col-md-6">
                                     <label class="form-label small fw-bold">Format Nomor Sertifikat</label>
-                                    <input type="text" name="no_sertifikat" id="tmp_nomor" class="form-control rounded-pill border" placeholder="Contoh: KT.03.02/F/{id}/SER/2026" required>
+                                    <input type="text" name="no_sertifikat" id="tmp_nomor" class="form-control rounded-pill border" placeholder="Contoh: 001/SERT/RSUD-PEL/VII/2026" required>
                                 </div>
                                 <div class="col-md-6">
                                     <label class="form-label small fw-bold">Warna Background (Hex)</label>
@@ -360,18 +360,11 @@ $templates = $templates ?? [];
                                     <?php endif; ?>
                                 </td>
                                 <td class="text-center">
-                                    <?php 
-                                        $pubStatus = false;
-                                        foreach($pelatihan as $pt) {
-                                            if ($pt['id'] == $tmp['pelatihan_id']) {
-                                                $pubStatus = $pt['cert_published'] ?? false;
-                                                break;
-                                            }
-                                        }
-                                    ?>
-                                    <span class="badge <?= $pubStatus ? 'bg-success' : 'bg-secondary' ?> text-white rounded-pill px-2.5 py-1 fw-bold text-uppercase small">
-                                        <?= $pubStatus ? 'DITERBITKAN' : 'DRAFT' ?>
-                                    </span>
+                                    <?php if (($tmp['status'] ?? 'draft') === 'diterbitkan'): ?>
+                                        <span class="badge bg-success text-white rounded-pill px-2.5 py-1 fw-bold text-uppercase small">DIKONFIRMASI</span>
+                                    <?php else: ?>
+                                        <span class="badge bg-warning text-dark rounded-pill px-2.5 py-1 fw-bold text-uppercase small">DRAFT</span>
+                                    <?php endif; ?>
                                 </td>
                                 <td class="pe-4 text-center">
                                     <div class="d-flex justify-content-center gap-1">

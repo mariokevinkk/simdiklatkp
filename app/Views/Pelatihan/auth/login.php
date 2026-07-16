@@ -376,7 +376,10 @@
                     </div>
                     <div class="mb-4">
                         <label class="form-label small fw-bold">KATA SANDI</label>
-                        <input type="password" name="password" class="form-control" placeholder="Masukkan kata sandi" required>
+                        <div class="position-relative">
+                            <input type="password" name="password" class="form-control" placeholder="Masukkan kata sandi" required style="padding-right:46px;">
+                            <button type="button" class="btn position-absolute top-50 end-0 translate-middle-y me-2 p-0 border-0 bg-transparent text-muted" onclick="togglePassword(this)" tabindex="-1"><i class="fas fa-eye"></i></button>
+                        </div>
                     </div>
 
                     <button type="submit" class="btn btn-login-submit w-100 mt-2">
@@ -412,6 +415,18 @@
             if (overlay) {
                 overlay.style.opacity = '0';
                 setTimeout(() => overlay.remove(), 300);
+            }
+        }
+
+        function togglePassword(btn) {
+            const input = btn.parentElement.querySelector('input');
+            const icon  = btn.querySelector('i');
+            if (input.type === 'password') {
+                input.type = 'text';
+                icon.classList.replace('fa-eye', 'fa-eye-slash');
+            } else {
+                input.type = 'password';
+                icon.classList.replace('fa-eye-slash', 'fa-eye');
             }
         }
     </script>
