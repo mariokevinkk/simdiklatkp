@@ -10,15 +10,16 @@
 
 <div class="card border-0 shadow-sm text-center p-5">
     <div class="mb-4">
-        <i class="fas fa-medal fa-4x text-warning opacity-25"></i>
+        <i class="fas fa-medal fa-4x text-success"></i>
     </div>
-    <h5 class="fw-bold">Sertifikat Belum Tersedia</h5>
+    <h5 class="fw-bold">Sertifikat Tersedia</h5>
     <p class="text-muted mx-auto mb-4" style="max-width: 400px;">
-        Sertifikat akan muncul di sini setelah Anda menyelesaikan masa diklat dan semua penilaian telah diverifikasi oleh pihak Diklat RSUD.
+        Selamat! Anda telah menyelesaikan masa diklat dan semua penilaian telah diverifikasi. Anda sekarang dapat mengunduh sertifikat Anda.
     </p>
     <div class="d-flex justify-content-center gap-2">
-        <button class="btn btn-light disabled">Unduh Sertifikat (PDF)</button>
-        <button class="btn btn-light disabled">Lihat Transkrip</button>
+        <a href="<?= base_url('pendidikan/mahasiswa/sertifikat/download') ?>" target="_blank" class="btn btn-primary">
+            <i class="fas fa-download me-1"></i> Unduh Sertifikat (PDF)
+        </a>
     </div>
 </div>
 

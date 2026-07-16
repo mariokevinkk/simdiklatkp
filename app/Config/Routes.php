@@ -155,6 +155,7 @@ $routes->group('pendidikan', function ($routes) {
         $routes->post('tugas/upload', 'Dashboard::upload_tugas');
         $routes->get('penilaian', 'Dashboard::penilaian');
         $routes->get('sertifikat', 'Dashboard::sertifikat');
+        $routes->get('sertifikat/download', 'Dashboard::download_sertifikat');
         $routes->get('profil', 'Dashboard::profil');
         $routes->post('profil/update', 'Dashboard::update_profil');
         $routes->post('profil/update_password', 'Dashboard::update_password');
