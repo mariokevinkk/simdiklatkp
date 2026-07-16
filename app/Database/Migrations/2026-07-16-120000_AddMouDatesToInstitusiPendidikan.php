@@ -8,18 +8,24 @@ class AddMouDatesToInstitusiPendidikan extends Migration
 {
     public function up()
     {
-        $this->forge->addColumn('institusi_pendidikan', [
-            'tgl_mulai_mou' => [
+        $fields = [];
+        if (!$this->db->fieldExists('tgl_mulai_mou', 'institusi_pendidikan')) {
+            $fields['tgl_mulai_mou'] = [
                 'type' => 'DATE',
                 'null' => true,
                 'after' => 'file_permohonan',
-            ],
-            'tgl_selesai_mou' => [
+            ];
+        }
+        if (!$this->db->fieldExists('tgl_selesai_mou', 'institusi_pendidikan')) {
+            $fields['tgl_selesai_mou'] = [
                 'type' => 'DATE',
                 'null' => true,
                 'after' => 'tgl_mulai_mou',
-            ],
-        ]);
+            ];
+        }
+        if (!empty($fields)) {
+            $this->forge->addColumn('institusi_pendidikan', $fields);
+        }
     }
 
     public function down()
