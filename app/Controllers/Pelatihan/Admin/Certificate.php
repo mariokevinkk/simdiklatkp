@@ -28,6 +28,28 @@ class Certificate extends BaseController
         $this->pesertaModel = new PesertaPelatihanModel();
     }
 
+    private function monthToRoman($month)
+    {
+        $romans = ['', 'I', 'II', 'III', 'IV', 'V', 'VI', 'VII', 'VIII', 'IX', 'X', 'XI', 'XII'];
+        return $romans[(int)$month] ?? 'I';
+    }
+
+    private function generateNoSertifikat($pelatihan)
+    {
+        $totalTemplates = $this->templateModel->countAllResults(false);
+        $autoNum = str_pad($totalTemplates + 1, 3, '0', STR_PAD_LEFT);
+
+        $ranah = strtoupper(substr($pelatihan['ranah_skp'] ?? 'Pembelajaran', 0, 3));
+        $penyelenggara = strtoupper(preg_replace('/[^A-Za-z]/', '', substr($pelatihan['penyelenggara'] ?? 'RSUD', 0, 3)));
+        $kodePenyelenggara = $penyelenggara . '-' . $ranah;
+
+        $tglRef = $pelatihan['jadwal_selesai'] ?? $pelatihan['jadwal_mulai'] ?? date('Y-m-d');
+        $bulanRomawi = $this->monthToRoman((int)date('n', strtotime($tglRef)));
+        $tahun = date('Y', strtotime($tglRef));
+
+        return "{$autoNum}/SERT/{$kodePenyelenggara}/{$bulanRomawi}/{$tahun}";
+    }
+
     private function createNotification($userId, $title, $message, $type = 'info')
     {
         if (empty($userId)) {
@@ -53,15 +75,22 @@ class Certificate extends BaseController
         foreach ($pelatihan as $p) {
             $exist = $this->templateModel->where('pelatihan_id', $p['id'])->first();
             if (!$exist) {
+                $noSertif = $this->generateNoSertifikat($p);
                 $this->templateModel->insert([
                     'pelatihan_id' => $p['id'],
-                    'no_sertifikat' => '', // Empty/draft by default (so it can't be published yet)
+                    'no_sertifikat' => $noSertif,
                     'background_color' => '#ffffff',
-                    'logo_header' => 'assets/img/logo_rs.jpg', // Default RSUD logo
-                    'pejabat_id_1' => 1, // Grasiana Moghu F. Bio (seeded default)
-                    'pejabat_id_2' => null, // None by default
-                    'status' => 'diterbitkan', // Status is active/published by default
+                    'logo_header' => 'assets/img/logo_rs.jpg',
+                    'pejabat_id_1' => 1,
+                    'pejabat_id_2' => null,
+                    'status' => 'draft',
                     'created_at' => date('Y-m-d H:i:s'),
+                    'updated_at' => date('Y-m-d H:i:s')
+                ]);
+            } elseif (empty($exist['no_sertifikat'])) {
+                $noSertif = $this->generateNoSertifikat($p);
+                $this->templateModel->update($exist['id'], [
+                    'no_sertifikat' => $noSertif,
                     'updated_at' => date('Y-m-d H:i:s')
                 ]);
             }
@@ -216,9 +245,9 @@ class Certificate extends BaseController
             'cert_published' => 1
         ]);
 
-        $noSertifTemplate = $template['no_sertifikat'] ?? 'KT.03.02/F/{id}/SER/' . date('Y');
-
         $masterPelat = $this->masterPelatihanModel->find($id);
+
+        $noSertifTemplate = $template['no_sertifikat'] ?? $this->generateNoSertifikat($masterPelat ?? ['ranah_skp' => 'Pembelajaran', 'jadwal_selesai' => date('Y-m-d'), 'penyelenggara' => 'RSUD']);
 
         // Fetch passed participants
         $passedPeserta = $this->pesertaModel->where('pelatihan_id', $id)
@@ -436,7 +465,7 @@ class Certificate extends BaseController
             'pelatihan' => $pelatihan,
             'users' => $users,
             'template' => $template,
-            'no_sertifikat' => $template['no_sertifikat'] ?? 'KT.03.02/F/0001/SER/' . date('Y')
+            'no_sertifikat' => $template['no_sertifikat'] ?? $this->generateNoSertifikat($pelatihan ?? ['ranah_skp' => 'Pembelajaran', 'jadwal_selesai' => date('Y-m-d'), 'penyelenggara' => 'RSUD'])
         ];
         return view('pelatihan/admin/sertifikat/template/preview', $data);
     }
@@ -483,7 +512,7 @@ class Certificate extends BaseController
             'pelatihan' => $pelatihan,
             'users' => $users,
             'template' => $template,
-            'no_sertifikat' => $template['no_sertifikat'] ?? 'KT.03.02/F/0001/SER/' . date('Y')
+            'no_sertifikat' => $template['no_sertifikat'] ?? $this->generateNoSertifikat($pelatihan ?? ['ranah_skp' => 'Pembelajaran', 'jadwal_selesai' => date('Y-m-d'), 'penyelenggara' => 'RSUD'])
         ];
         return view('pelatihan/admin/sertifikat/template/preview', $data);
     }

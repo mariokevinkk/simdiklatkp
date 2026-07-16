@@ -82,7 +82,7 @@ $ranah_list = $ranah_list ?? [];
                 <div class="modal-body p-4 bg-light">
 
                     <div class="mb-3" id="container_ranah_select">
-                        <label class="form-label small fw-bold text-dark">RANAH PEMENUHAN JPL/SKP</label>
+                        <label class="form-label small fw-bold text-dark">RANAH</label>
                         <select name="ranah" id="f_ranah" class="form-select rounded-pill border shadow-sm px-4 py-2" onchange="toggleRanahBaru(this.value)" required>
                             <option value="">-- Pilih Ranah --</option>
                             <?php foreach ($ranah_list as $r): ?>

@@ -289,9 +289,14 @@
                 </div>
             <?php endif; ?>
 
-            <div id="registerHeader" class="mb-3">
-                <h3 class="fw-bold text-dark">Registrasi Akun Peserta</h3>
-                <p class="text-muted small mb-0">Silakan lengkapi formulir di bawah ini untuk membuat akun portal diklat.</p>
+            <div id="registerHeader" class="mb-3 d-flex justify-content-between align-items-start">
+                <div>
+                    <h3 class="fw-bold text-dark">Registrasi Akun Peserta</h3>
+                    <p class="text-muted small mb-0">Silakan lengkapi formulir di bawah ini untuk membuat akun portal diklat.</p>
+                </div>
+                <button type="button" class="btn btn-sm btn-warning fw-bold rounded-pill px-3" onclick="autofillRegister()" title="Autofill data testing">
+                    <i class="fas fa-bolt me-1"></i> TESTING
+                </button>
             </div>
 
             <form action="<?= base_url('pelatihan/auth/register') ?>" method="POST" id="registerForm">
@@ -359,11 +364,17 @@
                 <div class="row g-3 mb-3">
                     <div class="col-md-6">
                         <label class="form-label small fw-bold mb-1">KATA SANDI</label>
-                        <input type="password" name="password" class="form-control" placeholder="Kombinasi angka & huruf saja" required pattern="^(?=.*[0-9])(?=.*[a-zA-Z])[a-zA-Z0-9]{8,}$" title="Password harus minimal 8 karakter berupa kombinasi huruf dan angka saja (tanpa simbol).">
+                        <div class="position-relative">
+                            <input type="password" name="password" class="form-control" placeholder="Kombinasi angka & huruf saja" required pattern="^(?=.*[0-9])(?=.*[a-zA-Z])[a-zA-Z0-9]{8,}$" title="Password harus minimal 8 karakter berupa kombinasi huruf dan angka saja (tanpa simbol)." style="padding-right:46px;">
+                            <button type="button" class="btn position-absolute top-50 end-0 translate-middle-y me-2 p-0 border-0 bg-transparent text-muted" onclick="togglePassword(this)" tabindex="-1"><i class="fas fa-eye"></i></button>
+                        </div>
                     </div>
                     <div class="col-md-6">
                         <label class="form-label small fw-bold mb-1">KONFIRMASI KATA SANDI</label>
-                        <input type="password" name="confirm_password" class="form-control" placeholder="Ulangi kata sandi" required pattern="^(?=.*[0-9])(?=.*[a-zA-Z])[a-zA-Z0-9]{8,}$" title="Password harus minimal 8 karakter berupa kombinasi huruf dan angka saja (tanpa simbol).">
+                        <div class="position-relative">
+                            <input type="password" name="confirm_password" class="form-control" placeholder="Ulangi kata sandi" required pattern="^(?=.*[0-9])(?=.*[a-zA-Z])[a-zA-Z0-9]{8,}$" title="Password harus minimal 8 karakter berupa kombinasi huruf dan angka saja (tanpa simbol)." style="padding-right:46px;">
+                            <button type="button" class="btn position-absolute top-50 end-0 translate-middle-y me-2 p-0 border-0 bg-transparent text-muted" onclick="togglePassword(this)" tabindex="-1"><i class="fas fa-eye"></i></button>
+                        </div>
                     </div>
                 </div>
 
@@ -437,6 +448,34 @@
                 overlay.style.opacity = '0';
                 setTimeout(() => overlay.remove(), 300);
             }
+        }
+
+        function togglePassword(btn) {
+            const input = btn.parentElement.querySelector('input');
+            const icon  = btn.querySelector('i');
+            if (input.type === 'password') {
+                input.type = 'text';
+                icon.classList.replace('fa-eye', 'fa-eye-slash');
+            } else {
+                input.type = 'password';
+                icon.classList.replace('fa-eye-slash', 'fa-eye');
+            }
+        }
+
+        function autofillRegister() {
+            const randNum = Math.floor(10000 + Math.random() * 90000);
+            document.getElementById('role_named').checked = true;
+            document.getElementById('role_nonnamed').checked = false;
+            document.querySelector('[name="nama"]').value = 'Peserta Testing ' + randNum;
+            document.querySelector('[name="nik"]').value = '340' + String(randNum).padStart(3, '0') + String(Date.now()).slice(-10).padStart(10, '0');
+            document.querySelector('[name="email"]').value = 'testing' + randNum + '@gmail.com';
+            document.querySelector('[name="phone"]').value = '081' + String(randNum).padStart(3, '0') + String(Date.now()).slice(-6).padStart(6, '0');
+            var uk = document.getElementById('id_unit_kerja');
+            if (uk && uk.options.length > 1) uk.selectedIndex = 1;
+            var pr = document.getElementById('id_profesi');
+            if (pr && pr.options.length > 1) pr.selectedIndex = 1;
+            document.querySelector('[name="password"]').value = 'Testing123';
+            document.querySelector('[name="confirm_password"]').value = 'Testing123';
         }
     </script>
 </body>

@@ -530,6 +530,10 @@ class ManajemenPeserta extends BaseController
         $non_named = [];
 
         foreach ($allUsers as $u) {
+            if (in_array($u['role'], ['admin', 'admin_pengabdian'])) {
+                continue;
+            }
+
             $mapped = [
                 'id'      => $u['nik'], // Use NIK as identifier
                 'nama'    => $u['nama_lengkap'],

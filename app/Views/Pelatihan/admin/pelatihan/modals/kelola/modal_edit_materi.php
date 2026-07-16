@@ -3,8 +3,8 @@ $p = $p ?? [];
 $sesiList = $sesiList ?? [];
 ?>
 <div class="modal fade" id="modalEditMateri" tabindex="-1">
-    <div class="modal-dialog">
-        <div class="modal-content border-0 shadow rounded-lg overflow-hidden">
+    <div class="modal-dialog modal-lg modal-dialog-centered">
+        <div class="modal-content border-0 shadow-lg rounded-lg overflow-hidden">
             <div class="modal-header bg-warning text-dark border-0">
                 <h5 class="modal-title fw-bold small"><i class="fas fa-edit me-2"></i> Edit Materi Pembelajaran</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
@@ -116,9 +116,9 @@ $sesiList = $sesiList ?? [];
                         });
                     </script>
                     </div>
-                    <div class="mt-4 text-end">
-                        <button type="button" class="btn btn-light rounded-pill px-4" data-bs-dismiss="modal">Batal</button>
-                        <button type="submit" class="btn btn-warning rounded-pill px-5 shadow">Update Materi</button>
+                    <div class="mt-4 pt-3 border-top text-end">
+                        <button type="button" class="btn btn-light btn-lg rounded-pill px-5 fw-bold" data-bs-dismiss="modal">Batal</button>
+                        <button type="submit" class="btn btn-warning btn-lg rounded-pill px-5 fw-bold shadow"><i class="fas fa-save me-1"></i> Update Materi</button>
                     </div>
                 </form>
             </div>

@@ -615,7 +615,7 @@ if (!function_exists('renderPelatihanFilePreview')) {
                                 <?php foreach($active_step['materi_list'] as $m): ?>
                                     <div class="bg-white bg-opacity-10 rounded-4 p-4 mb-4 border border-white border-opacity-25">
                                         <h4 class="fw-bold text-warning mb-2"><?= esc($m['judul']) ?></h4>
- 
+
                                         <?php if(!empty($m['file_path'])): ?>
                                             <div class="mt-3 text-center bg-dark p-3 rounded-3 overflow-hidden">
                                                 <?php
@@ -624,33 +624,17 @@ if (!function_exists('renderPelatihanFilePreview')) {
                                                 ?>
                                             </div>
                                         <?php endif; ?>
+
+                                        <?php if (!empty($m['deskripsi'])): ?>
+                                            <div class="mt-3 text-white-50 lh-lg" style="font-size: 0.9rem;"><?= $m['deskripsi'] ?></div>
+                                        <?php endif; ?>
                                     </div>
                                 <?php endforeach; ?>
                             </div>
                         <?php endif; ?>
                     </div>
                 </div>
- 
-                <?php /* Description card below the dark viewer, only for materi_segmen */ ?>
-                <?php if ($sessionOpen && $active_step['tipe'] == 'materi_segmen' && !empty($active_step['materi_list'])): ?>
-                    <?php 
-                        $hasDesc = false;
-                        foreach($active_step['materi_list'] as $m) { if (!empty($m['deskripsi'])) { $hasDesc = true; break; } }
-                    ?>
-                    <?php if ($hasDesc): ?>
-                    <div class="mt-4">
-                        <?php foreach($active_step['materi_list'] as $m): ?>
-                            <?php if (!empty($m['deskripsi'])): ?>
-                            <div class="bg-white border border-light-subtle rounded-4 shadow-sm p-4 mb-3">
-                                <h6 class="fw-bold text-dark mb-2"><?= esc($m['judul']) ?></h6>
-                                <div class="text-secondary lh-lg"><?= $m['deskripsi'] ?></div>
-                            </div>
-                            <?php endif; ?>
-                        <?php endforeach; ?>
-                    </div>
-                    <?php endif; ?>
-                <?php endif; ?>
- 
+
                 <?php if ($active_step['tipe'] != 'sesi') : ?>
                 <div class="mt-4 p-4 rounded-4 d-flex justify-content-center align-items-center" style="background: #0f172a;">
                     <?php if ($sessionOpen): ?>

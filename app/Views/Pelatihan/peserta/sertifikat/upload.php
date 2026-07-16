@@ -24,10 +24,11 @@
                     <h6 class="fw-bold mb-4 border-bottom pb-2">STEP 1: JENIS KEGIATAN</h6>
                     
                     <div class="mb-4">
-                        <label class="form-label small fw-bold">RANAH PEMENUHAN JPL</label>
+                        <label class="form-label small fw-bold">RANAH</label>
                         <select name="ranah" id="select_ranah" class="form-select rounded-pill border-2" onchange="updateCategories(this.value)" required>
-                            <option value="pembelajaran">A. Pembelajaran (Learning)</option>
-                            <option value="pengabdian">B. Pengabdian Masyarakat (Community)</option>
+                            <?php foreach ($ranah_options as $ro): ?>
+                            <option value="<?= esc($ro['value']) ?>"><?= esc($ro['label']) ?></option>
+                            <?php endforeach; ?>
                         </select>
                     </div>
 
@@ -204,7 +205,10 @@
     }
 
     document.addEventListener('DOMContentLoaded', () => {
-        updateCategories('pembelajaran');
+        const firstRanah = document.getElementById('select_ranah');
+        if (firstRanah && firstRanah.value) {
+            updateCategories(firstRanah.value);
+        }
     });
 </script>
 <?= $this->endSection() ?>

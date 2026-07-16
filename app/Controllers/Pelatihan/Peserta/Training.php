@@ -88,7 +88,13 @@ class Training extends BaseController
             $msg = 'Pendaftaran Berhasil! Anda sudah bisa mengakses ruang belajar.';
         }
 
-        return redirect()->to('/pelatihan/peserta/detail_pelatihan/'.$id)->with('success', $msg);
+        $redirect = redirect()->to('/pelatihan/peserta/detail_pelatihan/'.$id)->with('success', $msg);
+
+        if ($statusPembayaran == 'Pending' && empty($exists['bukti_bayar'])) {
+            $redirect = $redirect->with('show_upload_popup', true);
+        }
+
+        return $redirect;
     }
 
     public function upload_bukti_bayar($id)

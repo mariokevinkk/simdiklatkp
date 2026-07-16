@@ -327,6 +327,10 @@ $routes->group('pelatihan/admin', ['namespace' => 'App\Controllers\Pelatihan\Adm
     $routes->get('monitoring/peserta_by_profesi/(:num)', 'ManajemenPeserta::get_peserta_by_profesi/$1');
     $routes->get('akun', 'User::index');
 
+    // Profil Admin
+    $routes->get('profil', 'Profile::index');
+    $routes->post('profil/update', 'Profile::update');
+
     // Pelatihan Aliases & Materials
     $routes->post('pelatihan/materi/simpan', 'Pelatihan::simpan_materi');
 
@@ -380,6 +384,10 @@ $routes->group('pelatihan/admin_pengabdian', ['namespace' => 'App\Controllers\Pe
     $routes->post('certificate/updateskp/(:num)', 'Certificate::updateskp/$1');
     $routes->post('certificate/approve/(:num)', 'Certificate::approve/$1');
     $routes->post('certificate/reject/(:num)', 'Certificate::reject/$1');
+
+    // Profil Admin Pengabdian
+    $routes->get('profil', 'Profile::index');
+    $routes->post('profil/update', 'Profile::update');
 });
 
 // Pelatihan - Peserta

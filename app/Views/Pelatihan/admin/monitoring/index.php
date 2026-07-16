@@ -33,7 +33,7 @@
     ?>
     <div class="row mb-4 g-3">
         <div class="col-md-3">
-            <div class="card border-0 shadow-sm rounded-custom bg-white h-100">
+            <div class="card border-0 shadow-sm rounded-custom bg-white h-100" style="cursor:pointer;" onclick="showStatList('Semua Karyawan Aktif', 'all')">
                 <div class="card-body d-flex align-items-center justify-content-between">
                     <div>
                         <h6 class="text-muted mb-1 fw-bold" style="font-size: 0.65rem;">TOTAL KARYAWAN AKTIF</h6>
@@ -44,7 +44,7 @@
             </div>
         </div>
         <div class="col-md-3">
-            <div class="card border-0 shadow-sm rounded-custom bg-white h-100 border-bottom border-danger border-3">
+            <div class="card border-0 shadow-sm rounded-custom bg-white h-100 border-bottom border-danger border-3" style="cursor:pointer;" onclick="showStatList('Belum Memenuhi Target', 'kurang')">
                 <div class="card-body d-flex align-items-center justify-content-between">
                     <div>
                         <h6 class="text-muted mb-1 fw-bold" style="font-size: 0.65rem;">BELUM MEMENUHI TARGET</h6>
@@ -55,7 +55,7 @@
             </div>
         </div>
         <div class="col-md-3">
-            <div class="card border-0 shadow-sm rounded-custom bg-white h-100 border-bottom border-dark border-3">
+            <div class="card border-0 shadow-sm rounded-custom bg-white h-100 border-bottom border-dark border-3" style="cursor:pointer;" onclick="showStatList('Sudah Memenuhi Target', 'cukup')">
                 <div class="card-body d-flex align-items-center justify-content-between">
                     <div>
                         <h6 class="text-muted mb-1 fw-bold" style="font-size: 0.65rem;">SUDAH MEMENUHI TARGET</h6>
@@ -66,7 +66,7 @@
             </div>
         </div>
         <div class="col-md-3">
-            <div class="card border-0 shadow-sm rounded-custom bg-white h-100 border-bottom border-light border-3">
+            <div class="card border-0 shadow-sm rounded-custom bg-white h-100 border-bottom border-light border-3" style="cursor:pointer;" onclick="showStatList('Karyawan Tidak Aktif', 'tidak_aktif')">
                 <div class="card-body d-flex align-items-center justify-content-between">
                     <div>
                         <h6 class="text-muted mb-1 fw-bold" style="font-size: 0.65rem;">KARYAWAN TIDAK AKTIF</h6>
@@ -283,9 +283,16 @@
                                         <span class="<?= $s['jpl'] >= $s['target_jpl'] ? 'text-dark' : 'text-danger' ?>"><?= $s['jpl'] ?></span> / <?= $s['target_jpl'] ?>
                                     </td>
                                     <td class="text-center">
-                                        <button type="button" class="btn btn-sm btn-outline-danger rounded-pill px-3 fw-bold" onclick='openHistoryModal(<?= json_encode($s) ?>)'>
-                                            <i></i> Detail
-                                        </button>
+                                        <div class="d-flex justify-content-center gap-1">
+                                            <button type="button" class="btn btn-sm btn-outline-danger rounded-pill px-3 fw-bold" onclick='openHistoryModal(<?= json_encode($s) ?>)'>
+                                                <i class="fas fa-history me-1"></i> Detail
+                                            </button>
+                                            <?php if ($s['jpl'] < $s['target_jpl']): ?>
+                                            <button type="button" class="btn btn-sm btn-outline-warning rounded-pill px-3 fw-bold" onclick='openRemindModal(<?= json_encode(["nik" => $s["nik"], "nama" => $s["nama"], "jpl" => $s["jpl"], "target" => $s["target_jpl"], "kurang" => max(0, $s["target_jpl"] - $s["jpl"])]) ?>)'>
+                                                <i class="fas fa-bell me-1"></i> Ingatkan
+                                            </button>
+                                            <?php endif; ?>
+                                        </div>
                                     </td>
                                 </tr>
                             <?php endforeach; ?>
@@ -329,7 +336,10 @@
                 </div>
                 <div id="historyListContainer" class="list-group list-group-flush" style="max-height: 250px; overflow-y: auto;"></div>
             </div>
-            <div class="modal-footer bg-light border-0 px-4 py-2">
+            <div class="modal-footer bg-light border-0 px-4 py-2 d-flex justify-content-between">
+                <button type="button" class="btn btn-outline-warning rounded-pill px-4 fw-bold small" onclick="let emp=statsGlobal.find(s=>s.nik===currentHistoryNik);if(emp)openRemindModal({nik:emp.nik,nama:emp.nama,jpl:emp.jpl,target:emp.target_jpl,kurang:Math.max(0,emp.target_jpl-emp.jpl)});">
+                    <i class="fas fa-bell me-1"></i> Kirim Notifikasi
+                </button>
                 <button type="button" class="btn btn-dark rounded-pill px-4 fw-bold small" data-bs-dismiss="modal">Tutup</button>
             </div>
         </div>
@@ -490,6 +500,65 @@
     }
 
     let currentHistoryNik = null;
+    const statsGlobal = <?= json_encode($stats) ?>;
+
+    function showStatList(title, type) {
+        let list = [];
+        if (type === 'all') {
+            list = statsGlobal;
+        } else if (type === 'kurang') {
+            list = statsGlobal.filter(s => s.jpl < s.target_jpl);
+        } else if (type === 'cukup') {
+            list = statsGlobal.filter(s => s.jpl >= s.target_jpl);
+        } else if (type === 'tidak_aktif') {
+            list = statsGlobal.filter(s => s.pelatihan === 'Belum Ada');
+        }
+
+        let contentHtml = `
+            <div class="table-responsive" style="max-height:400px; overflow-y:auto;">
+                <table class="table table-sm table-hover align-middle text-start mb-0" style="font-size:0.78rem;">
+                    <thead class="table-light text-muted fw-bold">
+                        <tr>
+                            <th>NAMA / NIK</th>
+                            <th>PROFESI</th>
+                            <th class="text-center">JPL / TARGET</th>
+                            <th class="text-center">AKSI</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+        `;
+        if (list.length > 0) {
+            list.forEach(emp => {
+                let jplClass = emp.jpl < emp.target_jpl ? 'text-danger fw-bold' : 'text-dark fw-bold';
+                let remindBtn = emp.jpl < emp.target_jpl ?
+                    `<button class="btn btn-xs btn-outline-warning rounded-pill fw-bold px-2 py-0" style="font-size:0.6rem;" onclick="Swal.close(); openRemindModal({nik:'${emp.nik}',nama:'${emp.nama}',jpl:${emp.jpl},target:${emp.target_jpl},kurang:${Math.max(0, emp.target_jpl - emp.jpl)}})"><i class="fas fa-bell"></i> Ingatkan</button>` :
+                    `<span class="text-success small fw-bold"><i class="fas fa-check"></i> AMAN</span>`;
+                contentHtml += `
+                    <tr>
+                        <td>
+                            <div class="fw-bold text-uppercase text-dark">${emp.nama}</div>
+                            <div class="text-muted font-monospace" style="font-size:0.65rem;">${emp.nik}</div>
+                        </td>
+                        <td class="text-muted small">${emp.profesi}</td>
+                        <td class="text-center"><span class="${jplClass}">${emp.jpl}</span> / ${emp.target_jpl}</td>
+                        <td class="text-center">${remindBtn}</td>
+                    </tr>
+                `;
+            });
+        } else {
+            contentHtml += '<tr><td colspan="4" class="text-center text-muted py-4">Tidak ada data</td></tr>';
+        }
+        contentHtml += '</tbody></table></div>';
+
+        Swal.fire({
+            title: '<span class="fw-bold fs-5 text-dark"><i class="fas fa-users text-danger me-2"></i>' + title + '</span>',
+            html: contentHtml,
+            width: '700px',
+            confirmButtonColor: '#212529',
+            confirmButtonText: 'Tutup',
+            customClass: { popup: 'rounded-4' }
+        });
+    }
 
     function openHistoryModal(user) {
         currentHistoryNik = user.nik;
