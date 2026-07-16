@@ -14,9 +14,9 @@
     <link href="https://cdn.datatables.net/1.13.6/css/dataTables.bootstrap5.min.css" rel="stylesheet">
     
     <style>
-        body { font-family: 'Inter', sans-serif; background-color: #f4f7f6; color: #2c3e50; }
+        body { font-family: 'Inter', sans-serif; background-color: #ffffffff; color: #0f0f0fff; }
         .dashboard-header {
-            background: linear-gradient(135deg, #2c3e50 0%, #3498db 100%);
+            background: linear-gradient(135deg, #000000ff 0%, #500505ff 100%);
             color: white; padding: 2rem 0;
             box-shadow: 0 5px 15px rgba(0,0,0,0.1);
         }
@@ -30,7 +30,7 @@
 
     <nav class="navbar navbar-expand-lg navbar-light bg-white py-3 shadow-sm">
         <div class="container">
-            <a class="navbar-brand text-primary fw-bold" href="<?= site_url('pendidikan/ci/dashboard') ?>">
+            <a class="navbar-brand text-danger fw-bold" href="<?= site_url('pendidikan/ci/dashboard') ?>">
                 <i class="fas fa-arrow-left me-2"></i> Kembali ke Dashboard
             </a>
             <div class="d-flex align-items-center">
@@ -50,9 +50,9 @@
         
         <!-- Action Buttons -->
         <div class="d-flex justify-content-between align-items-center mb-4">
-            <h4 class="fw-bold mb-0"><i class="fas fa-users text-primary me-2"></i> Daftar Mahasiswa</h4>
+            <h4 class="fw-bold mb-0"><i class="fas fa-users text-danger me-2"></i> Daftar Mahasiswa</h4>
             <div class="d-flex gap-2">
-                <button type="button" class="btn btn-primary shadow-sm rounded-pill px-4" data-bs-toggle="modal" data-bs-target="#createTaskModal">
+                <button type="button" class="btn btn-danger shadow-sm rounded-pill px-4" data-bs-toggle="modal" data-bs-target="#createTaskModal">
                     <i class="fas fa-plus me-2"></i> Buat Tugas Baru
                 </button>
                 <div class="dropdown">
@@ -184,7 +184,7 @@
                             <label class="form-label fw-semibold">Batas Waktu (Deadline)</label>
                             <input type="datetime-local" class="form-control" name="deadline" required>
                         </div>
-                        <button type="submit" class="btn btn-primary w-100 rounded-pill fw-bold py-2" id="btnSubmitTask">
+                        <button type="submit" class="btn btn-danger w-100 rounded-pill fw-bold py-2" id="btnSubmitTask">
                             Simpan Tugas
                         </button>
                     </form>

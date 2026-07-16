@@ -54,7 +54,7 @@
     <div class="row">
         <div class="col-12 mb-4">
             <div class="p-4 bg-white rounded-3 shadow-sm border-0 d-flex align-items-center gap-4" style="border-left: 5px solid #dc3545 !important;">
-                <div class="bg-danger text-white rounded-circle d-flex align-items-center justify-content-center" style="width: 55px; height: 55px; flex-shrink: 0; background: rgba(220, 53, 69, 0.1); color: #dc3545 !important;">
+                <div class="rounded-circle d-flex align-items-center justify-content-center" style="width: 55px; height: 55px; flex-shrink: 0; background: rgba(220, 53, 69, 0.1); color: #dc3545 !important;">
                     <i class="fas fa-lock fa-lg"></i>
                 </div>
                 <div>
@@ -68,8 +68,8 @@
     <div class="row">
         <div class="col-12 mb-4">
             <div class="p-4 bg-white rounded-3 shadow-sm border-0 d-flex align-items-center gap-4" style="border-left: 5px solid #28a745 !important;">
-                <div class="bg-success text-white rounded-circle d-flex align-items-center justify-content-center" style="width: 55px; height: 55px; flex-shrink: 0; background: rgba(40, 167, 69, 0.1); color: #28a745 !important;">
-                    <i class="fas fa-unlock fa-lg text-success"></i>
+                <div class="rounded-circle d-flex align-items-center justify-content-center" style="width: 55px; height: 55px; flex-shrink: 0; background: rgba(40, 167, 69, 0.1); color: #28a745 !important;">
+                    <i class="fas fa-unlock fa-lg"></i>
                 </div>
                 <div>
                     <h6 class="fw-bold text-success mb-1"><i class="fas fa-check-circle me-1"></i> Pembayaran Terverifikasi (Akses Penuh)</h6>
@@ -105,7 +105,11 @@
             </div>
             <div class="card-body">
                 <div class="text-center mb-4">
-                    <img src="https://ui-avatars.com/api/?name=<?= urlencode($mahasiswa['nama']) ?>&size=120&background=c62828&color=fff" class="rounded-circle shadow-sm border p-1" width="100">
+                    <?php if (!empty($mahasiswa['file_foto'])) : ?>
+                        <img src="<?= base_url('uploads/dokumen_mahasiswa/' . $mahasiswa['file_foto']) ?>" class="rounded-circle shadow-sm border p-1" width="100" height="100" style="object-fit: cover;">
+                    <?php else : ?>
+                        <img src="https://ui-avatars.com/api/?name=<?= urlencode($mahasiswa['nama']) ?>&size=120&background=c62828&color=fff" class="rounded-circle shadow-sm border p-1" width="100" height="100">
+                    <?php endif; ?>
                     <h5 class="fw-bold mt-3 mb-0"><?= $mahasiswa['nama'] ?></h5>
                     <p class="text-muted small"><?= $mahasiswa['nim'] ?></p>
                 </div>

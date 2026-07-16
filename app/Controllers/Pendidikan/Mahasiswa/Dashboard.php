@@ -195,7 +195,8 @@ class Dashboard extends BaseController
             'stase' => $stase,
             'rooms' => $rooms,
             'penempatan' => $penempatan,
-            'tasks' => $tasks
+            'tasks' => $tasks,
+            'mahasiswa' => $mhs
         ];
         return view('Pendidikan/mahasiswa/stase_detail', $data);
     }
@@ -317,11 +318,50 @@ class Dashboard extends BaseController
 
     public function sertifikat()
     {
+        $mhs = $this->getMahasiswaData();
+        $payment_status = $mhs ? ($mhs['payment_status'] ?? 'Belum Invoice') : 'Belum Invoice';
+
+        if ($payment_status !== 'Lunas') {
+            return redirect()->to('/pendidikan/mahasiswa/dashboard')->with('error', 'Akses sertifikat terkunci. Harap selesaikan administrasi pembayaran stase terlebih dahulu.');
+        }
+
+        if (empty($mhs['nilai_akhir'])) {
+            return redirect()->to('/pendidikan/mahasiswa/dashboard')->with('error', 'Sertifikat belum tersedia karena Institusi Anda belum mengunggah nilai akhir.');
+        }
+
         $data = [
             'title' => 'Sertifikat Diklat',
-            'active_menu' => 'sertifikat'
+            'active_menu' => 'sertifikat',
+            'mahasiswa' => $mhs
         ];
         return view('Pendidikan/mahasiswa/sertifikat', $data);
+    }
+
+    public function download_sertifikat()
+    {
+        $mhs = $this->getMahasiswaData();
+        $payment_status = $mhs ? ($mhs['payment_status'] ?? 'Belum Invoice') : 'Belum Invoice';
+
+        if ($payment_status !== 'Lunas' || empty($mhs['nilai_akhir'])) {
+            return redirect()->to('/pendidikan/mahasiswa/dashboard')->with('error', 'Sertifikat tidak tersedia.');
+        }
+
+        $data = [
+            'mahasiswa' => $mhs
+        ];
+
+        // Load Dompdf
+        $dompdf = new \Dompdf\Dompdf();
+        
+        // Load view HTML
+        $html = view('pendidikan/institusi/mahasiswa/sertifikat_pdf', $data);
+        
+        $dompdf->loadHtml($html);
+        $dompdf->setPaper('A4', 'landscape');
+        $dompdf->render();
+
+        $filename = 'Sertifikat_Lulus_' . str_replace(' ', '_', $mhs['nama_lengkap']) . '_' . $mhs['nim'];
+        $dompdf->stream($filename . ".pdf", ["Attachment" => false]);
     }
 
     public function profil()
@@ -351,6 +391,36 @@ class Dashboard extends BaseController
 
     public function update_profil()
     {
+        $mhs = $this->getMahasiswaData();
+        if (!$mhs) {
+            return redirect()->to('/pendidikan/auth/login');
+        }
+
+        $db = \Config\Database::connect();
+        $builder = $db->table('mahasiswa_pendidikan');
+        $updateData = [];
+
+        $files = [
+            'pas_foto' => 'file_foto',
+            'ijazah' => 'file_ijazah',
+            'surat_aktif' => 'file_sk',
+            'bukti_pembayaran' => 'file_bukti_bayar'
+        ];
+
+        foreach ($files as $inputName => $dbField) {
+            $file = $this->request->getFile($inputName);
+            if ($file && $file->isValid() && !$file->hasMoved()) {
+                $newName = $file->getRandomName();
+                $file->move(FCPATH . 'uploads/dokumen_mahasiswa', $newName);
+                $updateData[$dbField] = $newName;
+            }
+        }
+
+        if (!empty($updateData)) {
+            $updateData['updated_at'] = date('Y-m-d H:i:s');
+            $builder->where('id', $mhs['id'])->update($updateData);
+        }
+
         session()->set('profil_lengkap', true);
         return redirect()->to('pendidikan/mahasiswa/profil')->with('success', 'Data profil dan dokumen berhasil diperbarui!');
     }
@@ -393,12 +463,25 @@ class Dashboard extends BaseController
         if ($mhs) {
             $db = \Config\Database::connect();
             $builder = $db->table('stase_ruangan_ci_pendidikan');
-            $builder->select('stase_ruangan_ci_pendidikan.id, stase_pendidikan.nama_stase, ci_pendidikan.nama_lengkap as ci_name, unit_kerja_pelatihan.nama_unit as nama_ruangan');
+            $builder->select('stase_ruangan_ci_pendidikan.id, stase_ruangan_ci_pendidikan.stase_id, stase_ruangan_ci_pendidikan.ruangan_id, stase_pendidikan.nama_stase, stase_pendidikan.tanggal_akhir, ci_pendidikan.nama_lengkap as ci_name, unit_kerja_pelatihan.nama_unit as nama_ruangan');
             $builder->join('stase_pendidikan', 'stase_pendidikan.id = stase_ruangan_ci_pendidikan.stase_id');
             $builder->join('ci_pendidikan', 'ci_pendidikan.id = stase_ruangan_ci_pendidikan.ci_id', 'left');
             $builder->join('unit_kerja_pelatihan', 'unit_kerja_pelatihan.id_unit_kerja = stase_ruangan_ci_pendidikan.ruangan_id', 'left');
             $builder->where("JSON_CONTAINS(stase_ruangan_ci_pendidikan.mahasiswa_ids, '\"" . $mhs['id'] . "\"') OR JSON_CONTAINS(stase_ruangan_ci_pendidikan.mahasiswa_ids, '" . $mhs['id'] . "')");
             $staseList = $builder->get()->getResultArray();
+
+            foreach ($staseList as &$stase) {
+                $tasks = $db->table('tugas_pendidikan')
+                    ->select('tugas_pendidikan.nama_tugas, pengumpulan_tugas_pendidikan.nilai, pengumpulan_tugas_pendidikan.status')
+                    ->join('pengumpulan_tugas_pendidikan', 'pengumpulan_tugas_pendidikan.tugas_id = tugas_pendidikan.id AND pengumpulan_tugas_pendidikan.mahasiswa_id = ' . (int)$mhs['id'], 'left')
+                    ->where('tugas_pendidikan.stase_id', $stase['stase_id'])
+                    ->where('tugas_pendidikan.ruangan_id', $stase['ruangan_id'])
+                    ->get()->getResultArray();
+                $stase['tasks'] = $tasks;
+                
+                // Assuming you'll have file_penilaian_ci in penempatan table later, we can just set it to null for now
+                $stase['file_penilaian_ci'] = null; 
+            }
         }
 
         $data = [

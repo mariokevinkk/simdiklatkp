@@ -42,6 +42,13 @@ class Auth extends BaseController
                     $institusiModel = new \App\Models\InstitusiPendidikanModel();
                     $institusi = $institusiModel->where('user_id', $user['id'])->first();
                     
+                    if ($institusi && !empty($institusi['tgl_selesai_mou'])) {
+                        $expiryDate = strtotime($institusi['tgl_selesai_mou']);
+                        if (time() > $expiryDate) {
+                            return redirect()->back()->with('error', 'Masa aktif MoU Institusi Anda telah habis. Akun Anda dinonaktifkan sementara.');
+                        }
+                    }
+
                     $sessionData['role'] = 'institusi';
                     $sessionData['name'] = $institusi ? $institusi['nama_institusi'] : 'Institusi';
                     $sessionData['account_status'] = $institusi ? $institusi['status_verifikasi'] : 'pending';
@@ -154,13 +161,20 @@ class Auth extends BaseController
             $filePermohonan->move(WRITEPATH . 'uploads/dokumen_institusi', $permohonanName);
         }
 
+        $lainnyaName = null;
+        $fileLainnya = $this->request->getFile('file_lainnya');
+        if ($fileLainnya && $fileLainnya->isValid() && !$fileLainnya->hasMoved()) {
+            $lainnyaName = $fileLainnya->getRandomName();
+            $fileLainnya->move(WRITEPATH . 'uploads/dokumen_institusi', $lainnyaName);
+        }
+
         $db = \Config\Database::connect();
         $db->transStart();
 
         // 1. Create User (Role ID 2 = Institusi)
         $userData = [
             'role_id'   => 2, 
-            'email'     => $email,
+            'email'     => $email, // Dari email institusi (login credentials)
             'password'  => password_hash((string)$password, PASSWORD_DEFAULT),
             'is_active' => 1 // Atur 1 agar bisa login, tapi status masih pending
         ];
@@ -172,11 +186,18 @@ class Auth extends BaseController
         $institusiData = [
             'user_id'           => $userId,
             'nama_institusi'    => $this->request->getPost('nama_institusi'),
+            'jenis_institusi'   => $this->request->getPost('jenis_institusi'),
             'alamat'            => $this->request->getPost('alamat_institusi'),
             'no_telp'           => $this->request->getPost('telp_institusi'),
             'nama_kontak'       => $this->request->getPost('nama_pj'),
+            'jabatan_pj'        => $this->request->getPost('jabatan_pj'),
+            'hp_pj'             => $this->request->getPost('hp_pj'),
+            'email_pj'          => $this->request->getPost('email_pj'),
             'file_mou'          => $mouName,
             'file_permohonan'   => $permohonanName,
+            'tgl_mulai_mou'     => $this->request->getPost('tgl_mulai_mou') ?: null,
+            'tgl_selesai_mou'   => $this->request->getPost('tgl_selesai_mou') ?: null,
+            'file_lainnya'      => $lainnyaName,
             'status_verifikasi' => 'pending'
         ];
         $institusiModel->insert($institusiData);
