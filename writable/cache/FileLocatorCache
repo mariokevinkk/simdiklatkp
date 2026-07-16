@@ -132,6 +132,56 @@
         ),
       ),
     ),
+    'Language/en/HTTP.php' => 
+    array (
+      'php' => 
+      array (
+        0 => 
+        array (
+          0 => 'C:\\Users\\MARIO\\Desktop\\KP\\clone1\\simdiklatkp\\vendor\\codeigniter4\\framework\\system\\Language\\en\\HTTP.php',
+        ),
+      ),
+    ),
+    'Helpers/number_helper' => 
+    array (
+      'php' => 
+      array (
+        1 => 
+        array (
+          0 => 'C:\\Users\\MARIO\\Desktop\\KP\\clone1\\simdiklatkp\\vendor\\codeigniter4\\framework\\system\\Helpers\\number_helper.php',
+        ),
+      ),
+    ),
+    'Language/en/Number.php' => 
+    array (
+      'php' => 
+      array (
+        0 => 
+        array (
+          0 => 'C:\\Users\\MARIO\\Desktop\\KP\\clone1\\simdiklatkp\\vendor\\codeigniter4\\framework\\system\\Language\\en\\Number.php',
+        ),
+      ),
+    ),
+    'Helpers/inflector_helper' => 
+    array (
+      'php' => 
+      array (
+        1 => 
+        array (
+          0 => 'C:\\Users\\MARIO\\Desktop\\KP\\clone1\\simdiklatkp\\vendor\\codeigniter4\\framework\\system\\Helpers\\inflector_helper.php',
+        ),
+      ),
+    ),
+    'Language/en/CLI.php' => 
+    array (
+      'php' => 
+      array (
+        0 => 
+        array (
+          0 => 'C:\\Users\\MARIO\\Desktop\\KP\\clone1\\simdiklatkp\\vendor\\codeigniter4\\framework\\system\\Language\\en\\CLI.php',
+        ),
+      ),
+    ),
   ),
   'findQualifiedNameFromPath' => 
   array (
@@ -434,6 +484,16 @@
     array (
       '/Database/Migrations/' => 
       array (
+      ),
+    ),
+  ),
+  'locateFile' => 
+  array (
+    'CodeIgniter\\Commands\\Generators\\Views\\migration.tpl.php' => 
+    array (
+      'Views' => 
+      array (
+        'php' => 'C:\\Users\\MARIO\\Desktop\\KP\\clone1\\simdiklatkp\\vendor\\codeigniter4\\framework\\system\\/Commands/Generators/Views/migration.tpl.php',
       ),
     ),
   ),
