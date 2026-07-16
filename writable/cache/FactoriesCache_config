@@ -674,7 +674,7 @@
         'hostname' => 'localhost',
         'username' => 'root',
         'password' => '',
-        'database' => 'sim_diklat_test',
+        'database' => 'sim_diklat',
         'DBDriver' => 'MySQLi',
         'DBPrefix' => '',
         'pConnect' => false,
