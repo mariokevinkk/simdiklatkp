@@ -1532,22 +1532,7 @@ public function list()
             ])->setStatusCode(422);
         }
 
-        $updateData = ['payment_status' => $status];
-
-        if ($status === 'Ditolak') {
-            $alasan = $json['alasan_penolakan'] ?? '';
-            if (empty($alasan)) {
-                return $this->response->setJSON([
-                    'success' => false,
-                    'message' => 'Alasan penolakan harus diisi'
-                ])->setStatusCode(422);
-            }
-            $updateData['alasan_penolakan'] = $alasan;
-        } elseif ($status === 'Lunas') {
-            $updateData['alasan_penolakan'] = null;
-        }
-
-        $mahasiswaModel->update($id, $updateData);
+        $mahasiswaModel->update($id, ['payment_status' => $status]);
 
         return $this->response->setJSON([
             'success' => true,
