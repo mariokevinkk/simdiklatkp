@@ -110,6 +110,36 @@
             </div>
         </div>
     </div>
+
+    <!-- Ganti Password Card -->
+    <div class="col-lg-4 mt-4 mt-lg-0">
+        <div class="card shadow-sm border-0">
+            <div class="card-header bg-white py-3">
+                <h6 class="mb-0 fw-bold text-danger"><i class="fas fa-lock me-2"></i> Ganti Password</h6>
+            </div>
+            <div class="card-body">
+                <form action="<?= base_url('pendidikan/institusi/profil/update_password') ?>" method="POST">
+                    <div class="mb-3">
+                        <label class="form-label small fw-bold">Password Lama</label>
+                        <input type="password" class="form-control" name="old_password" required>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label small fw-bold">Password Baru</label>
+                        <input type="password" class="form-control" name="new_password" required minlength="6">
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label small fw-bold">Konfirmasi Password Baru</label>
+                        <input type="password" class="form-control" name="confirm_password" required minlength="6">
+                    </div>
+                    <div class="mt-4">
+                        <button type="submit" class="btn btn-danger w-100">
+                            <i class="fas fa-key me-1"></i> Update Password
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
 </div>
 
 <?= $this->include('pendidikan/institusi/layout/footer') ?>
