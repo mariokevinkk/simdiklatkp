@@ -75,6 +75,31 @@ class AdminDiklat extends BaseController
         ]);
     }
 
+    public function update_password()
+    {
+        $session = session();
+        $userId = $session->get('user_id');
+        $oldPassword = $this->request->getPost('old_password');
+        $newPassword = $this->request->getPost('new_password');
+        $confirmPassword = $this->request->getPost('confirm_password');
+
+        if ($newPassword !== $confirmPassword) {
+            return redirect()->back()->with('error', 'Konfirmasi password baru tidak cocok.');
+        }
+
+        $user = $this->usersModel->find($userId);
+
+        if (!$user || !password_verify((string)$oldPassword, $user['password'])) {
+            return redirect()->back()->with('error', 'Password lama salah.');
+        }
+
+        $this->usersModel->update($userId, [
+            'password' => password_hash((string)$newPassword, PASSWORD_DEFAULT)
+        ]);
+
+        return redirect()->back()->with('success', 'Password berhasil diubah.');
+    }
+
     public function institusi()
     {
         $tab = $this->request->getGet('tab') ?? 'inbox';

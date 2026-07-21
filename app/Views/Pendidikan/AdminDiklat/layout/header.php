@@ -162,6 +162,7 @@
                         </a>
                         <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
                             <li><a class="dropdown-item" href="<?= base_url('pendidikan/admin/diklat') ?>"><i class="fas fa-tachometer-alt fa-sm fa-fw me-2 text-gray-400"></i> Dashboard</a></li>
+                            <li><a class="dropdown-item" href="#" data-bs-toggle="modal" data-bs-target="#modalGantiPasswordAdmin"><i class="fas fa-key fa-sm fa-fw me-2 text-gray-400"></i> Ganti Password</a></li>
                             <li>
                                 <hr class="dropdown-divider">
                             </li>

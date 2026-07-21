@@ -183,6 +183,7 @@ $routes->group('pendidikan', function ($routes) {
     $routes->group('', ['filter' => 'pendidikan_auth:diklat'], function($routes) {
     $routes->get('admin/diklat', '\App\Controllers\Pendidikan\AdminDiklat::index');
     $routes->get('admin/diklat/dashboard', '\App\Controllers\Pendidikan\AdminDiklat::dashboard');
+    $routes->post('admin/diklat/update_password', '\App\Controllers\Pendidikan\AdminDiklat::update_password');
     $routes->get('admin/diklat/institusi', '\App\Controllers\Pendidikan\AdminDiklat::institusi');
     $routes->get('admin/diklat/institusi/detail/(:num)', '\App\Controllers\Pendidikan\AdminDiklat::institusiDetail/$1');
     $routes->get('admin/diklat/ci', '\App\Controllers\Pendidikan\AdminDiklat::ci');
@@ -248,7 +249,7 @@ $routes->group('pendidikan', function ($routes) {
 $routes->group('superadmin', ['namespace' => 'App\Controllers', 'filter' => 'pendidikan_auth:superadmin'], function ($routes) {
     $routes->get('dashboard', 'SuperAdmin::dashboard');
     $routes->post('create_admin', 'SuperAdmin::create_admin');
-    $routes->post('update_password', 'SuperAdmin::update_password');
+    $routes->post('reset_password_email', 'SuperAdmin::reset_password_email');
 });
 
 // --- ENHANCED: Pelatihan Module ---
