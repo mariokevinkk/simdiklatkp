@@ -85,4 +85,31 @@ class Profil extends BaseController
 
         return redirect()->to('pendidikan/institusi/profil')->with('success', 'Profil institusi berhasil diperbarui.');
     }
+
+    public function update_password()
+    {
+        $session = session();
+        $userId = $session->get('user_id');
+        
+        $oldPassword = $this->request->getPost('old_password');
+        $newPassword = $this->request->getPost('new_password');
+        $confirmPassword = $this->request->getPost('confirm_password');
+
+        if ($newPassword !== $confirmPassword) {
+            return redirect()->back()->with('error', 'Konfirmasi password baru tidak cocok.');
+        }
+
+        $userModel = new UserPendidikanModel();
+        $user = $userModel->find($userId);
+
+        if (!$user || !password_verify((string)$oldPassword, $user['password'])) {
+            return redirect()->back()->with('error', 'Password lama salah.');
+        }
+
+        $userModel->update($userId, [
+            'password' => password_hash((string)$newPassword, PASSWORD_DEFAULT)
+        ]);
+
+        return redirect()->back()->with('success', 'Password berhasil diubah.');
+    }
 }
