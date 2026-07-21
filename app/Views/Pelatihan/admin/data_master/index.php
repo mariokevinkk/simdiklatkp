@@ -31,9 +31,9 @@ $list  = $list ?? [];
                 </tr>
             </thead>
             <tbody>
-                <?php foreach($list as $index => $item): ?>
+                <?php $no = 1; foreach($list as $index => $item): ?>
                     <tr>
-                        <td class="ps-4 fw-bold text-muted"><?= $index + 1 ?></td>
+                        <td class="ps-4 fw-bold text-muted"><?= $no++ ?></td>
                         <?php if ($type == 'profesi'): ?>
                             <td><div class="fw-bold text-dark"><?= esc($item['nama_profesi']) ?></div></td>
                             <td><span class="badge bg-<?= $item['kategori_target'] == 'Named' ? 'danger' : 'secondary' ?> text-white"><?= esc($item['kategori_target']) ?></span></td>
@@ -43,8 +43,15 @@ $list  = $list ?? [];
                                     <i class="fas fa-trash me-1"></i> HAPUS
                                 </button>
                             </td>
+                        <?php elseif ($type == 'ruangan'): ?>
+                            <td><div class="fw-bold text-dark"><?= esc($item['nama_unit']) ?></div></td>
+                            <td class="text-center">
+                                <button class="btn btn-light btn-sm rounded-pill px-3 text-danger fw-bold shadow-sm border" onclick="confirmDelete(<?= $item['id_unit_kerja'] ?>)">
+                                    <i class="fas fa-trash me-1"></i> HAPUS
+                                </button>
+                            </td>
                         <?php else: ?>
-                            <td><div class="fw-bold text-dark"><?= $item ?></div></td>
+                            <td><div class="fw-bold text-dark"><?= esc($item) ?></div></td>
                             <td class="text-center">
                                 <button class="btn btn-light btn-sm rounded-pill px-3 text-danger fw-bold shadow-sm border" onclick="confirmDelete(<?= $index ?>)">
                                     <i class="fas fa-trash me-1"></i> HAPUS

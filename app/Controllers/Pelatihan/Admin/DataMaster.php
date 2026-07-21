@@ -25,10 +25,11 @@ class DataMaster extends BaseController
      */
     public function ruangan()
     {
+        $model = new \App\Models\Pelatihan\UnitKerjaPelatihanModel();
         $data = [
             'title' => 'Data Master Ruangan',
             'type' => 'ruangan',
-            'list' => $this->session->get('master_ruangan') ?? ['Aula Utama', 'Lab Simulasi A', 'Lab Simulasi B', 'Ruang Rapat Merapi', 'Ruang Rapat Parangtritis']
+            'list' => $model->findAll()
         ];
         return view('pelatihan/admin/data_master/index', $data);
     }
@@ -206,12 +207,18 @@ class DataMaster extends BaseController
             return redirect()->back()->with('error', 'Profesi tersebut sudah ada.');
         }
 
+        if ($type === 'ruangan') {
+            $model = new \App\Models\Pelatihan\UnitKerjaPelatihanModel();
+            $existing = $model->where('nama_unit', $name)->first();
+            if (!$existing) {
+                $model->insert(['nama_unit' => $name]);
+                return redirect()->back()->with('success', 'Data Ruangan berhasil ditambahkan.');
+            }
+            return redirect()->back()->with('error', 'Ruangan tersebut sudah ada.');
+        }
+
         $sessionKey = 'master_' . $type;
         $list = $this->session->get($sessionKey) ?? [];
-        
-        if ($type == 'ruangan' && empty($this->session->get('master_ruangan'))) {
-            $list = ['Aula Utama', 'Lab Simulasi A', 'Lab Simulasi B', 'Ruang Rapat Merapi', 'Ruang Rapat Parangtritis'];
-        }
 
         if (!in_array($name, $list)) {
             $list[] = $name;
@@ -247,6 +254,12 @@ class DataMaster extends BaseController
             $model = new \App\Models\Pelatihan\ProfesiPelatihanModel();
             $model->delete($indexOrName);
             return redirect()->back()->with('success', 'Data Profesi berhasil dihapus.');
+        }
+
+        if ($type === 'ruangan') {
+            $model = new \App\Models\Pelatihan\UnitKerjaPelatihanModel();
+            $model->delete($indexOrName);
+            return redirect()->back()->with('success', 'Data Ruangan berhasil dihapus.');
         }
 
         $sessionKey = 'master_' . $type;

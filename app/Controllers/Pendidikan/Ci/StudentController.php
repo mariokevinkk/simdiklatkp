@@ -22,20 +22,14 @@ class StudentController extends BaseCiController
         }
 
         // Get logbooks
-        $penempatan = $this->db->table('penempatan_peserta_pendidikan')
-            ->where('mahasiswa_id', $mahasiswaId)
-            ->where('stase_id', $staseId)
-            ->get()->getRowArray();
-
-        $logbooks = [];
-        if ($penempatan) {
-            $logbooks = $this->db->table('logbook_pendidikan')
-                ->where('penempatan_id', $penempatan['id'])
-                ->where('stase_id', $staseId)
-                ->where('ruangan_id', $ruanganId)
-                ->orderBy('tanggal_kegiatan', 'DESC')
-                ->get()->getResultArray();
-        }
+        $logbooks = $this->db->table('logbook_pendidikan')
+            ->select('logbook_pendidikan.*')
+            ->join('penempatan_peserta_pendidikan', 'penempatan_peserta_pendidikan.id = logbook_pendidikan.penempatan_id')
+            ->where('penempatan_peserta_pendidikan.mahasiswa_id', $mahasiswaId)
+            ->where('logbook_pendidikan.stase_id', $staseId)
+            ->where('logbook_pendidikan.ruangan_id', $ruanganId)
+            ->orderBy('logbook_pendidikan.updated_at', 'DESC')
+            ->get()->getResultArray();
 
         // Get tasks & submissions
         $tasks = $this->db->table('tugas_pendidikan')
