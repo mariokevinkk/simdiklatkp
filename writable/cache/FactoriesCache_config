@@ -28,6 +28,7 @@
     'Config\\Session' => 'Config\\Session',
     'Config\\View' => 'Config\\View',
     'Config\\Database' => 'Config\\Database',
+    'Config\\Email' => 'Config\\Email',
   ),
   'instances' => 
   array (
@@ -38,7 +39,7 @@
       array (
         0 => 404,
       ),
-       'errorViewPath' => 'C:\\Users\\MARIO\\Desktop\\KP\\clone1\\simdiklatkp\\app\\Views/errors',
+       'errorViewPath' => 'C:\\Users\\MARIO\\Desktop\\KP\\clone2(last)\\simdiklatkp\\app\\Views/errors',
        'sensitiveDataInTrace' => 
       array (
       ),
@@ -110,7 +111,7 @@
        'reservedCharacters' => '{}()/\\@:',
        'file' => 
       array (
-        'storePath' => 'C:\\Users\\MARIO\\Desktop\\KP\\clone1\\simdiklatkp\\writable\\cache/',
+        'storePath' => 'C:\\Users\\MARIO\\Desktop\\KP\\clone2(last)\\simdiklatkp\\writable\\cache/',
         'mode' => 416,
       ),
        'memcached' => 
@@ -361,7 +362,7 @@
       ),
        'collectVarData' => true,
        'maxHistory' => 20,
-       'viewsPath' => 'C:\\Users\\MARIO\\Desktop\\KP\\clone1\\simdiklatkp\\vendor\\codeigniter4\\framework\\system\\Debug/Toolbar/Views/',
+       'viewsPath' => 'C:\\Users\\MARIO\\Desktop\\KP\\clone2(last)\\simdiklatkp\\vendor\\codeigniter4\\framework\\system\\Debug/Toolbar/Views/',
        'maxQueries' => 100,
        'watchedDirectories' => 
       array (
@@ -388,7 +389,7 @@
     \Config\Routing::__set_state(array(
        'routeFiles' => 
       array (
-        0 => 'C:\\Users\\MARIO\\Desktop\\KP\\clone1\\simdiklatkp\\app\\Config/Routes.php',
+        0 => 'C:\\Users\\MARIO\\Desktop\\KP\\clone2(last)\\simdiklatkp\\app\\Config/Routes.php',
       ),
        'defaultNamespace' => 'App\\Controllers',
        'defaultController' => 'Home',
@@ -543,7 +544,7 @@
     \Config\Routing::__set_state(array(
        'routeFiles' => 
       array (
-        0 => 'C:\\Users\\MARIO\\Desktop\\KP\\clone1\\simdiklatkp\\app\\Config/Routes.php',
+        0 => 'C:\\Users\\MARIO\\Desktop\\KP\\clone2(last)\\simdiklatkp\\app\\Config/Routes.php',
       ),
        'defaultNamespace' => 'App\\Controllers',
        'defaultController' => 'Home',
@@ -571,7 +572,7 @@
        'driver' => 'CodeIgniter\\Session\\Handlers\\FileHandler',
        'cookieName' => 'ci_session',
        'expiration' => 7200,
-       'savePath' => 'C:\\Users\\MARIO\\Desktop\\KP\\clone1\\simdiklatkp\\writable\\session',
+       'savePath' => 'C:\\Users\\MARIO\\Desktop\\KP\\clone2(last)\\simdiklatkp\\writable\\session',
        'matchIP' => false,
        'timeToUpdate' => 300,
        'regenerateDestroy' => false,
@@ -663,7 +664,7 @@
     )),
     'Config\\Database' => 
     \Config\Database::__set_state(array(
-       'filesPath' => 'C:\\Users\\MARIO\\Desktop\\KP\\clone1\\simdiklatkp\\app\\Database\\',
+       'filesPath' => 'C:\\Users\\MARIO\\Desktop\\KP\\clone2(last)\\simdiklatkp\\app\\Database\\',
        'defaultGroup' => 'default',
        'default' => 
       array (
@@ -726,6 +727,36 @@
           'time' => 'H:i:s',
         ),
       ),
+    )),
+    'Config\\Email' => 
+    \Config\Email::__set_state(array(
+       'fromEmail' => 'ruskia335@gmail.com',
+       'fromName' => 'Super Admin SIM Diklat',
+       'recipients' => '',
+       'userAgent' => 'CodeIgniter',
+       'protocol' => 'smtp',
+       'mailPath' => '/usr/sbin/sendmail',
+       'SMTPHost' => 'smtp.gmail.com',
+       'SMTPAuthMethod' => 'login',
+       'SMTPUser' => 'ruskia335@gmail.com',
+       'SMTPPass' => '*80000A20',
+       'SMTPPort' => 465,
+       'SMTPTimeout' => 5,
+       'SMTPKeepAlive' => false,
+       'SMTPCrypto' => 'ssl',
+       'wordWrap' => true,
+       'wrapChars' => 76,
+       'mailType' => 'html',
+       'charset' => 'UTF-8',
+       'validate' => false,
+       'priority' => 3,
+       'CRLF' => '
+',
+       'newline' => '
+',
+       'BCCBatchMode' => false,
+       'BCCBatchSize' => 200,
+       'DSN' => false,
     )),
   ),
 );

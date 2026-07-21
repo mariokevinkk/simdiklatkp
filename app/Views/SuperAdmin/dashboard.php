@@ -107,8 +107,8 @@
                                                 <td><?= $admin['nama'] ?></td>
                                                 <td><?= $admin['email'] ?></td>
                                                 <td>
-                                                    <button class="btn btn-sm btn-outline-primary" onclick="editPassword('<?= $admin['id'] ?>', 'riset', '<?= $admin['nama'] ?>')">
-                                                        <i class="fas fa-key"></i> Edit Password
+                                                    <button class="btn btn-sm btn-outline-info ms-1" onclick="kirimResetEmail('<?= $admin['id'] ?>', 'riset', '<?= $admin['nama'] ?>')">
+                                                        <i class="fas fa-envelope"></i> Kirim Reset Email
                                                     </button>
                                                 </td>
                                             </tr>
@@ -148,8 +148,8 @@
                                                 <td><?= $admin['nik'] ?></td>
                                                 <td><?= $admin['email'] ?></td>
                                                 <td>
-                                                    <button class="btn btn-sm btn-outline-primary" onclick="editPassword('<?= $admin['nik'] ?>', 'pelatihan', '<?= $admin['nama_lengkap'] ?>')">
-                                                        <i class="fas fa-key"></i> Edit Password
+                                                    <button class="btn btn-sm btn-outline-info ms-1" onclick="kirimResetEmail('<?= $admin['nik'] ?>', 'pelatihan', '<?= $admin['nama_lengkap'] ?>')">
+                                                        <i class="fas fa-envelope"></i> Kirim Reset Email
                                                     </button>
                                                 </td>
                                             </tr>
@@ -178,8 +178,8 @@
                                             <tr>
                                                 <td><?= $admin['email'] ?></td>
                                                 <td>
-                                                    <button class="btn btn-sm btn-outline-primary" onclick="editPassword('<?= $admin['id'] ?>', 'pendidikan', '<?= $admin['email'] ?>')">
-                                                        <i class="fas fa-key"></i> Edit Password
+                                                    <button class="btn btn-sm btn-outline-info ms-1" onclick="kirimResetEmail('<?= $admin['id'] ?>', 'pendidikan', '<?= $admin['email'] ?>')">
+                                                        <i class="fas fa-envelope"></i> Kirim Reset Email
                                                     </button>
                                                 </td>
                                             </tr>
@@ -197,30 +197,7 @@
             </div>
         </div>
 
-<!-- Modal Ganti Password -->
-<div class="modal fade" id="passwordModal" tabindex="-1" aria-labelledby="passwordModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <form action="<?= base_url('superadmin/update_password') ?>" method="POST" class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="passwordModalLabel">Ganti Password</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-body">
-        <p>Ganti password untuk admin: <strong id="adminNameDisplay"></strong></p>
-        <input type="hidden" name="id" id="admin_id">
-        <input type="hidden" name="modul" id="admin_modul">
-        <div class="mb-3">
-            <label class="form-label">Password Baru</label>
-            <input type="password" name="password_baru" class="form-control" required placeholder="Masukkan password baru">
-        </div>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>
-        <button type="submit" class="btn btn-primary">Simpan Password</button>
-      </div>
-    </form>
-  </div>
-</div>
+
 
 <script>
     document.addEventListener('DOMContentLoaded', function() {
@@ -251,12 +228,29 @@
         });
     });
 
-    function editPassword(id, modul, name) {
-        document.getElementById('admin_id').value = id;
-        document.getElementById('admin_modul').value = modul;
-        document.getElementById('adminNameDisplay').textContent = name;
-        var myModal = new bootstrap.Modal(document.getElementById('passwordModal'));
-        myModal.show();
+
+
+    function kirimResetEmail(id, modul, name) {
+        if(confirm('Apakah Anda yakin ingin mengirimkan reset password ke email admin ' + name + '?')) {
+            const form = document.createElement('form');
+            form.method = 'POST';
+            form.action = '<?= base_url('superadmin/reset_password_email') ?>';
+            
+            const idInput = document.createElement('input');
+            idInput.type = 'hidden';
+            idInput.name = 'id';
+            idInput.value = id;
+            form.appendChild(idInput);
+            
+            const modulInput = document.createElement('input');
+            modulInput.type = 'hidden';
+            modulInput.name = 'modul';
+            modulInput.value = modul;
+            form.appendChild(modulInput);
+            
+            document.body.appendChild(form);
+            form.submit();
+        }
     }
 </script>
 
