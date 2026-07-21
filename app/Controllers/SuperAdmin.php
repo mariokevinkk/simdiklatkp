@@ -90,34 +90,92 @@ class SuperAdmin extends BaseController
         }
     }
 
-    public function update_password()
+
+
+    public function reset_password_email()
     {
         $id = $this->request->getPost('id');
         $modul = $this->request->getPost('modul');
-        $passwordBaru = $this->request->getPost('password_baru');
 
-        if (empty($id) || empty($modul) || empty($passwordBaru)) {
+        if (empty($id) || empty($modul)) {
             return redirect()->back()->with('error', 'Data tidak lengkap!');
         }
 
         $db = \Config\Database::connect();
-        $hashPassword = password_hash($passwordBaru, PASSWORD_DEFAULT);
+        $emailTujuan = '';
+        $namaTujuan = '';
 
         try {
             if ($modul == 'riset') {
-                $db->table('users_riset')->where('id', $id)->update(['password' => $hashPassword]);
+                $user = $db->table('users_riset')->where('id', $id)->get()->getRowArray();
+                if($user) { $emailTujuan = $user['email']; $namaTujuan = $user['nama']; }
             } elseif ($modul == 'pelatihan') {
-                // Di pelatihan, primary key-nya adalah NIK
-                $db->table('users_pelatihan')->where('nik', $id)->update(['password' => $hashPassword]);
+                $user = $db->table('users_pelatihan')->where('nik', $id)->get()->getRowArray();
+                if($user) { $emailTujuan = $user['email']; $namaTujuan = $user['nama_lengkap']; }
             } elseif ($modul == 'pendidikan') {
-                $db->table('users_pendidikan')->where('id', $id)->update(['password' => $hashPassword]);
+                $user = $db->table('users_pendidikan')->where('id', $id)->get()->getRowArray();
+                if($user) { $emailTujuan = $user['email']; $namaTujuan = 'Admin Pendidikan'; }
             } else {
                 return redirect()->back()->with('error', 'Modul tidak dikenali!');
             }
 
-            return redirect()->back()->with('success', 'Password berhasil diperbarui!');
+            if(empty($emailTujuan)) {
+                return redirect()->back()->with('error', 'Data admin tidak ditemukan atau admin tidak memiliki email!');
+            }
+
+            // Generate random password
+            $passwordBaru = bin2hex(random_bytes(4)); // 8 characters
+
+            $hashPassword = password_hash($passwordBaru, PASSWORD_DEFAULT);
+
+            // Update database
+            if ($modul == 'riset') {
+                $db->table('users_riset')->where('id', $id)->update(['password' => $hashPassword]);
+            } elseif ($modul == 'pelatihan') {
+                $db->table('users_pelatihan')->where('nik', $id)->update(['password' => $hashPassword]);
+            } elseif ($modul == 'pendidikan') {
+                $db->table('users_pendidikan')->where('id', $id)->update(['password' => $hashPassword]);
+            }
+
+            // Kirim Email
+            $email = \Config\Services::email();
+            
+            // Bypass seluruh .env cache dengan initialize manual
+            $config = [
+                'protocol'   => 'smtp',
+                'SMTPHost'   => 'smtp.gmail.com',
+                'SMTPUser'   => 'ruskia335@gmail.com',
+                'SMTPPass'   => 'dncolbjpkdjgennh',
+                'SMTPPort'   => 465,
+                'SMTPCrypto' => 'ssl',
+                'mailType'   => 'html',
+                'CRLF'       => "\r\n",
+                'newline'    => "\r\n"
+            ];
+            $email->initialize($config);
+
+            $email->setFrom('ruskia335@gmail.com', 'Super Admin SIM Diklat');
+            $email->setTo($emailTujuan);
+            $email->setSubject('Reset Password Admin SIM Diklat');
+            
+            $pesan = "Halo {$namaTujuan},<br><br>";
+            $pesan .= "Password Anda telah direset oleh Super Admin.<br>";
+            $pesan .= "Berikut adalah password baru Anda: <b>{$passwordBaru}</b><br><br>";
+            $pesan .= "Silakan login menggunakan password tersebut dan segera ganti password Anda demi keamanan.<br><br>";
+            $pesan .= "Terima kasih.";
+
+            $email->setMessage($pesan);
+
+            if ($email->send()) {
+                return redirect()->back()->with('success', "Password baru berhasil dikirim ke {$emailTujuan}!");
+            } else {
+                $errorMsg = $email->printDebugger(['headers']);
+                log_message('error', 'Gagal mengirim email: ' . $errorMsg);
+                return redirect()->back()->with('error', 'Gagal mengirim email. Pastikan koneksi internet server stabil.');
+            }
+
         } catch (\Exception $e) {
-            return redirect()->back()->with('error', 'Gagal memperbarui password: ' . $e->getMessage());
+            return redirect()->back()->with('error', 'Gagal mereset password: ' . $e->getMessage());
         }
     }
 }
