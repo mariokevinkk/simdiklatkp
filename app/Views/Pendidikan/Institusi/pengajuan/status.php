@@ -15,16 +15,7 @@
     </div>
 </div>
 
-<?php if (session()->getFlashdata('success')) : ?>
-    <div class="row">
-        <div class="col-12">
-            <div class="alert alert-success alert-dismissible fade show" role="alert">
-                <i class="fas fa-check-circle me-2"></i> <?= session()->getFlashdata('success') ?>
-                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-            </div>
-        </div>
-    </div>
-<?php endif; ?>
+
 
 <ul class="nav nav-tabs mb-4" id="statusTabs" role="tablist">
     <li class="nav-item" role="presentation">

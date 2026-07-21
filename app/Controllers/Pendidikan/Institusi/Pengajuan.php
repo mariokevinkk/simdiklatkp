@@ -203,7 +203,7 @@ class Pengajuan extends BaseController
             }
         }
 
-        return redirect()->to('pendidikan/institusi/pengajuan/create')->with('success', 'Pengajuan berhasil dikirim dan sedang menunggu verifikasi.');
+        return redirect()->to('pendidikan/institusi/pengajuan/status')->with('success', 'Pengajuan berhasil dikirim dan sedang menunggu verifikasi.');
     }
 
     public function status()

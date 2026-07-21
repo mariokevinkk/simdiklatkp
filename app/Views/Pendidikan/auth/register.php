@@ -59,13 +59,7 @@
     </div>
 
     <div class="register-card">
-        <?php if(session()->getFlashdata('error')): ?>
-            <div class="alert alert-danger"><?= session()->getFlashdata('error') ?></div>
-        <?php endif; ?>
-        <?php if(session()->getFlashdata('success')): ?>
-            <div class="alert alert-success"><?= session()->getFlashdata('success') ?></div>
-        <?php endif; ?>
-        
+
         <form action="<?= base_url('pendidikan/register/process') ?>" method="POST" enctype="multipart/form-data">
             <!-- Data Institusi -->
             <div class="section-title">
@@ -190,7 +184,24 @@
 </div>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <script>
+    <?php if (session()->getFlashdata('success')) : ?>
+        Swal.fire({
+            icon: 'success',
+            title: 'Berhasil',
+            text: '<?= session()->getFlashdata('success') ?>',
+        });
+    <?php endif; ?>
+
+    <?php if (session()->getFlashdata('error')) : ?>
+        Swal.fire({
+            icon: 'error',
+            title: 'Gagal',
+            text: '<?= session()->getFlashdata('error') ?>',
+        });
+    <?php endif; ?>
+
     function autofillTesting() {
         document.querySelector('input[name="nama_institusi"]').value = 'Universitas Testing Sim Diklat';
         document.querySelector('select[name="jenis_institusi"]').value = 'Swasta';
