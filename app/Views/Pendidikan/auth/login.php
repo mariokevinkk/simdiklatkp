@@ -66,12 +66,7 @@
         <h5 class="text-muted">Modul Pendidikan</h5>
     </div>
 
-    <?php if (session()->getFlashdata('error')) : ?>
-        <div class="alert alert-danger alert-dismissible fade show" role="alert">
-            <?= session()->getFlashdata('error') ?>
-            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-        </div>
-    <?php endif; ?>
+
 
     <form action="<?= base_url('pendidikan/login/process') ?>" method="POST">
         <div class="mb-3">
@@ -104,7 +99,24 @@
 </div>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <script>
+    <?php if (session()->getFlashdata('success')) : ?>
+        Swal.fire({
+            icon: 'success',
+            title: 'Berhasil',
+            text: '<?= session()->getFlashdata('success') ?>',
+        });
+    <?php endif; ?>
+
+    <?php if (session()->getFlashdata('error')) : ?>
+        Swal.fire({
+            icon: 'error',
+            title: 'Gagal',
+            text: '<?= session()->getFlashdata('error') ?>',
+        });
+    <?php endif; ?>
+
     const togglePassword = document.querySelector('#togglePassword');
     const password = document.querySelector('#password');
     const icon = togglePassword.querySelector('i');

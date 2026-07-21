@@ -43,6 +43,22 @@
             $('.navbar-toggler').on('click', function() {
                 $('#sidebarMenu').toggleClass('show');
             });
+
+            <?php if (session()->getFlashdata('success')) : ?>
+                Swal.fire({
+                    icon: 'success',
+                    title: 'Berhasil',
+                    text: '<?= session()->getFlashdata('success') ?>',
+                });
+            <?php endif; ?>
+
+            <?php if (session()->getFlashdata('error')) : ?>
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Gagal',
+                    text: '<?= session()->getFlashdata('error') ?>',
+                });
+            <?php endif; ?>
         });
     </script>
 </body>
