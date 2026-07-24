@@ -92,6 +92,19 @@ class Publikasi extends BaseController
 
         // Handle file upload (dokumen)
         $fileInputs = ['permohonan_izin', 'salinan_izin_penelitian', 'draft_artikel', 'pernyataan_anonimitas'];
+        
+        $validationRules = [];
+        foreach ($fileInputs as $input) {
+            $f = $this->request->getFile($input);
+            if ($f && $f->isValid() && !$f->hasMoved()) {
+                $validationRules[$input] = "ext_in[{$input},pdf,doc,docx,jpg,jpeg,png]";
+            }
+        }
+        
+        if (!empty($validationRules) && !$this->validate($validationRules)) {
+            return redirect()->back()->withInput()->with('error', 'Format file dokumen publikasi tidak diizinkan. Harap unggah format PDF, DOCX, atau Gambar.');
+        }
+
         $uploadedFilesData = [];
         foreach ($fileInputs as $input) {
             $f = $this->request->getFile($input);
@@ -167,7 +180,7 @@ class Publikasi extends BaseController
         // Ambil dokumen terkait
         // Ambil dokumen terkait (ambil semua dokumen yang terhubung ke pengajuan_riset_id ini)
         $dokumen = $this->dokumenModel->where('pengajuan_riset_id', $id)
-                                      ->whereIn('jenis_dokumen', ['publikasi', 'permohonan_izin', 'salinan_izin_penelitian', 'draft_artikel', 'pernyataan_anonimitas'])
+                                      ->whereIn('jenis_dokumen', ['publikasi', 'permohonan_izin', 'salinan_izin_penelitian', 'draft_artikel', 'pernyataan_anonimitas', 'Surat Izin Publikasi Resmi'])
                                       ->findAll();
         $publikasi['dokumen'] = $dokumen;
         $date = $publikasi['created_at'] ?? 'now';
@@ -199,39 +212,15 @@ class Publikasi extends BaseController
             return redirect()->to(base_url('riset/peneliti/status'))->with('error', 'Data publikasi tidak ditemukan.');
         }
 
-        // Format waktu penelitian
-        $bulanIndo = [1 => 'Januari', 2 => 'Februari', 3 => 'Maret', 4 => 'April', 5 => 'Mei', 6 => 'Juni',
-                      7 => 'Juli', 8 => 'Agustus', 9 => 'September', 10 => 'Oktober', 11 => 'November', 12 => 'Desember'];
-        
-        $waktu_penelitian = '-';
-        if (!empty($publikasi['waktu_mulai']) && !empty($publikasi['waktu_selesai'])) {
-            $mulai = date_create($publikasi['waktu_mulai']);
-            $selesai = date_create($publikasi['waktu_selesai']);
-            $waktu_penelitian = date_format($mulai, 'd') . ' ' . $bulanIndo[(int)date_format($mulai, 'm')] . ' ' . date_format($mulai, 'Y')
-                              . ' s/d ' 
-                              . date_format($selesai, 'd') . ' ' . $bulanIndo[(int)date_format($selesai, 'm')] . ' ' . date_format($selesai, 'Y');
+        $dokumen = $this->dokumenModel->where('pengajuan_riset_id', $id)
+                                      ->whereIn('jenis_dokumen', ['Surat Izin Publikasi Resmi', 'Surat Izin Resmi'])
+                                      ->first();
+                                      
+        if ($dokumen && !empty($dokumen['file_path'])) {
+            return redirect()->to(base_url($dokumen['file_path']));
         }
-
-        $pengaturanModel = new \App\Models\PengaturanSuratRisetModel();
-        $pengaturan = $pengaturanModel->first();
-
-        return view('riset/peneliti/publikasi/surat_izin_publikasi_template', [
-            'title'              => 'Cetak Surat Izin Publikasi',
-            'active_menu'        => 'publikasi',
-            'nama_peneliti'      => $publikasi['nama'] ?? '-',
-            'nim'                => $publikasi['identitas'] ?? '-',
-            'institusi'          => $publikasi['institusi'] ?? '-',
-            'judul_riset'        => $publikasi['judul'] ?? '-',
-            'nama_publikasi'     => $publikasi['nama_publikasi'] ?? '-',
-            'jenis_jurnal'       => $publikasi['jenis_jurnal'] ?? '-',
-            'kategori'           => $publikasi['kategori_jurnal'] ?? '-',
-            'issn'               => $publikasi['issn'] ?? '-',
-            'scope'              => $publikasi['scope'] ?? '-',
-            'alamat_web'         => $publikasi['alamat_web'] ?? '-',
-            'waktu_penelitian'   => $waktu_penelitian,
-            'nomor_surat'        => $publikasi['no_surat_izin'] ?? null,
-            'pengaturan'         => $pengaturan
-        ]);
+        
+        return redirect()->to(base_url('riset/peneliti/status'))->with('error', 'Surat Izin Publikasi Resmi belum diterbitkan oleh Admin.');
     }
 
     public function publikasi_bayar()
@@ -240,6 +229,9 @@ class Publikasi extends BaseController
         $file = $this->request->getFile('bukti_bayar');
 
         if ($file && $file->isValid()) {
+            if (!$this->validate(['bukti_bayar' => 'ext_in[bukti_bayar,pdf,jpg,jpeg,png]'])) {
+                return redirect()->back()->with('error', 'Format bukti pembayaran tidak valid. Harap unggah JPG, PNG, atau PDF.');
+            }
             $fileName = str_replace(' ', '_', $file->getClientName());
             $file->move(FCPATH . 'uploads/riset/pembayaran', $fileName);
 

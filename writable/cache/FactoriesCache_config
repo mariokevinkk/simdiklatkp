@@ -32,6 +32,7 @@
     'Config\\Security' => 'Config\\Security',
     'Config\\Format' => 'Config\\Format',
     'Config\\Pager' => 'Config\\Pager',
+    'Config\\Email' => 'Config\\Email',
   ),
   'instances' => 
   array (
@@ -789,6 +790,36 @@
         'custom_pagination' => 'App\\Views\\pelatihan\\layout\\custom_pagination',
       ),
        'perPage' => 20,
+    )),
+    'Config\\Email' => 
+    \Config\Email::__set_state(array(
+       'fromEmail' => 'ruskia335@gmail.com',
+       'fromName' => 'Super Admin SIM Diklat',
+       'recipients' => '',
+       'userAgent' => 'CodeIgniter',
+       'protocol' => 'smtp',
+       'mailPath' => '/usr/sbin/sendmail',
+       'SMTPHost' => 'smtp.gmail.com',
+       'SMTPAuthMethod' => 'login',
+       'SMTPUser' => 'ruskia335@gmail.com',
+       'SMTPPass' => 'dncolbjpkdjgennh',
+       'SMTPPort' => 465,
+       'SMTPTimeout' => 5,
+       'SMTPKeepAlive' => false,
+       'SMTPCrypto' => 'ssl',
+       'wordWrap' => true,
+       'wrapChars' => 76,
+       'mailType' => 'html',
+       'charset' => 'UTF-8',
+       'validate' => false,
+       'priority' => 3,
+       'CRLF' => '
+',
+       'newline' => '
+',
+       'BCCBatchMode' => false,
+       'BCCBatchSize' => 200,
+       'DSN' => false,
     )),
   ),
 );

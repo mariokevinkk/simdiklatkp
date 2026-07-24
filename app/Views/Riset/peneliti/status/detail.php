@@ -170,7 +170,7 @@
                     </div>
                 <?php endif; ?>
 
-                <?php if ($data['status'] == 'ditolak' && !empty($data['catatan_penolakan'])): ?>
+                <?php if ($data['status'] == 'ditolak' && !empty($data['catatan_revisi'])): ?>
                     <div class="alert alert-danger border-0 rounded-4 p-4 mb-4" style="background: rgba(229, 57, 53, 0.1);">
                         <div class="d-flex align-items-start">
                             <div class="bg-danger text-white rounded-circle p-2 me-3" style="width: 35px; height: 35px; display: flex; align-items: center; justify-content: center;">
@@ -178,7 +178,7 @@
                             </div>
                             <div class="flex-grow-1">
                                 <h6 class="fw-bold text-danger mb-1">Alasan Penolakan:</h6>
-                                <p class="text-dark small mb-0"><?= $data['catatan_penolakan'] ?></p>
+                                <p class="text-dark small mb-0"><?= $data['catatan_revisi'] ?></p>
                             </div>
                         </div>
                     </div>

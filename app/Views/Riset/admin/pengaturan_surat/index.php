@@ -5,7 +5,7 @@
     <div class="row mb-4">
         <div class="col-12">
             <h1 class="h3 mb-2 text-gray-800">Pengaturan Riset</h1>
-            <p class="mb-0 text-muted">Atur logo kop surat dan tanda tangan (TTD) untuk keperluan cetak surat di Riset (Surat Stupen, Izin Penelitian, Publikasi).</p>
+            <p class="mb-0 text-muted">Atur gambar kop surat untuk keperluan cetak surat di Riset (Surat Stupen, Izin Penelitian, Publikasi).</p>
         </div>
     </div>
 
@@ -77,10 +77,10 @@
                         </div>
 
                         <hr class="my-4">
-                        <h6 class="font-weight-bold text-primary mb-3">Pengaturan Kop Surat & TTD</h6>
+                        <h6 class="font-weight-bold text-primary mb-3">Pengaturan Kop Surat</h6>
 
                         <div class="mb-4">
-                            <label for="logo_kop" class="form-label fw-bold">Logo Kop Surat</label>
+                            <label for="logo_kop" class="form-label fw-bold">Gambar Kop Surat</label>
                             <?php if(isset($pengaturan['logo_kop']) && !empty($pengaturan['logo_kop'])): ?>
                                 <div class="mb-2">
                                     <img src="<?= base_url('uploads/riset/pengaturan/' . $pengaturan['logo_kop']) ?>" alt="Logo Kop" class="img-thumbnail" style="max-height: 100px;">
@@ -90,15 +90,6 @@
                             <div class="form-text">Format: JPG, JPEG, PNG. Maksimal ukuran: 2MB. Biarkan kosong jika tidak ingin mengubah.</div>
                         </div>
 
-                        <div class="mb-4">
-                            <label for="ttd_image" class="form-label fw-bold">Gambar Tanda Tangan (TTD)</label>
-                            <?php if(isset($pengaturan['ttd_image']) && !empty($pengaturan['ttd_image'])): ?>
-                                <div class="mb-2">
-                                    <img src="<?= base_url('uploads/riset/pengaturan/' . $pengaturan['ttd_image']) ?>" alt="TTD Image" class="img-thumbnail" style="max-height: 100px;">
-                                </div>
-                            <?php endif; ?>
-                            <input class="form-control" type="file" id="ttd_image" name="ttd_image" accept="image/png, image/jpeg, image/jpg">
-                            <div class="form-text">Format: JPG, JPEG, PNG (Disarankan PNG transparan). Maksimal ukuran: 2MB. Biarkan kosong jika tidak ingin mengubah.</div>
                         </div>
 
                         <button type="submit" class="btn btn-primary w-100">Simpan Pengaturan</button>

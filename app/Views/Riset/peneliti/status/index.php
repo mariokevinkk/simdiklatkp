@@ -19,7 +19,19 @@
     <p class="text-muted small mb-0 ms-5" style="padding-left: 12px;">Pantau proses administrasi, persetujuan dokumen, dan pembayaran secara real-time.</p>
 </div>
 
+<?php if (session()->getFlashdata('success')): ?>
+    <div class="alert alert-success border-0 shadow-sm rounded-4 mb-4 py-3 d-flex align-items-center" style="background: rgba(40, 167, 69, 0.05); color: #28a745;">
+        <i class="fas fa-check-circle me-3" style="font-size: 20px;"></i>
+        <div class="fw-bold small"><?= session()->getFlashdata('success') ?></div>
+    </div>
+<?php endif; ?>
 
+<?php if (session()->getFlashdata('error')): ?>
+    <div class="alert alert-danger border-0 shadow-sm rounded-4 mb-4 py-3 d-flex align-items-center" style="background: rgba(220, 53, 69, 0.05); color: #dc3545;">
+        <i class="fas fa-exclamation-circle me-3" style="font-size: 20px;"></i>
+        <div class="fw-bold small"><?= session()->getFlashdata('error') ?></div>
+    </div>
+<?php endif; ?>
 
 <!-- Tabs Navigation -->
 <div class="card border-0 shadow-sm rounded-4 overflow-hidden mb-4">

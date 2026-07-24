@@ -45,7 +45,7 @@ class Pengajuan extends BaseController
         }
 
         $dokumen = $this->dokumenModel->where('pengajuan_riset_id', $id)
-                                      ->whereIn('jenis_dokumen', ['Surat Permohonan', 'Proposal', 'CV', 'Draft Wawancara'])
+                                      ->whereIn('jenis_dokumen', ['Surat Permohonan', 'Proposal', 'CV', 'Draft Wawancara', 'Surat Izin Resmi'])
                                       ->findAll();
         $pengajuan['dokumen'] = $dokumen;
         
@@ -91,6 +91,18 @@ class Pengajuan extends BaseController
 
         // Handle file upload dokumen
         $dokumenFields = ['surat_permohonan', 'proposal', 'cv', 'draft_wawancara'];
+
+        $validationRules = [];
+        foreach ($dokumenFields as $field) {
+            $file = $this->request->getFile($field);
+            if ($file && $file->isValid() && !$file->hasMoved()) {
+                $validationRules[$field] = "ext_in[{$field},pdf,doc,docx,jpg,jpeg,png]";
+            }
+        }
+        
+        if (!empty($validationRules) && !$this->validate($validationRules)) {
+            return redirect()->back()->withInput()->with('error', 'Format file dokumen tidak diizinkan. Harap unggah format PDF, DOCX, atau Gambar.');
+        }
 
         if ($is_revisi && $id) {
             $this->pengajuanModel->update($id, $data);
@@ -146,29 +158,15 @@ class Pengajuan extends BaseController
             return redirect()->to(base_url('riset/peneliti/status'))->with('error', 'Data tidak ditemukan.');
         }
 
-        $bulanIndo = [1=>'Januari', 2=>'Februari', 3=>'Maret', 4=>'April', 5=>'Mei', 6=>'Juni', 7=>'Juli', 8=>'Agustus', 9=>'September', 10=>'Oktober', 11=>'November', 12=>'Desember'];
-        $mulai = $pengajuan['waktu_mulai'] ?? date('Y-m-d');
-        $waktu_mulai_fmt = date('d', strtotime($mulai)) . ' ' . $bulanIndo[(int)date('m', strtotime($mulai))] . ' ' . date('Y', strtotime($mulai));
+        $dokumen = $this->dokumenModel->where('pengajuan_riset_id', $id)
+                                      ->where('jenis_dokumen', 'Surat Izin Resmi')
+                                      ->first();
+                                      
+        if ($dokumen && !empty($dokumen['file_path'])) {
+            return redirect()->to(base_url($dokumen['file_path']));
+        }
         
-        $selesai = $pengajuan['waktu_selesai'] ?? date('Y-m-d');
-        $waktu_selesai_fmt = date('d', strtotime($selesai)) . ' ' . $bulanIndo[(int)date('m', strtotime($selesai))] . ' ' . date('Y', strtotime($selesai));
-
-        $pengaturanModel = new \App\Models\PengaturanSuratRisetModel();
-        $pengaturan = $pengaturanModel->first();
-
-        return view('riset/peneliti/pengajuan/surat_izin_template', [
-            'title'          => 'Cetak Surat Izin Studi Pendahuluan',
-            'active_menu'    => 'status',
-            'nama_peneliti'  => $pengajuan['nama'] ?? '-',
-            'nim'            => $pengajuan['identitas'] ?? '-',
-            'prodi'          => $pengajuan['prodi'] ?? '-',
-            'institusi'      => $pengajuan['institusi'] ?? '-',
-            'judul_riset'    => $pengajuan['judul'] ?? '-',
-            'waktu_mulai'    => $waktu_mulai_fmt,
-            'waktu_selesai'  => $waktu_selesai_fmt,
-            'nomor_surat'    => $pengajuan['nomor_surat'] ?? null,
-            'pengaturan'     => $pengaturan
-        ]);
+        return redirect()->to(base_url('riset/peneliti/status'))->with('error', 'Surat Izin Resmi belum diterbitkan oleh Admin.');
     }
 
     public function surat_izin_penelitian_print($id = null)
@@ -179,29 +177,15 @@ class Pengajuan extends BaseController
             return redirect()->to(base_url('riset/peneliti/status'))->with('error', 'Data tidak ditemukan.');
         }
 
-        $bulanIndo = [1=>'Januari', 2=>'Februari', 3=>'Maret', 4=>'April', 5=>'Mei', 6=>'Juni', 7=>'Juli', 8=>'Agustus', 9=>'September', 10=>'Oktober', 11=>'November', 12=>'Desember'];
-        $mulai = $pengajuan['waktu_mulai'] ?? date('Y-m-d');
-        $waktu_mulai_fmt = date('d', strtotime($mulai)) . ' ' . $bulanIndo[(int)date('m', strtotime($mulai))] . ' ' . date('Y', strtotime($mulai));
+        $dokumen = $this->dokumenModel->where('pengajuan_riset_id', $id)
+                                      ->where('jenis_dokumen', 'Surat Izin Resmi')
+                                      ->first();
+                                      
+        if ($dokumen && !empty($dokumen['file_path'])) {
+            return redirect()->to(base_url($dokumen['file_path']));
+        }
         
-        $selesai = $pengajuan['waktu_selesai'] ?? date('Y-m-d');
-        $waktu_selesai_fmt = date('d', strtotime($selesai)) . ' ' . $bulanIndo[(int)date('m', strtotime($selesai))] . ' ' . date('Y', strtotime($selesai));
-
-        $pengaturanModel = new \App\Models\PengaturanSuratRisetModel();
-        $pengaturan = $pengaturanModel->first();
-
-        return view('riset/peneliti/pengajuan/surat_izin_penelitian_template', [
-            'title'          => 'Cetak Surat Izin Penelitian',
-            'active_menu'    => 'status',
-            'nama_peneliti'  => $pengajuan['nama'] ?? '-',
-            'nim'            => $pengajuan['identitas'] ?? '-',
-            'prodi'          => $pengajuan['prodi'] ?? '-',
-            'institusi'      => $pengajuan['institusi'] ?? '-',
-            'judul_riset'    => $pengajuan['judul'] ?? '-',
-            'waktu_mulai'    => $waktu_mulai_fmt,
-            'waktu_selesai'  => $waktu_selesai_fmt,
-            'nomor_surat'    => $pengajuan['nomor_surat'] ?? null,
-            'pengaturan'     => $pengaturan
-        ]);
+        return redirect()->to(base_url('riset/peneliti/status'))->with('error', 'Surat Izin Resmi belum diterbitkan oleh Admin.');
     }
 
     public function stupen_bayar()
@@ -209,6 +193,9 @@ class Pengajuan extends BaseController
         $id = $this->request->getPost('id');
         $file = $this->request->getFile('bukti_bayar');
         if ($file && $file->isValid()) {
+            if (!$this->validate(['bukti_bayar' => 'ext_in[bukti_bayar,pdf,jpg,jpeg,png]'])) {
+                return redirect()->back()->with('error', 'Format bukti pembayaran tidak valid. Harap unggah JPG, PNG, atau PDF.');
+            }
             $fileName = str_replace(' ', '_', $file->getClientName());
             $file->move(FCPATH . 'uploads/riset/pembayaran', $fileName);
             
@@ -248,7 +235,7 @@ class Pengajuan extends BaseController
         }
 
         $dokumen = $this->dokumenModel->where('pengajuan_riset_id', $id)
-                                      ->whereIn('jenis_dokumen', ['Surat Permohonan', 'Proposal', 'CV', 'Draft Wawancara'])
+                                      ->whereIn('jenis_dokumen', ['Surat Permohonan', 'Proposal', 'CV', 'Draft Wawancara', 'Surat Izin Resmi'])
                                       ->findAll();
         $pengajuan['dokumen'] = $dokumen;
 
@@ -293,6 +280,18 @@ class Pengajuan extends BaseController
 
         // Handle file upload
         $dokumenFields = ['surat_permohonan', 'proposal', 'cv', 'draft_wawancara'];
+
+        $validationRules = [];
+        foreach ($dokumenFields as $field) {
+            $file = $this->request->getFile($field);
+            if ($file && $file->isValid() && !$file->hasMoved()) {
+                $validationRules[$field] = "ext_in[{$field},pdf,doc,docx,jpg,jpeg,png]";
+            }
+        }
+        
+        if (!empty($validationRules) && !$this->validate($validationRules)) {
+            return redirect()->back()->withInput()->with('error', 'Format file dokumen tidak diizinkan. Harap unggah format PDF, DOCX, atau Gambar.');
+        }
 
         if ($is_revisi && $id) {
             $this->pengajuanModel->update($id, $data);
@@ -345,6 +344,9 @@ class Pengajuan extends BaseController
         $id = $this->request->getPost('id');
         $file = $this->request->getFile('bukti_bayar');
         if ($file && $file->isValid()) {
+            if (!$this->validate(['bukti_bayar' => 'ext_in[bukti_bayar,pdf,jpg,jpeg,png]'])) {
+                return redirect()->back()->with('error', 'Format bukti pembayaran tidak valid. Harap unggah JPG, PNG, atau PDF.');
+            }
             $fileName = str_replace(' ', '_', $file->getClientName());
             $file->move(FCPATH . 'uploads/riset/pembayaran', $fileName);
             

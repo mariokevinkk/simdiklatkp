@@ -48,11 +48,19 @@
                     <h5 class="fw-bold" style="color: #e53935; line-height: 1.4; font-size: 18px;">
                         <?= esc($data['judul']) ?>
                     </h5>
-                    <?php if(isset($data['waktu_mulai']) && isset($data['waktu_selesai'])): ?>
-                        <div class="text-muted mt-2" style="font-size: 11px;">
-                            <i class="far fa-calendar-alt me-1"></i> Waktu Penelitian: <?= date('d M Y', strtotime($data['waktu_mulai'])) ?> s.d. <?= date('d M Y', strtotime($data['waktu_selesai'])) ?>
-                        </div>
-                    <?php endif; ?>
+                    <?php 
+                        $w_mulai = (isset($data['waktu_mulai']) && !empty($data['waktu_mulai']) && $data['waktu_mulai'] != '0000-00-00') ? date('d M Y', strtotime($data['waktu_mulai'])) : '-';
+                        $w_selesai = (isset($data['waktu_selesai']) && !empty($data['waktu_selesai']) && $data['waktu_selesai'] != '0000-00-00') ? date('d M Y', strtotime($data['waktu_selesai'])) : '-';
+                        
+                        if ($w_mulai === '-' && $w_selesai === '-') {
+                            $waktu_text = '-';
+                        } else {
+                            $waktu_text = $w_mulai . ' s.d. ' . $w_selesai;
+                        }
+                    ?>
+                    <div class="text-muted mt-2" style="font-size: 11px;">
+                        <i class="far fa-calendar-alt me-1"></i> Waktu Penelitian: <?= $waktu_text ?>
+                    </div>
                 </div>
 
                 <!-- Journal Details -->
@@ -104,24 +112,40 @@
                     <label class="text-uppercase fw-bold text-muted mb-2" style="font-size: 10px; letter-spacing: 1px;">Dokumen Pendukung</label>
                     <div class="list-group list-group-flush">
                         <?php if (!empty($data['dokumen'])): ?>
-                            <?php foreach ($data['dokumen'] as $idx => $doc): ?>
-                                <?php 
-                                    $docName = "Dokumen Lampiran";
-                                    if (isset($doc['jenis_dokumen'])) {
-                                        if ($doc['jenis_dokumen'] == 'permohonan_izin') $docName = 'Surat Permohonan Izin Publikasi';
+                            <?php 
+                                $hasUserDocs = false;
+                                foreach ($data['dokumen'] as $idx => $doc) {
+                                    if ($doc['jenis_dokumen'] == 'Surat Izin Publikasi Resmi') continue;
+                                    $hasUserDocs = true;
+                                }
+                            ?>
+                            <?php if ($hasUserDocs): ?>
+                                <?php $docCounter = 1; ?>
+                                <?php foreach ($data['dokumen'] as $idx => $doc): ?>
+                                    <?php 
+                                        if ($doc['jenis_dokumen'] == 'Surat Izin Publikasi Resmi') continue;
+                                        
+                                        $docName = "Dokumen Lampiran";
+                                        if (isset($doc['jenis_dokumen'])) {
+                                            if ($doc['jenis_dokumen'] == 'permohonan_izin') $docName = 'Surat Permohonan Izin Publikasi';
                                         elseif ($doc['jenis_dokumen'] == 'salinan_izin_penelitian') $docName = 'Salinan Surat Izin Penelitian';
                                         elseif ($doc['jenis_dokumen'] == 'draft_artikel') $docName = 'Draft Jurnal / Artikel';
                                         elseif ($doc['jenis_dokumen'] == 'pernyataan_anonimitas') $docName = 'Surat Pernyataan Anonimitas Data Pasien';
                                     }
                                 ?>
-                                <div class="list-group-item d-flex justify-content-between align-items-center px-0 py-3 border-light">
-                                    <div class="d-flex align-items-center">
-                                        <i class="fas fa-file-alt text-danger me-3" style="font-size: 20px;"></i>
-                                        <span style="font-size: 13px; color: #444;"><?= $idx + 1 ?>. <?= esc($docName) ?></span>
+                                    <div class="list-group-item d-flex justify-content-between align-items-center px-0 py-3 border-light">
+                                        <div class="d-flex align-items-center">
+                                            <i class="fas fa-file-alt text-danger me-3" style="font-size: 20px;"></i>
+                                            <span style="font-size: 13px; color: #444;"><?= $docCounter++ ?>. <?= esc($docName) ?></span>
+                                        </div>
+                                        <a href="<?= base_url($doc['file_path']) ?>" target="_blank" class="btn btn-outline-dark btn-sm rounded-3 fw-bold border" style="font-size: 10px; border-color: #ddd; padding: 5px 15px;">Cek Berkas</a>
                                     </div>
-                                    <a href="<?= base_url($doc['file_path']) ?>" target="_blank" class="btn btn-outline-dark btn-sm rounded-3 fw-bold border" style="font-size: 10px; border-color: #ddd; padding: 5px 15px;">Cek Berkas</a>
+                                <?php endforeach; ?>
+                            <?php else: ?>
+                                <div class="list-group-item px-0 py-3 border-light text-muted text-center" style="font-size: 12px;">
+                                    Belum ada dokumen yang diunggah.
                                 </div>
-                            <?php endforeach; ?>
+                            <?php endif; ?>
                         <?php else: ?>
                             <div class="list-group-item px-0 py-3 border-light text-muted text-center" style="font-size: 12px;">
                                 Belum ada dokumen yang diunggah.
@@ -185,9 +209,11 @@
             <div class="card-body px-4 pt-3 pb-4">
                 <p class="text-muted mb-4" style="font-size: 12px;">Tinjau semua dokumen sebelum memberikan keputusan final.</p>
                 
+                <?php if ($data['status'] != 'selesai'): ?>
                 <form id="formTindakanAdmin" action="<?= base_url('riset/admin/publikasi/approve') ?>" method="post" enctype="multipart/form-data">
                     <input type="hidden" name="id" value="<?= esc($data['id']) ?>">
                     <input type="hidden" name="role" value="riset">
+                <?php endif; ?>
                     
                     <?php if ($data['status'] == 'selesai'): ?>
                         <div class="text-center py-4">
@@ -197,13 +223,37 @@
                             <h5 class="fw-bold text-dark mb-2">Proses Selesai</h5>
                             <?php if ($data['tujuan_laporan'] === 'izin'): ?>
                                 <p class="text-muted mb-4" style="font-size: 12px;">Surat Izin Publikasi dengan nomor <strong><?= esc($data['no_surat_izin'] ?? '-') ?></strong> telah berhasil diterbitkan dan dikirimkan ke peneliti.</p>
+
+                                <a href="<?= base_url('riset/admin/publikasi/print/' . $data['id']) ?>" target="_blank" class="btn btn-primary w-100 py-2 mb-3 fw-bold shadow-sm" style="font-size: 12px; border-radius: 8px;">
+                                    <i class="fas fa-print me-2" style="font-size: 14px;"></i> CETAK SURAT IZIN
+                                </a>
+
+                                <?php 
+                                    $suratIzinDoc = array_filter($data['dokumen'] ?? [], fn($d) => $d['jenis_dokumen'] == 'Surat Izin Publikasi Resmi');
+                                    $suratIzinDoc = reset($suratIzinDoc);
+                                ?>
+
+                                <form action="<?= base_url('riset/admin/publikasi/uploadSuratIzin') ?>" method="post" enctype="multipart/form-data" class="mt-3 text-start border border-success p-3 rounded-3 bg-light">
+                                    <input type="hidden" name="id" value="<?= esc($data['id']) ?>">
+                                    <label class="fw-bold mb-2 text-dark" style="font-size: 11px; text-transform: uppercase;">Upload Surat Izin Resmi (Bertanda Tangan)</label>
+                                    <input type="file" name="surat_izin" class="form-control mb-2" required accept=".pdf" style="font-size: 12px;">
+                                    <button type="submit" class="btn btn-warning w-100 fw-bold shadow-sm text-dark" style="font-size: 12px;"><i class="fas fa-upload me-2"></i> UPLOAD SURAT IZIN</button>
+                                    <?php if ($suratIzinDoc): ?>
+                                        <div class="mt-3 p-2 bg-white rounded border border-success text-center">
+                                            <span class="badge bg-success bg-opacity-10 text-success p-2 w-100 mb-2" style="font-size: 10px;">
+                                                <i class="fas fa-check-circle me-1"></i> Surat telah diupload ke Peneliti
+                                            </span>
+                                            <a href="<?= base_url($suratIzinDoc['file_path']) ?>" target="_blank" class="btn btn-sm btn-outline-success w-100" style="font-size: 11px;"><i class="fas fa-eye me-1"></i> Lihat Berkas Terupload</a>
+                                        </div>
+                                    <?php endif; ?>
+                                </form>
+
                             <?php else: ?>
                                 <p class="text-muted mb-4" style="font-size: 12px;">Laporan telah diterima dan diarsipkan ke dalam repository rumah sakit.</p>
+                                <button type="button" class="btn btn-success w-100 py-3 mb-3 d-flex align-items-center justify-content-center fw-bold shadow-sm" style="font-size: 12px; border-radius: 8px; opacity: 0.9; cursor: default;" disabled>
+                                    <i class="fas fa-check-double me-2" style="font-size: 14px;"></i> SELESAI
+                                </button>
                             <?php endif; ?>
-                            
-                            <button type="button" class="btn btn-success w-100 py-3 mb-3 d-flex align-items-center justify-content-center fw-bold shadow-sm" style="font-size: 12px; border-radius: 8px; opacity: 0.9; cursor: default;" disabled>
-                                <i class="fas fa-check-double me-2" style="font-size: 14px;"></i> SELESAI
-                            </button>
                         </div>
                     <?php elseif ($data['status'] == 'direvisi' || $data['status'] == 'revisi'): ?>
                         <div class="text-center py-4">
@@ -326,7 +376,9 @@
                             </div>
                         </div>
                     <?php endif; ?>
+                <?php if ($data['status'] != 'selesai'): ?>
                 </form>
+                <?php endif; ?>
             </div>
         </div>
     </div>

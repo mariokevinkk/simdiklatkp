@@ -145,7 +145,7 @@
 
                 <div class="col-md-12 mt-3 d-none" id="judulManualContainer">
                     <div class="mb-2">
-                        <label class="fw-bold text-dark mb-1" style="font-size: 13px;">Judul Penelitian / Riset <span class="text-danger">*</span></label>
+                        <label class="fw-bold text-dark mb-1" id="labelJudulPenelitian" style="font-size: 13px;">Judul Penelitian / Riset <span class="text-danger req-star-judul">*</span></label>
                         <input type="text" name="judul_penelitian" id="judulPenelitianInput" value="<?= esc($data['judul'] ?? '') ?>" class="form-control rounded-3 py-2" style="font-size: 13px; border-color: #eee;" placeholder="Masukkan judul penelitian Anda secara lengkap">
                     </div>
                 </div>
@@ -173,42 +173,42 @@
 
                     <div class="col-md-6">
                         <div class="mb-2">
-                            <label class="fw-bold text-dark mb-1" style="font-size: 13px;">Jenis Jurnal <span class="text-danger">*</span></label>
+                            <label class="fw-bold text-dark mb-1" style="font-size: 13px;">Jenis Jurnal <span class="text-danger req-star">*</span></label>
                             <input type="text" name="jenis_jurnal" id="jenisJurnalInput" value="<?= $data['jenis_jurnal'] ?? '' ?>" class="form-control rounded-3 py-2" style="font-size: 13px; border-color: #eee;" placeholder="Misal: Nasional / Internasional / Terakreditasi Sinta / Non-akreditasi">
                         </div>
                     </div>
 
                     <div class="col-md-6" id="containerKategori">
                         <div class="mb-2">
-                            <label class="fw-bold text-dark mb-1" style="font-size: 13px;">Kategori / Bidang Jurnal <span class="text-danger">*</span></label>
+                            <label class="fw-bold text-dark mb-1" style="font-size: 13px;">Kategori / Bidang Jurnal <span class="text-danger req-star">*</span></label>
                             <input type="text" name="kategori_jurnal" id="kategoriInput" value="<?= $data['kategori_jurnal'] ?? '' ?>" class="form-control rounded-3 py-2" style="font-size: 13px; border-color: #eee;" placeholder="Misal: Ilmiah, Populer, Profesional, dsb.">
                         </div>
                     </div>
 
                     <div class="col-md-6">
                         <div class="mb-2">
-                            <label class="fw-bold text-dark mb-1" style="font-size: 13px;">Nama Publikasi / Jurnal <span class="text-danger">*</span></label>
+                            <label class="fw-bold text-dark mb-1" style="font-size: 13px;">Nama Publikasi / Jurnal <span class="text-danger req-star">*</span></label>
                             <input type="text" name="nama_publikasi" id="namaPublikasiInput" value="<?= $data['nama_publikasi'] ?? '' ?>" class="form-control rounded-3 py-2" style="font-size: 13px; border-color: #eee;" placeholder="Misal: Jurnal Teknologi Informasi dan Komunikasi">
                         </div>
                     </div>
 
                     <div class="col-md-6" id="containerIssn">
                         <div class="mb-2">
-                            <label class="fw-bold text-dark mb-1" style="font-size: 13px;">ISSN / E-ISSN <span class="text-danger">*</span></label>
+                            <label class="fw-bold text-dark mb-1" style="font-size: 13px;">ISSN / E-ISSN <span class="text-danger req-star">*</span></label>
                             <input type="text" name="issn" id="issnInput" value="<?= $data['issn'] ?? '' ?>" class="form-control rounded-3 py-2" style="font-size: 13px; border-color: #eee;" placeholder="Misal : 1234-5678">
                         </div>
                     </div>
 
                     <div class="col-md-6" id="containerScope">
                         <div class="mb-2">
-                            <label class="fw-bold text-dark mb-1" style="font-size: 13px;">Scope/Bidang</label>
+                            <label class="fw-bold text-dark mb-1" style="font-size: 13px;">Scope/Bidang <span class="text-danger req-star">*</span></label>
                             <input type="text" name="scope" id="scopeInput" value="<?= $data['scope'] ?? '' ?>" class="form-control rounded-3 py-2" style="font-size: 13px; border-color: #eee;" placeholder="Misal: Teknik Informatika, Hukum, Ekonomi, Pendidikan, dsb.">
                         </div>
                     </div>
 
                     <div class="col-md-6">
                         <div class="mb-2">
-                            <label class="fw-bold text-dark mb-1" style="font-size: 13px;">Alamat Web (URL)<span class="text-danger">*</span></label>
+                            <label class="fw-bold text-dark mb-1" style="font-size: 13px;">Alamat Web (URL) <span class="text-danger req-star">*</span></label>
                             <input type="url" name="alamat_web" id="alamatWebInput" value="<?= $data['alamat_web'] ?? '' ?>" class="form-control rounded-3 py-2" style="font-size: 13px; border-color: #eee;" placeholder="Misal: https://jurnal.namauniversitas.ac.id">
                         </div>
                     </div>
@@ -222,9 +222,9 @@
                 </div>
                 <div class="col-md-12">
                     <div class="mb-2">
-                        <label class="fw-bold text-dark mb-1" style="font-size: 13px;">Abstrak <span class="text-danger">*</span></label>
-                        <textarea name="abstrak" id="abstrakInput" rows="5" class="form-control rounded-3 py-2" style="font-size: 13px; border-color: #eee; line-height: 1.6;" placeholder="Tuliskan abstrak penelitian Anda secara ringkas (maksimal 250 kata). Jelaskan latar belakang, metode, hasil, dan kesimpulan penelitian." required><?= esc($data['abstrak'] ?? '') ?></textarea>
-                        <small class="text-muted" style="font-size: 10px;">Minimal 100 kata, maksimal 250 kata.</small>
+                        <label class="fw-bold text-dark mb-1" style="font-size: 13px;">Abstrak <span class="text-danger req-star">*</span></label>
+                        <textarea name="abstrak" id="abstrakInput" rows="5" class="form-control rounded-3 py-2" style="font-size: 13px; border-color: #eee; line-height: 1.6;" placeholder="Tuliskan abstrak penelitian Anda secara ringkas (maksimal 250 kata). Jelaskan latar belakang, metode, hasil, dan kesimpulan penelitian."><?= esc($data['abstrak'] ?? '') ?></textarea>
+                        <small class="text-muted" style="font-size: 10px;">Minimal 100 kata, maksimal 250 kata. (Opsional untuk Upload Arsip)</small>
                     </div>
                 </div>
             </div>
@@ -257,8 +257,8 @@
                     <!-- File 3: Draft Jurnal / Artikel (Required for both) -->
                     <div class="col-md-6">
                         <div class="mb-2">
-                            <label class="fw-bold text-dark mb-1" id="labelDraftArtikel" style="font-size: 13px;">Draft Jurnal / Artikel <?= !isset($data['id']) ? '<span class="text-danger">*</span>' : '' ?></label>
-                            <input type="file" name="draft_artikel" <?= !isset($data['id']) ? 'required' : '' ?> class="form-control py-2" style="font-size: 12px; border-radius: 8px;">
+                            <label class="fw-bold text-dark mb-1" id="labelDraftArtikel" style="font-size: 13px;">Draft Jurnal / Artikel <?= !isset($data['id']) ? '<span class="text-danger req-star-artikel">*</span>' : '' ?></label>
+                            <input type="file" name="draft_artikel" id="draftArtikelInput" class="form-control py-2" style="font-size: 12px; border-radius: 8px;">
                             <small class="text-muted d-block mt-1" style="font-size: 10px;">Format PDF / DOCX max 5MB. <?= isset($data['id']) ? 'Biarkan kosong jika tidak ingin mengubah dokumen lama.' : '' ?></small>
                         </div>
                     </div>
@@ -357,9 +357,21 @@
             document.getElementById('containerScope').style.display = 'block';
             document.getElementById('kategoriInput').required = true;
             document.getElementById('issnInput').required = true;
+            document.getElementById('scopeInput').required = true;
+
+            // Tampilkan kembali semua bintang wajib
+            document.querySelectorAll('.req-star').forEach(el => el.style.display = 'inline');
+            const starJudul = document.querySelector('.req-star-judul');
+            if(starJudul) starJudul.style.display = 'inline';
 
             // Label update
-            document.getElementById('labelDraftArtikel').innerHTML = 'Draft Jurnal / Artikel <?= !isset($data['id']) ? '<span class="text-danger">*</span>' : '' ?>';
+            document.getElementById('labelDraftArtikel').innerHTML = 'Draft Jurnal / Artikel <?= !isset($data['id']) ? '<span class="text-danger req-star-artikel">*</span>' : '' ?>';
+            
+            <?php if (!isset($data['id'])): ?>
+            document.getElementById('draftArtikelInput').required = true;
+            <?php endif; ?>
+
+            document.getElementById('abstrakInput').required = true;
 
             // Sesuaikan kembali judul manual
             toggleJudulInput();
@@ -379,8 +391,8 @@
             document.getElementById('containerRegistrasiAsal').style.display = 'none';
             document.getElementById('containerWaktuMulai').style.display = 'block';
             document.getElementById('containerWaktuSelesai').style.display = 'block';
-            document.getElementById('waktuMulaiInput').required = true;
-            document.getElementById('waktuSelesaiInput').required = true;
+            document.getElementById('waktuMulaiInput').required = false;
+            document.getElementById('waktuSelesaiInput').required = false;
 
             // Kategori, ISSN, dan Scope tetap ditampilkan untuk keperluan arsip (Upload)
             document.getElementById('containerKategori').style.display = 'block';
@@ -389,20 +401,38 @@
             // Hanya buat opsional jika sekadar upload (tidak wajib)
             document.getElementById('kategoriInput').required = false;
             document.getElementById('issnInput').required = false;
+            document.getElementById('scopeInput').required = false;
 
             // Tampilkan langsung Judul Manual
             document.getElementById('judulManualContainer').classList.remove('d-none');
             document.getElementById('judulPenelitianInput').required = true;
 
+            // Sembunyikan bintang wajib untuk yg lain, TAPI judul tetap tampil
+            document.querySelectorAll('.req-star').forEach(el => el.style.display = 'none');
+            const starJudul2 = document.querySelector('.req-star-judul');
+            if(starJudul2) starJudul2.style.display = 'inline';
+
             // Label update
-            document.getElementById('labelDraftArtikel').innerHTML = 'Laporan Akhir Penelitian / Artikel <?= !isset($data['id']) ? '<span class="text-danger">*</span>' : '' ?>';
+            document.getElementById('labelDraftArtikel').innerHTML = 'Laporan Akhir Penelitian / Artikel <?= !isset($data['id']) ? '<span class="text-danger req-star-artikel">*</span>' : '' ?>';
+            
+            <?php if (!isset($data['id'])): ?>
+            document.getElementById('draftArtikelInput').required = true;
+            <?php endif; ?>
+
+            document.getElementById('abstrakInput').required = false;
         }
 
         // Pastikan metadata jurnal selalu required untuk kebutuhan portal publik
         document.getElementById('sectionJurnal').style.display = 'block';
-        document.getElementById('jenisJurnalInput').required = true;
-        document.getElementById('namaPublikasiInput').required = true;
-        document.getElementById('alamatWebInput').required = true;
+        if (type === 'izin') {
+            document.getElementById('jenisJurnalInput').required = true;
+            document.getElementById('namaPublikasiInput').required = true;
+            document.getElementById('alamatWebInput').required = true;
+        } else {
+            document.getElementById('jenisJurnalInput').required = false;
+            document.getElementById('namaPublikasiInput').required = false;
+            document.getElementById('alamatWebInput').required = false;
+        }
     }
 
     function toggleJudulInput() {

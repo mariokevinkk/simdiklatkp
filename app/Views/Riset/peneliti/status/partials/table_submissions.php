@@ -83,7 +83,7 @@
                                 <a href="<?= $link_url ?>" class="btn btn-sm btn-outline-danger rounded-2 fw-bold" style="font-size: 11px;">Detail</a>
                                 
                                 <?php if ($row['status'] == 'selesai' && !empty($print_route) && (!isset($row['tujuan_laporan']) || $row['tujuan_laporan'] !== 'upload')): ?>
-                                    <a href="<?= base_url($print_route . '/' . $row['id']) ?>" class="btn btn-sm btn-success rounded-2 fw-bold text-nowrap" style="font-size: 11px;"><i class="fas fa-print me-1"></i> Cetak</a>
+                                    <a href="<?= base_url($print_route . '/' . $row['id']) ?>" target="_blank" class="btn btn-sm btn-success rounded-2 fw-bold text-nowrap" style="font-size: 11px;"><i class="fas fa-download me-1"></i> Download Surat</a>
                                 <?php elseif ($row['status'] == 'direvisi' && !empty($revisi_route)): ?>
                                     <a href="<?= base_url($revisi_route . '?id=' . $row['id'] . '&revisi=1') ?>" class="btn btn-sm btn-warning rounded-2 fw-bold text-dark text-nowrap" style="font-size: 11px;"><i class="fas fa-edit me-1"></i> Revisi</a>
                                 <?php elseif (strtolower($row['status']) == 'menunggu_pembayaran'): ?>

@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title><?= $title ?? 'Login' ?> - SIM DIKLAT RSUD Yogyakarta</title>
+    <title><?= $title ?? 'Lupa Password' ?> - SIM DIKLAT RSUD Yogyakarta</title>
     <!-- Favicon -->
     <link rel="icon" type="image/jpeg" href="<?= base_url('assets/img/logo_rs.jpg') ?>">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -50,26 +50,21 @@
         .card-header-riset h4 {
             color: #1a1a1a;
             font-weight: 800;
-            margin-bottom: 5px;
+            margin-bottom: 10px;
             letter-spacing: -0.5px;
             font-size: 22px;
         }
 
-        .card-header-riset h4 span {
-            color: var(--primary-red);
-        }
-
         .card-header-riset p {
-            color: #999;
-            font-size: 9px;
-            font-weight: 700;
-            letter-spacing: 2px;
-            text-transform: uppercase;
+            color: #666;
+            font-size: 13px;
+            font-weight: 500;
             margin-bottom: 0;
+            line-height: 1.5;
         }
 
         .card-body-riset {
-            padding: 30px 40px 45px;
+            padding: 20px 40px 45px;
         }
 
         .form-label-riset {
@@ -133,20 +128,6 @@
             font-weight: 700;
         }
 
-        .footer-link {
-            color: #aaa;
-            font-size: 11px;
-            text-align: center;
-            margin-top: 20px;
-            display: block;
-            text-decoration: none;
-            transition: 0.3s;
-        }
-
-        .footer-link:hover {
-            color: #666;
-        }
-
         /* Decorative Elements */
         .bg-circle {
             position: fixed;
@@ -176,9 +157,9 @@
 
     <div class="login-card mx-3 mx-sm-0">
         <div class="card-header-riset">
-            <i class="fas fa-microscope text-danger mb-3" style="font-size: 32px;"></i>
-            <h4>SIM <span>DIKLAT</span> RISET</h4>
-            <p>Portal Riset & Publikasi Ilmiah</p>
+            <i class="fas fa-key text-danger mb-3" style="font-size: 32px;"></i>
+            <h4>Lupa Password?</h4>
+            <p>Masukkan email yang terdaftar pada akun Anda. Kami akan mengirimkan password baru untuk Anda gunakan login.</p>
         </div>
         <div class="card-body-riset">
             <?php if (session()->getFlashdata('success')): ?>
@@ -193,32 +174,19 @@
                 </div>
             <?php endif; ?>
 
-            <form action="<?= base_url('riset/authenticate') ?>" method="post">
-                <div class="mb-3">
+            <form action="<?= base_url('riset/lupa-password/submit') ?>" method="post">
+                <div class="mb-4">
                     <label class="form-label-riset">Email Address</label>
                     <input type="email" name="email" class="form-control form-control-riset" placeholder="nama@email.com" value="<?= old('email') ?>" required>
                 </div>
 
-                <div class="mb-4">
-                    <div class="d-flex justify-content-between align-items-center mb-2">
-                        <label class="form-label-riset mb-0">Password</label>
-                        <a href="<?= base_url('riset/lupa-password') ?>" class="text-decoration-none fw-bold" style="font-size: 10px; color: var(--primary-red);">Lupa Password?</a>
-                    </div>
-                    <input type="password" name="password" class="form-control form-control-riset" placeholder="••••••••" required>
-                </div>
+                <button type="submit" class="btn btn-login-riset"><i class="fas fa-paper-plane me-2"></i> Kirim Password Baru</button>
 
-                <button type="submit" class="btn btn-login-riset">Masuk Sekarang</button>
-
-                <div class="register-link">
-                    Belum memiliki akun? <a href="<?= base_url('riset/register') ?>">Daftar di sini</a>
-                </div>
-
-                <div class="text-center mt-3">
-                    <a href="<?= base_url('repository/catalog') ?>" class="text-decoration-none small fw-bold" style="color: #666; font-size: 11px;">
-                        <i class="fas fa-long-arrow-alt-left me-2"></i> Kembali ke Repository
+                <div class="text-center mt-4">
+                    <a href="<?= base_url('riset/login') ?>" class="text-decoration-none small fw-bold" style="color: #666; font-size: 13px;">
+                        <i class="fas fa-long-arrow-alt-left me-2"></i> Kembali ke Halaman Login
                     </a>
                 </div>
-
             </form>
         </div>
     </div>
@@ -227,26 +195,6 @@
         &copy; 2026 RSUD Kota Yogyakarta. All rights reserved.
     </div>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            const inputs = document.querySelectorAll('input[required]');
-            inputs.forEach(input => {
-                input.addEventListener('invalid', function(e) {
-                    if (e.target.validity.valueMissing) {
-                        e.target.setCustomValidity('Kolom ini wajib diisi.');
-                    } else if (e.target.validity.typeMismatch && e.target.type === 'email') {
-                        e.target.setCustomValidity('Mohon masukkan alamat email yang valid.');
-                    } else {
-                        e.target.setCustomValidity('');
-                    }
-                });
-                input.addEventListener('input', function(e) {
-                    e.target.setCustomValidity('');
-                });
-            });
-        });
-    </script>
 </body>
 
 </html>

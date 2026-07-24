@@ -38,14 +38,20 @@ $routes->group('riset/admin', ['namespace' => 'App\Controllers\Riset\Admin'], fu
     $routes->get('dashboard', 'Dashboard::index');
     $routes->get('review', 'Review::index');
     $routes->get('review/detail/(:any)', 'Review::detail/$1');
+    $routes->get('review/print/(:any)', 'Review::print/$1');
+    $routes->post('review/uploadSuratIzin', 'Review::uploadSuratIzin');
     $routes->post('review/approve', 'Review::approve');
     
     $routes->get('izin', 'Izin::index');
     $routes->get('izin/detail/(:any)', 'Izin::detail/$1');
+    $routes->get('izin/print/(:any)', 'Izin::print/$1');
+    $routes->post('izin/uploadSuratIzin', 'Izin::uploadSuratIzin');
     $routes->post('izin/approve', 'Izin::approve');
 
     $routes->get('publikasi', 'Publikasi::index');
     $routes->get('publikasi/detail/(:any)', 'Publikasi::detail/$1');
+    $routes->get('publikasi/print/(:any)', 'Publikasi::print/$1');
+    $routes->post('publikasi/uploadSuratIzin', 'Publikasi::uploadSuratIzin');
     $routes->post('publikasi/approve', 'Publikasi::approve');
     $routes->get('publikasi/buka_arsip/(:any)', 'Publikasi::buka_arsip/$1');
 
@@ -109,6 +115,11 @@ $routes->post('riset/authenticate', 'Riset\Auth::authenticate');
 $routes->get('riset/logout', 'Riset\Auth::logout');
 $routes->get('riset/register', 'Riset\Auth::register');
 $routes->post('riset/register/submit', 'Riset\Auth::register_submit');
+
+// Lupa Password Riset
+$routes->get('riset/lupa-password', 'Riset\Auth::forgotPassword');
+$routes->post('riset/lupa-password/submit', 'Riset\Auth::forgotPasswordSubmit');
+
 
 // --- RESTORED: Pendidikan Module ---
 $routes->group('pendidikan', function ($routes) {

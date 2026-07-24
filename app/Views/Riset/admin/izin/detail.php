@@ -65,8 +65,8 @@
                     '11' => 'November',
                     '12' => 'Desember'
                 ];
-                $formatMulai = date('d', strtotime($data['waktu_mulai'])) . ' ' . $bulanIndo[date('m', strtotime($data['waktu_mulai']))] . ' ' . date('Y', strtotime($data['waktu_mulai']));
-                $formatSelesai = date('d', strtotime($data['waktu_selesai'])) . ' ' . $bulanIndo[date('m', strtotime($data['waktu_selesai']))] . ' ' . date('Y', strtotime($data['waktu_selesai']));
+                $formatMulai = (!empty($data['waktu_mulai']) && $data['waktu_mulai'] != '0000-00-00') ? date('d', strtotime($data['waktu_mulai'])) . ' ' . $bulanIndo[date('m', strtotime($data['waktu_mulai']))] . ' ' . date('Y', strtotime($data['waktu_mulai'])) : '-';
+                $formatSelesai = (!empty($data['waktu_selesai']) && $data['waktu_selesai'] != '0000-00-00') ? date('d', strtotime($data['waktu_selesai'])) . ' ' . $bulanIndo[date('m', strtotime($data['waktu_selesai']))] . ' ' . date('Y', strtotime($data['waktu_selesai'])) : '-';
                 ?>
                 <div class="bg-light rounded-4 p-3 mb-4" style="background-color: #f8f9fa !important;">
                     <div class="d-flex align-items-center mb-3 pb-2 border-bottom">
@@ -101,7 +101,7 @@
                         $proposal = array_filter($data['dokumen'] ?? [], fn($d) => $d['jenis_dokumen'] == 'Proposal');
                         $proposal = reset($proposal);
 
-                        $cv = array_filter($data['dokumen'] ?? [], fn($d) => $d['jenis_dokumen'] == 'CV');
+                        $cv = array_filter($data['dokumen'] ?? [], fn($d) => strtolower($d['jenis_dokumen']) == 'cv');
                         $cv = reset($cv);
 
                         $draft_wawancara = array_filter($data['dokumen'] ?? [], fn($d) => $d['jenis_dokumen'] == 'Draft Wawancara');
@@ -209,9 +209,11 @@
             <div class="card-body px-4 pt-3 pb-4">
                 <p class="text-muted mb-4" style="font-size: 12px;">Tinjau semua dokumen sebelum memberikan keputusan final.</p>
 
+                <?php if ($data['status'] != 'selesai'): ?>
                 <form id="formTindakanAdmin" action="<?= base_url('riset/admin/izin/approve') ?>" method="post" enctype="multipart/form-data">
                     <input type="hidden" name="id" value="<?= esc($data['id']) ?>">
                     <input type="hidden" name="role" value="riset">
+                <?php endif; ?>
 
                     <?php if ($data['status'] == 'selesai'): ?>
                         <div class="text-center py-4">
@@ -221,9 +223,29 @@
                             <h5 class="fw-bold text-dark mb-2">Izin Telah Terbit</h5>
                             <p class="text-muted mb-4" style="font-size: 12px;">Surat Izin Penelitian dengan nomor <strong><?= esc($data['nomor_surat'] ?? '-') ?></strong> telah berhasil diterbitkan dan dikirimkan ke peneliti.</p>
 
-                            <button type="button" class="btn btn-success w-100 py-3 mb-3 d-flex align-items-center justify-content-center fw-bold shadow-sm" style="font-size: 12px; border-radius: 8px; opacity: 0.9; cursor: default;" disabled>
-                                <i class="fas fa-check-double me-2" style="font-size: 14px;"></i> SELESAI
-                            </button>
+                            <a href="<?= base_url('riset/admin/izin/print/' . $data['id']) ?>" target="_blank" class="btn btn-primary w-100 py-2 mb-3 fw-bold shadow-sm" style="font-size: 12px; border-radius: 8px;">
+                                <i class="fas fa-print me-2" style="font-size: 14px;"></i> CETAK SURAT IZIN
+                            </a>
+
+                            <?php 
+                                $suratIzinDoc = array_filter($data['dokumen'] ?? [], fn($d) => $d['jenis_dokumen'] == 'Surat Izin Resmi');
+                                $suratIzinDoc = reset($suratIzinDoc);
+                            ?>
+
+                            <form action="<?= base_url('riset/admin/izin/uploadSuratIzin') ?>" method="post" enctype="multipart/form-data" class="mt-3 text-start border border-success p-3 rounded-3 bg-light">
+                                <input type="hidden" name="id" value="<?= esc($data['id']) ?>">
+                                <label class="fw-bold mb-2 text-dark" style="font-size: 11px; text-transform: uppercase;">Upload Surat Izin Resmi (Bertanda Tangan)</label>
+                                <input type="file" name="surat_izin" class="form-control mb-2" required accept=".pdf" style="font-size: 12px;">
+                                <button type="submit" class="btn btn-warning w-100 fw-bold shadow-sm text-dark" style="font-size: 12px;"><i class="fas fa-upload me-2"></i> UPLOAD SURAT IZIN</button>
+                                <?php if ($suratIzinDoc): ?>
+                                    <div class="mt-3 p-2 bg-white rounded border border-success text-center">
+                                        <span class="badge bg-success bg-opacity-10 text-success p-2 w-100 mb-2" style="font-size: 10px;">
+                                            <i class="fas fa-check-circle me-1"></i> Surat telah diupload ke Peneliti
+                                        </span>
+                                        <a href="<?= base_url($suratIzinDoc['file_path']) ?>" target="_blank" class="btn btn-sm btn-outline-success w-100" style="font-size: 11px;"><i class="fas fa-eye me-1"></i> Lihat Berkas Terupload</a>
+                                    </div>
+                                <?php endif; ?>
+                            </form>
                         </div>
                     <?php elseif ($data['status'] == 'revisi'): ?>
                         <div class="text-center py-4">
@@ -248,7 +270,7 @@
 
                             <div class="text-start bg-light p-3 rounded-3 mb-4 border">
                                 <strong class="d-block mb-1 text-dark" style="font-size: 11px;">Alasan Penolakan:</strong>
-                                <span class="text-muted" style="font-size: 12px;"><?= esc($data['catatan_revisi'] ?? 'Tidak ada alasan yang diberikan.') ?></span>
+                                <span class="text-muted" style="font-size: 12px;"><?= esc($data['catatan_penolakan'] ?? 'Tidak ada alasan yang diberikan.') ?></span>
                             </div>
                         </div>
                     <?php else: ?>
@@ -274,9 +296,21 @@
                             </div>
 
                             <div id="nomorSuratArea" class="d-none mb-4 animate__animated animate__fadeIn">
-                                <label class="fw-bold mb-2 text-dark" style="font-size: 11px; text-transform: uppercase; letter-spacing: 1px;">Nomor Surat Izin <span class="text-danger">*</span></label>
-                                <input type="text" class="form-control rounded-3 bg-light" name="nomor_surat" id="inputNomorSurat" placeholder="Masukkan nomor surat..." value="<?= esc($default_nomor_surat) ?>" style="font-size: 13px; border-color: #ddd; padding: 10px 12px;">
-                                <small class="text-muted" style="font-size: 10px;">Nomor surat otomatis di-generate berdasarkan urutan pengajuan, namun dapat diedit manual.</small>
+                                <div class="mb-3">
+                                    <label class="fw-bold mb-2 text-dark" style="font-size: 11px; text-transform: uppercase; letter-spacing: 1px;">Nomor Surat Izin <span class="text-danger">*</span></label>
+                                    <input type="text" class="form-control rounded-3 bg-light" name="nomor_surat" id="inputNomorSurat" placeholder="Masukkan nomor surat..." value="<?= esc($default_nomor_surat) ?>" style="font-size: 13px; border-color: #ddd; padding: 10px 12px;">
+                                    <small class="text-muted" style="font-size: 10px;">Nomor surat otomatis di-generate berdasarkan urutan pengajuan, namun dapat diedit manual.</small>
+                                </div>
+                                <div class="row g-2">
+                                    <div class="col-md-6">
+                                        <label class="fw-bold mb-2 text-dark" style="font-size: 11px; text-transform: uppercase; letter-spacing: 1px;">Waktu Mulai <span class="text-danger">*</span></label>
+                                        <input type="date" class="form-control rounded-3 bg-light input-waktu" name="waktu_mulai" value="<?= esc($data['waktu_mulai'] ?? '') ?>" style="font-size: 13px; border-color: #ddd; padding: 10px 12px;">
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label class="fw-bold mb-2 text-dark" style="font-size: 11px; text-transform: uppercase; letter-spacing: 1px;">Waktu Selesai <span class="text-danger">*</span></label>
+                                        <input type="date" class="form-control rounded-3 bg-light input-waktu" name="waktu_selesai" value="<?= esc($data['waktu_selesai'] ?? '') ?>" style="font-size: 13px; border-color: #ddd; padding: 10px 12px;">
+                                    </div>
+                                </div>
                             </div>
                         <?php else: ?>
                             <!-- Step 1: Konfirmasi Dokumen -->
@@ -334,7 +368,9 @@
                             </div>
                         </div>
                     <?php endif; ?>
+                <?php if ($data['status'] != 'selesai'): ?>
                 </form>
+                <?php endif; ?>
             </div>
         </div>
     </div>
@@ -441,12 +477,14 @@
                             if (inputSurat) {
                                 inputSurat.required = true;
                             }
+                            document.querySelectorAll('.input-waktu').forEach(el => el.required = true);
                         } else {
                             nomorSuratArea.classList.add('d-none');
                             const inputSurat = document.getElementById('inputNomorSurat');
                             if (inputSurat) {
                                 inputSurat.required = false;
                             }
+                            document.querySelectorAll('.input-waktu').forEach(el => el.required = false);
                         }
                     }
                 });
