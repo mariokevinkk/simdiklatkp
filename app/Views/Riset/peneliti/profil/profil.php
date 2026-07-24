@@ -6,7 +6,6 @@
  * @var array $user
  */
 ?>
-
 <div class="d-flex justify-content-between align-items-center mb-4">
     <div>
         <h4 class="fw-bold text-dark mb-1">Profil Peneliti</h4>
@@ -167,6 +166,24 @@
 
 <script>
     document.addEventListener('DOMContentLoaded', function() {
+        // Reset form when modal is closed
+        const changePasswordModal = document.getElementById('changePasswordModal');
+        if (changePasswordModal) {
+            changePasswordModal.addEventListener('hidden.bs.modal', function () {
+                const form = document.getElementById('formGantiPassword');
+                if (form) {
+                    form.reset();
+                    // Clear custom validation messages
+                    const newPass = document.getElementById('new_password');
+                    const confPass = document.getElementById('confirm_password');
+                    if (newPass) newPass.setCustomValidity('');
+                    if (confPass) confPass.setCustomValidity('');
+                    const oldPass = document.querySelector('input[name="old_password"]');
+                    if (oldPass) oldPass.setCustomValidity('');
+                }
+            });
+        }
+
         // Validation for change password form
         const newPass = document.getElementById('new_password');
         const confPass = document.getElementById('confirm_password');

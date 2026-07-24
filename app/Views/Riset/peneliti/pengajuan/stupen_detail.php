@@ -54,6 +54,13 @@
 </div>
 <?php endif; ?>
 
+<?php if (session()->getFlashdata('error')): ?>
+<div class="alert alert-danger alert-dismissible fade show border-0 rounded-4 shadow-sm mb-4" style="font-size: 13px;">
+    <i class="fas fa-exclamation-circle me-2"></i> <?= session()->getFlashdata('error') ?>
+    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+</div>
+<?php endif; ?>
+
 <div class="row g-4">
     <div class="col-lg-8">
         <div class="card border-0 shadow-sm rounded-4 overflow-hidden mb-4">
@@ -83,8 +90,8 @@
                                     1 => 'Januari', 2 => 'Februari', 3 => 'Maret', 4 => 'April', 5 => 'Mei', 6 => 'Juni',
                                     7 => 'Juli', 8 => 'Agustus', 9 => 'September', 10 => 'Oktober', 11 => 'November', 12 => 'Desember'
                                 ];
-                                $waktu_mulai = isset($data['waktu_mulai']) ? date('d', strtotime($data['waktu_mulai'])) . ' ' . $bulan_indo[(int)date('m', strtotime($data['waktu_mulai']))] . ' ' . date('Y', strtotime($data['waktu_mulai'])) : '-';
-                                $waktu_selesai = isset($data['waktu_selesai']) ? date('d', strtotime($data['waktu_selesai'])) . ' ' . $bulan_indo[(int)date('m', strtotime($data['waktu_selesai']))] . ' ' . date('Y', strtotime($data['waktu_selesai'])) : '-';
+                                $waktu_mulai = (!empty($data['waktu_mulai']) && $data['waktu_mulai'] != '0000-00-00') ? date('d', strtotime($data['waktu_mulai'])) . ' ' . $bulan_indo[(int)date('m', strtotime($data['waktu_mulai']))] . ' ' . date('Y', strtotime($data['waktu_mulai'])) : '-';
+                                $waktu_selesai = (!empty($data['waktu_selesai']) && $data['waktu_selesai'] != '0000-00-00') ? date('d', strtotime($data['waktu_selesai'])) . ' ' . $bulan_indo[(int)date('m', strtotime($data['waktu_selesai']))] . ' ' . date('Y', strtotime($data['waktu_selesai'])) : '-';
                             ?>
                             <i class="far fa-calendar-alt text-danger me-1"></i> 
                             <?= $waktu_mulai ?> 
@@ -112,6 +119,7 @@
                     <div class="col-sm-8">
                         <div class="row g-2">
                             <?php foreach ($data['dokumen'] as $doc): ?>
+                                <?php if (strtolower($doc['jenis_dokumen']) == 'surat izin resmi') continue; ?>
                                 <div class="col-12">
                                     <div class="p-2 border border-light rounded-3 d-flex align-items-center bg-light transition-hover">
                                         <div class="bg-danger bg-opacity-10 text-danger rounded p-2 me-3 d-flex align-items-center justify-content-center" style="width: 36px; height: 36px;">
@@ -149,9 +157,20 @@
                 <p class="text-muted small">Diajukan pada <?= $data['tanggal'] ?></p>
                 <hr>
                 <p class="text-muted mb-3" style="font-size: 11px;">Pendaftaran riset telah disetujui. Silakan cek menu Status & Download secara berkala untuk dokumen penerimaan riset.</p>
-                <a href="<?= base_url('riset/peneliti/pengajuan/stupen/print/' . $data['id']) ?>" target="_blank" class="btn btn-success w-100 rounded-pill fw-bold shadow-sm" style="font-size: 12px; background: #2e7d32; border-color: #2e7d32;">
-                    <i class="fas fa-print me-2"></i> Cetak Surat Izin
-                </a>
+                <?php 
+                    $suratIzinDoc = array_filter($data['dokumen'] ?? [], fn($d) => strtolower($d['jenis_dokumen']) == 'surat izin resmi');
+                    $suratIzinDoc = reset($suratIzinDoc);
+                    if ($suratIzinDoc): 
+                ?>
+                    <a href="<?= base_url($suratIzinDoc['file_path']) ?>" target="_blank" class="btn btn-success w-100 rounded-pill fw-bold shadow-sm" style="font-size: 12px; background: #2e7d32; border-color: #2e7d32;">
+                        <i class="fas fa-download me-2"></i> Download Surat Izin
+                    </a>
+                <?php else: ?>
+                    <button class="btn btn-secondary w-100 rounded-pill fw-bold shadow-sm" style="font-size: 12px;" disabled>
+                        <i class="fas fa-hourglass-half me-2"></i> Menunggu Surat Terbit
+                    </button>
+                    <p class="text-muted mt-2 mb-0" style="font-size: 10px;">Surat Izin Resmi sedang diproses oleh Admin.</p>
+                <?php endif; ?>
             <?php elseif ($status_lower == 'menunggu pembayaran' || $status_lower == 'menunggu_pembayaran'): ?>
                 <div class="d-inline-flex align-items-center justify-content-center rounded-circle bg-warning bg-opacity-10 text-warning mb-3 mx-auto" style="width: 80px; height: 80px;">
                     <i class="fas fa-wallet" style="font-size: 32px;"></i>
@@ -236,12 +255,7 @@
             <?php endif; ?>
         </div>
 
-        <!-- Help Card -->
-        <div class="card border-0 shadow-sm rounded-4 p-4 bg-dark text-white">
-            <h6 class="fw-bold mb-3" style="font-size: 14px;">Butuh Bantuan?</h6>
-            <p style="font-size: 12px; opacity: 0.8; line-height: 1.6;">Jika terdapat kendala atau pertanyaan mengenai status pendaftaran riset, silakan hubungi tim Admin.</p>
-            <button class="btn btn-outline-light btn-sm w-100 rounded-pill fw-bold mt-2" style="font-size: 11px;">HUBUNGI ADMIN</button>
-        </div>
+
     </div>
 </div>
 

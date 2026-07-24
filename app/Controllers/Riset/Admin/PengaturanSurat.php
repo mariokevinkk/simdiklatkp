@@ -35,8 +35,7 @@ class PengaturanSurat extends BaseController
             'nama_pejabat' => 'required',
             'nip_pejabat' => 'required',
             'jabatan' => 'required',
-            'logo_kop' => 'max_size[logo_kop,2048]|is_image[logo_kop]|mime_in[logo_kop,image/jpg,image/jpeg,image/png]',
-            'ttd_image' => 'max_size[ttd_image,2048]|is_image[ttd_image]|mime_in[ttd_image,image/jpg,image/jpeg,image/png]'
+            'logo_kop' => 'max_size[logo_kop,2048]|is_image[logo_kop]|mime_in[logo_kop,image/jpg,image/jpeg,image/png]'
         ];
 
         if (!$this->validate($rules)) {
@@ -74,16 +73,7 @@ class PengaturanSurat extends BaseController
             $dataToSave['logo_kop'] = $newName;
         }
 
-        // Handle File Upload for TTD
-        $ttd = $this->request->getFile('ttd_image');
-        if ($ttd && $ttd->isValid() && !$ttd->hasMoved()) {
-            if ($pengaturanLama && !empty($pengaturanLama['ttd_image']) && file_exists($uploadPath . '/' . $pengaturanLama['ttd_image'])) {
-                unlink($uploadPath . '/' . $pengaturanLama['ttd_image']);
-            }
-            $newName = $ttd->getRandomName();
-            $ttd->move($uploadPath, $newName);
-            $dataToSave['ttd_image'] = $newName;
-        }
+
 
         if (empty($id)) {
             $this->pengaturanSuratModel->insert($dataToSave);

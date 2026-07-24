@@ -64,20 +64,7 @@
                 <input type="text" name="judul" value="<?= $data['judul'] ?? '' ?>" class="form-control rounded-3 py-2" style="font-size: 13px; border-color: #eee;" placeholder="Masukkan judul studi pendahuluan anda" required oninvalid="this.setCustomValidity('Mohon isi judul studi pendahuluan Anda.')" oninput="this.setCustomValidity('')">
             </div>
 
-            <div class="row g-3 mb-4">
-                <div class="col-md-6">
-                    <div class="mb-2">
-                        <label class="fw-bold text-dark mb-1" style="font-size: 13px;">Waktu Mulai</label>
-                        <input type="date" name="waktu_mulai" value="<?= $data['waktu_mulai'] ?? '' ?>" class="form-control rounded-3 py-2" style="font-size: 13px; border-color: #eee;" required oninvalid="this.setCustomValidity('Mohon tentukan tanggal waktu mulai riset.')" oninput="this.setCustomValidity('')">
-                    </div>
-                </div>
-                <div class="col-md-6">
-                    <div class="mb-2">
-                        <label class="fw-bold text-dark mb-1" style="font-size: 13px;">Waktu Selesai</label>
-                        <input type="date" name="waktu_selesai" value="<?= $data['waktu_selesai'] ?? '' ?>" class="form-control rounded-3 py-2" style="font-size: 13px; border-color: #eee;" required oninvalid="this.setCustomValidity('Mohon tentukan tanggal waktu selesai riset.')" oninput="this.setCustomValidity('')">
-                    </div>
-                </div>
-            </div>
+
 
             <!-- Documents -->
             <h6 class="fw-bold text-dark mb-2" style="font-size: 14px;">Upload Dokumen Pendukung</h6>
@@ -85,7 +72,7 @@
                 <div class="col-md-6">
                     <div class="mb-2">
                         <label class="fw-bold text-dark mb-1" style="font-size: 12px;">1. Surat Permohonan</label>
-                        <input type="file" name="surat_permohonan" class="form-control py-2" style="font-size: 12px; border-radius: 8px;" <?= isset($data['id']) ? '' : 'required' ?> oninvalid="this.setCustomValidity('Mohon unggah dokumen Surat Permohonan (Format PDF).')" oninput="this.setCustomValidity('')">
+                        <input type="file" name="surat_permohonan" accept=".pdf" class="form-control py-2" style="font-size: 12px; border-radius: 8px;" <?= isset($data['id']) ? '' : 'required' ?> oninvalid="this.setCustomValidity('Mohon unggah dokumen Surat Permohonan (Format PDF).')" oninput="this.setCustomValidity('')">
                         <p class="text-muted mt-1 mb-0" style="font-size: 10px;">Wajib ditandatangani oleh Dosen Pembimbing (PDF).</p>
                         <?php if (isset($data['id'])): ?><small class="text-warning fw-bold" style="font-size: 10px;">* Biarkan kosong jika tidak ingin mengubah berkas.</small><?php endif; ?>
                     </div>
@@ -93,7 +80,7 @@
                 <div class="col-md-6">
                     <div class="mb-2">
                         <label class="fw-bold text-dark mb-1" style="font-size: 12px;">2. Proposal Studi</label>
-                        <input type="file" name="proposal" class="form-control py-2" style="font-size: 12px; border-radius: 8px;" <?= isset($data['id']) ? '' : 'required' ?> oninvalid="this.setCustomValidity('Mohon unggah dokumen Proposal Studi (Format PDF, maksimal 5MB).')" oninput="this.setCustomValidity('')">
+                        <input type="file" name="proposal" accept=".pdf" class="form-control py-2" style="font-size: 12px; border-radius: 8px;" <?= isset($data['id']) ? '' : 'required' ?> oninvalid="this.setCustomValidity('Mohon unggah dokumen Proposal Studi (Format PDF, maksimal 5MB).')" oninput="this.setCustomValidity('')">
                         <p class="text-muted mt-1 mb-0" style="font-size: 10px;">Format PDF, maksimal 5MB.</p>
                         <?php if (isset($data['id'])): ?><small class="text-warning fw-bold" style="font-size: 10px;">* Biarkan kosong jika tidak ingin mengubah berkas.</small><?php endif; ?>
                     </div>
@@ -101,7 +88,7 @@
                 <div class="col-md-6">
                     <div class="mb-2">
                         <label class="fw-bold text-dark mb-1" style="font-size: 12px;">3. Curriculum Vitae (CV)</label>
-                        <input type="file" name="cv" class="form-control py-2" style="font-size: 12px; border-radius: 8px;" <?= isset($data['id']) ? '' : 'required' ?> oninvalid="this.setCustomValidity('Mohon unggah dokumen Curriculum Vitae (CV).')" oninput="this.setCustomValidity('')">
+                        <input type="file" name="cv" accept=".pdf" class="form-control py-2" style="font-size: 12px; border-radius: 8px;" <?= isset($data['id']) ? '' : 'required' ?> oninvalid="this.setCustomValidity('Mohon unggah dokumen Curriculum Vitae (CV).')" oninput="this.setCustomValidity('')">
                         <p class="text-muted mt-1 mb-0" style="font-size: 10px;">Wajib ditandatangani oleh Dosen Pembimbing (PDF).</p>
                         <?php if (isset($data['id'])): ?><small class="text-warning fw-bold" style="font-size: 10px;">* Biarkan kosong jika tidak ingin mengubah berkas.</small><?php endif; ?>
                     </div>
@@ -109,7 +96,7 @@
                 <div class="col-md-6">
                     <div class="mb-2">
                         <label class="fw-bold text-dark mb-1" style="font-size: 12px;">4. Draft Wawancara / Kuesioner</label>
-                        <input type="file" name="draft_wawancara" class="form-control py-2" style="font-size: 12px; border-radius: 8px;" <?= isset($data['id']) ? '' : 'required' ?> oninvalid="this.setCustomValidity('Mohon unggah dokumen Draft Wawancara / Kuesioner (Format PDF).')" oninput="this.setCustomValidity('')">
+                        <input type="file" name="draft_wawancara" accept=".pdf" class="form-control py-2" style="font-size: 12px; border-radius: 8px;" <?= isset($data['id']) ? '' : 'required' ?> oninvalid="this.setCustomValidity('Mohon unggah dokumen Draft Wawancara / Kuesioner (Format PDF).')" oninput="this.setCustomValidity('')">
                         <p class="text-muted mt-1 mb-0" style="font-size: 10px;">Format PDF.</p>
                         <?php if (isset($data['id'])): ?><small class="text-warning fw-bold" style="font-size: 10px;">* Biarkan kosong jika tidak ingin mengubah berkas.</small><?php endif; ?>
                     </div>

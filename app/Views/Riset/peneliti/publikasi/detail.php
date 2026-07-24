@@ -39,6 +39,13 @@
 </div>
 <?php endif; ?>
 
+<?php if (session()->getFlashdata('error')): ?>
+<div class="alert alert-danger alert-dismissible fade show border-0 rounded-4 shadow-sm mb-4" style="font-size: 13px;">
+    <i class="fas fa-exclamation-circle me-2"></i> <?= session()->getFlashdata('error') ?>
+    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+</div>
+<?php endif; ?>
+
 <div class="row g-4">
     <div class="col-lg-8">
         <div class="card border-0 shadow-sm rounded-4 overflow-hidden h-100">
@@ -162,6 +169,7 @@
                 <div class="list-group list-group-flush">
                     <?php if (!empty($data['dokumen'])): ?>
                         <?php foreach ($data['dokumen'] as $idx => $doc): ?>
+                            <?php if (strtolower($doc['jenis_dokumen']) == 'surat izin publikasi resmi' || strtolower($doc['jenis_dokumen']) == 'surat izin resmi') continue; ?>
                             <?php 
                                 $docName = "Dokumen Lampiran";
                                 if (isset($doc['jenis_dokumen'])) {
@@ -169,6 +177,7 @@
                                     elseif ($doc['jenis_dokumen'] == 'salinan_izin_penelitian') $docName = 'Salinan Surat Izin Penelitian';
                                     elseif ($doc['jenis_dokumen'] == 'draft_artikel') $docName = 'Draft Jurnal / Artikel';
                                     elseif ($doc['jenis_dokumen'] == 'pernyataan_anonimitas') $docName = 'Surat Pernyataan Anonimitas Data Pasien';
+                                    else $docName = $doc['jenis_dokumen'];
                                 }
                             ?>
                             <div class="list-group-item d-flex justify-content-between align-items-center px-0 py-3 border-light bg-transparent">
@@ -215,9 +224,20 @@
 
                 <?php if ($data['tujuan_laporan'] == 'izin'): ?>
                     <hr>
-                    <a href="<?= base_url('riset/peneliti/publikasi/print_izin/' . $data['id']) ?>" class="btn btn-success w-100 rounded-pill fw-bold shadow-sm" style="font-size: 12px;">
-                        <i class="fas fa-print me-2"></i> Cetak Surat Izin Publikasi
-                    </a>
+                    <?php 
+                        $suratIzinDoc = array_filter($data['dokumen'] ?? [], fn($d) => strtolower($d['jenis_dokumen']) == 'surat izin publikasi resmi');
+                        $suratIzinDoc = reset($suratIzinDoc);
+                        if ($suratIzinDoc): 
+                    ?>
+                        <a href="<?= base_url($suratIzinDoc['file_path']) ?>" target="_blank" class="btn btn-success w-100 rounded-pill fw-bold shadow-sm" style="font-size: 12px; background: #2e7d32; border-color: #2e7d32;">
+                            <i class="fas fa-download me-2"></i> Download Surat Izin
+                        </a>
+                    <?php else: ?>
+                        <button class="btn btn-secondary w-100 rounded-pill fw-bold shadow-sm" style="font-size: 12px;" disabled>
+                            <i class="fas fa-hourglass-half me-2"></i> Menunggu Surat Terbit
+                        </button>
+                        <p class="text-muted mt-2 mb-0" style="font-size: 10px;">Surat Izin Publikasi sedang diproses oleh Admin.</p>
+                    <?php endif; ?>
                 <?php else: ?>
                     <hr>
                     <div class="alert alert-success border-0 rounded-3 p-3 mb-0 text-center" style="font-size: 11px; background: #f0fdf4; border: 1px solid #bbf7d0 !important; color: #155724;">
@@ -301,7 +321,7 @@
                 <p class="text-muted mb-2" style="font-size: 11px;">Pengajuan publikasi Anda ditolak oleh staf Diklat Riset.</p>
                 <div class="bg-danger bg-opacity-10 border border-danger border-opacity-25 rounded-3 p-3 text-start mx-auto mt-2">
                     <strong class="text-danger d-block mb-1" style="font-size: 11px;">Alasan Penolakan:</strong>
-                    <span class="text-dark" style="font-size: 12px;"><?= $data['catatan_penolakan'] ?? 'Silakan hubungi admin.' ?></span>
+                    <span class="text-dark" style="font-size: 12px;"><?= $data['catatan_revisi'] ?? 'Silakan hubungi admin.' ?></span>
                 </div>
             <?php else: ?>
                 <div class="d-inline-block p-4 rounded-circle bg-secondary bg-opacity-10 text-secondary mb-3 mx-auto" style="width: 80px; height: 80px;">
@@ -312,12 +332,7 @@
             <?php endif; ?>
         </div>
         
-        <!-- Help Card -->
-        <div class="card border-0 shadow-sm rounded-4 p-4 bg-dark text-white">
-            <h6 class="fw-bold mb-3" style="font-size: 14px;">Butuh Bantuan?</h6>
-            <p style="font-size: 12px; opacity: 0.8; line-height: 1.6;">Jika terdapat kendala atau pertanyaan mengenai status pendaftaran riset, silakan hubungi tim Admin.</p>
-            <button class="btn btn-outline-light btn-sm w-100 rounded-pill fw-bold mt-2" style="font-size: 11px;">HUBUNGI ADMIN</button>
-        </div>
+
     </div>
 </div>
 

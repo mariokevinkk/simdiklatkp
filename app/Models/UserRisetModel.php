@@ -12,7 +12,7 @@ class UserRisetModel extends Model
     protected $returnType       = 'array';
     protected $useSoftDeletes   = true;
     protected $protectFields    = true;
-    protected $allowedFields    = ['nama', 'email', 'password', 'role', 'institusi', 'no_telp', 'identitas', 'prodi', 'alamat', 'foto_profil'];
+    protected $allowedFields    = ['nama', 'email', 'password', 'role', 'institusi', 'no_telp', 'identitas', 'prodi', 'alamat', 'foto_profil', 'reset_token', 'reset_expires_at'];
 
     // Dates
     protected $useTimestamps = true;

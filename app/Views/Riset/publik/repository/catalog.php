@@ -211,7 +211,7 @@
 
                 <div class="row g-4" id="repoContainer">
                     <?php foreach ($publications as $pub): 
-                        $tahunPenelitian = !empty($pub['waktu_selesai']) ? date('Y', strtotime($pub['waktu_selesai'])) : date('Y', strtotime($pub['created_at']));
+                        $tahunPenelitian = (!empty($pub['waktu_selesai']) && $pub['waktu_selesai'] != '0000-00-00') ? date('Y', strtotime($pub['waktu_selesai'])) : date('Y', strtotime($pub['created_at']));
                     ?>
                         <div class="col-md-6 col-xl-4 repo-item" data-title="<?= esc(strtolower($pub['judul'])) ?>" data-year="<?= $tahunPenelitian ?>">
                             <div class="card repo-card p-4 shadow-sm" onclick="window.location='<?= base_url('repository/detail/' . $pub['id']) ?>'">
