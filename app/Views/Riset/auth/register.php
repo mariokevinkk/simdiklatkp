@@ -188,7 +188,7 @@
                 <div class="row">
                     <div class="col-md-6 mb-3">
                         <label class="form-label">Program Studi</label>
-                        <input type="text" name="prodi" class="form-control" placeholder="Contoh: S1 Farmasi" required>
+                        <input type="text" name="prodi" class="form-control" placeholder="Contoh: S1 Sistem Informasi" required>
                     </div>
                     <div class="col-md-6 mb-3">
                         <label class="form-label">Nomor WhatsApp</label>
